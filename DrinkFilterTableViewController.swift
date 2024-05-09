@@ -33,7 +33,7 @@ class DrinkFilterTableViewController: UITableViewController {
 
     @IBAction func ApplyButton(_ sender: Any) {
         delegate?.didSelectFilters(filters: selectedFilters, filterType: filterType)
-        navigationController?.popToRootViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Table view data source

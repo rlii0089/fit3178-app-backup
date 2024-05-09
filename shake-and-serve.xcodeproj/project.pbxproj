@@ -22,6 +22,7 @@
 		AD9651B42BEC991E00BAD2FF /* DrinkFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9651B32BEC991E00BAD2FF /* DrinkFilterTableViewController.swift */; };
 		AD9651BE2BECBC6F00BAD2FF /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9651BD2BECBC6F00BAD2FF /* Cocktail.swift */; };
 		ADBB758C2BECDC72007F8E70 /* DrinkFilterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB758B2BECDC72007F8E70 /* DrinkFilterDelegate.swift */; };
+		ADBB758E2BED38F9007F8E70 /* GeneratedDrinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB758D2BED38F9007F8E70 /* GeneratedDrinkViewController.swift */; };
 		ADD79EB32BDA0477006CFE06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD79EB22BDA0477006CFE06 /* AppDelegate.swift */; };
 		ADD79EB52BDA0477006CFE06 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD79EB42BDA0477006CFE06 /* SceneDelegate.swift */; };
 		ADD79EBA2BDA0477006CFE06 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = ADD79EB92BDA0477006CFE06 /* Base */; };
@@ -43,6 +44,7 @@
 		AD9651B32BEC991E00BAD2FF /* DrinkFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkFilterTableViewController.swift; sourceTree = "<group>"; };
 		AD9651BD2BECBC6F00BAD2FF /* Cocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cocktail.swift; sourceTree = "<group>"; };
 		ADBB758B2BECDC72007F8E70 /* DrinkFilterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkFilterDelegate.swift; sourceTree = "<group>"; };
+		ADBB758D2BED38F9007F8E70 /* GeneratedDrinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedDrinkViewController.swift; sourceTree = "<group>"; };
 		ADD79EAF2BDA0477006CFE06 /* shake-and-serve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "shake-and-serve.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADD79EB22BDA0477006CFE06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADD79EB42BDA0477006CFE06 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				AD9651B32BEC991E00BAD2FF /* DrinkFilterTableViewController.swift */,
 				AD9651BD2BECBC6F00BAD2FF /* Cocktail.swift */,
 				ADBB758B2BECDC72007F8E70 /* DrinkFilterDelegate.swift */,
+				ADBB758D2BED38F9007F8E70 /* GeneratedDrinkViewController.swift */,
 			);
 			path = Generate;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				AD7D7CC12BE6212B0052FB3B /* InitialSignInOptionsViewController.swift in Sources */,
 				AD7D7CBD2BE620120052FB3B /* SignInViewController.swift in Sources */,
 				AD9651B42BEC991E00BAD2FF /* DrinkFilterTableViewController.swift in Sources */,
+				ADBB758E2BED38F9007F8E70 /* GeneratedDrinkViewController.swift in Sources */,
 				AD72F63D2BDA908F0056326F /* HomeViewController.swift in Sources */,
 				ADBB758C2BECDC72007F8E70 /* DrinkFilterDelegate.swift in Sources */,
 				ADD79EB52BDA0477006CFE06 /* SceneDelegate.swift in Sources */,

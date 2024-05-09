@@ -15,6 +15,10 @@ class DrinkIngredientsFilterViewController: UIViewController, DrinkFilterDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        CategoryButton.setTitle("Category (\(selectedCategoryFilters.count))", for: .normal)
+        GlassButton.setTitle("Glass (\(selectedCategoryFilters.count))", for: .normal)
+        IngredientButton.setTitle("Ingredients (\(selectedCategoryFilters.count))", for: .normal)
 
         // Do any additional setup after loading the view.
     }

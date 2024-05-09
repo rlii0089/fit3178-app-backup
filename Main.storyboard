@@ -95,65 +95,11 @@
                     <view key="view" contentMode="scaleToFill" id="Zue-h6-ZTS">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8Qu-Nt-wII">
-                                <rect key="frame" x="16" y="103" width="361" height="80.666666666666686"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to Generate!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9J-hL-1sM">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="38.333333333333336"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oK6-Rr-WD3">
-                                        <rect key="frame" x="0.0" y="46.333333333333343" width="361" height="34.333333333333343"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Can't shake? Press here to generate"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Wmp-9t-fVg">
-                                <rect key="frame" x="16" y="235" width="361" height="34.333333333333314"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ul6-no-TLz">
-                                        <rect key="frame" x="0.0" y="0.0" width="115" height="34.333333333333336"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Dietary" imagePadding="8" cornerStyle="capsule">
-                                            <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
-                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
-                                        </buttonConfiguration>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9b-9p-tK4">
-                                        <rect key="frame" x="123" y="0.0" width="115" height="34.333333333333336"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Cuisine" imagePadding="8" cornerStyle="capsule">
-                                            <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
-                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
-                                        </buttonConfiguration>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="007-U3-Bd9">
-                                        <rect key="frame" x="246" y="0.0" width="115" height="34.333333333333336"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Cuisine" imagePadding="8" cornerStyle="capsule">
-                                            <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
-                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
-                                        </buttonConfiguration>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="iim-MM-mdD"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                        <constraints>
-                            <constraint firstItem="Wmp-9t-fVg" firstAttribute="leading" secondItem="iim-MM-mdD" secondAttribute="leading" constant="16" id="A0O-Tg-N2r"/>
-                            <constraint firstItem="iim-MM-mdD" firstAttribute="trailing" secondItem="8Qu-Nt-wII" secondAttribute="trailing" constant="16" id="GNr-Kp-cLk"/>
-                            <constraint firstItem="8Qu-Nt-wII" firstAttribute="leading" secondItem="iim-MM-mdD" secondAttribute="leading" constant="16" id="QdJ-sG-yFX"/>
-                            <constraint firstItem="iim-MM-mdD" firstAttribute="trailing" secondItem="Wmp-9t-fVg" secondAttribute="trailing" constant="16" id="ZUf-rG-JKx"/>
-                            <constraint firstItem="8Qu-Nt-wII" firstAttribute="top" secondItem="iim-MM-mdD" secondAttribute="top" id="cxb-kk-RCT"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Z90-18-gy4"/>
-                    <navigationItem key="navigationItem" title="Generate Dish Recipe" id="nfm-Ek-E3Q">
+                    <navigationItem key="navigationItem" title="[GENERATE DISH]" id="nfm-Ek-E3Q">
                         <barButtonItem key="backBarButtonItem" title=" " id="bhJ-6C-nST"/>
                     </navigationItem>
                 </viewController>
@@ -236,16 +182,32 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ik4-jZ-uze">
+                                <rect key="frame" x="16" y="719" width="361" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="XAD-u6-lzg"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Generate" cornerStyle="capsule">
+                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="IngredientButtonTapped:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="Rae-Ge-939"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vMH-yr-5xG"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                         <constraints>
                             <constraint firstItem="vMH-yr-5xG" firstAttribute="trailing" secondItem="5EC-j8-glZ" secondAttribute="trailing" constant="16" id="Jc1-qA-awq"/>
+                            <constraint firstItem="vMH-yr-5xG" firstAttribute="trailing" secondItem="ik4-jZ-uze" secondAttribute="trailing" constant="16" id="TBJ-hN-3ET"/>
+                            <constraint firstItem="ik4-jZ-uze" firstAttribute="bottom" secondItem="vMH-yr-5xG" secondAttribute="bottom" id="kdo-5O-hOm"/>
                             <constraint firstItem="5EC-j8-glZ" firstAttribute="top" secondItem="vMH-yr-5xG" secondAttribute="top" id="opC-af-I2R"/>
+                            <constraint firstItem="ik4-jZ-uze" firstAttribute="leading" secondItem="vMH-yr-5xG" secondAttribute="leading" constant="16" id="pwO-SD-y5a"/>
                             <constraint firstItem="5EC-j8-glZ" firstAttribute="leading" secondItem="vMH-yr-5xG" secondAttribute="leading" constant="16" id="qlM-YN-snB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="iS7-B1-SWV">
+                    <navigationItem key="navigationItem" title="[GENERATE DRINK]" id="iS7-B1-SWV">
                         <barButtonItem key="backBarButtonItem" title=" " id="e5H-y0-YUt"/>
                     </navigationItem>
                     <connections>
@@ -256,7 +218,95 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bj1-UU-Y3h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5264.8854961832058" y="1583.8028169014085"/>
+            <point key="canvasLocation" x="5265" y="1568"/>
+        </scene>
+        <!--Generated Drink View Controller-->
+        <scene sceneID="hvN-6Y-sZm">
+            <objects>
+                <viewController id="Tav-4j-x21" customClass="GeneratedDrinkViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cj0-ea-eWJ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="wFj-RO-hSG">
+                                <rect key="frame" x="16" y="59" width="361" height="536.33333333333337"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UjW-dK-f3e">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="240"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="aBB-Au-uVf"/>
+                                            <constraint firstAttribute="height" constant="240" id="f1b-k2-p5r"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lgk-8E-SIu">
+                                        <rect key="frame" x="0.0" y="272" width="361" height="38.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serves: None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjm-LT-k42">
+                                        <rect key="frame" x="0.0" y="342.33333333333331" width="361" height="28.666666666666686"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contains/Does Not Contain Alcohol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzP-2n-jfg">
+                                        <rect key="frame" x="0.0" y="403" width="361" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxK-GF-qdR">
+                                        <rect key="frame" x="0.0" y="455.33333333333337" width="361" height="28.666666666666686"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5XD-fd-sDI">
+                                        <rect key="frame" x="0.0" y="516" width="361" height="20.333333333333371"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="t5V-wL-zjU">
+                                <rect key="frame" x="16" y="719" width="361" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Servings" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cr7-In-OgS">
+                                        <rect key="frame" x="0.0" y="0.0" width="105" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGf-5F-Ugt">
+                                        <rect key="frame" x="121" y="0.0" width="240" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="pu4-Qc-7Fa"/>
+                                            <constraint firstAttribute="height" constant="50" id="uwZ-b2-DKk"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="leading" title="Create Shopping List" imagePadding="8" cornerStyle="capsule">
+                                            <imageReference key="image" image="cart.fill" catalog="system" symbolScale="default"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="t0v-L3-Q8T"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="t0v-L3-Q8T" firstAttribute="trailing" secondItem="t5V-wL-zjU" secondAttribute="trailing" constant="16" id="1gk-7V-UPl"/>
+                            <constraint firstItem="t5V-wL-zjU" firstAttribute="leading" secondItem="t0v-L3-Q8T" secondAttribute="leading" constant="16" id="7fU-Ht-Dl0"/>
+                            <constraint firstItem="wFj-RO-hSG" firstAttribute="top" secondItem="t0v-L3-Q8T" secondAttribute="top" id="MRu-yk-nqw"/>
+                            <constraint firstItem="t0v-L3-Q8T" firstAttribute="trailing" secondItem="wFj-RO-hSG" secondAttribute="trailing" constant="16" id="ZiN-dB-hun"/>
+                            <constraint firstItem="wFj-RO-hSG" firstAttribute="leading" secondItem="t0v-L3-Q8T" secondAttribute="leading" constant="16" id="dli-jQ-gBu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tJx-9Y-xei"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9IG-kK-2Do" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6018" y="1568"/>
         </scene>
         <!--Drink Filter Table View Controller-->
         <scene sceneID="0nM-70-gpr">
@@ -283,21 +333,21 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="mD6-M6-Doy">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="JB9-TV-tTr">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="dIm-0h-D7p">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="dIm-0h-D7p">
                                 <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Apply"/>
+                                <connections>
+                                    <action selector="ApplyButton:" destination="GYH-0d-pbO" eventType="touchUpInside" id="bPs-JI-bSU"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <action selector="ApplyButton:" destination="GYH-0d-pbO" id="OwT-j4-o9M"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6S-lN-MVE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4355" y="1923"/>
+            <point key="canvasLocation" x="5265" y="2206"/>
         </scene>
         <!--Account-->
         <scene sceneID="KgR-qh-zE0">
@@ -717,6 +767,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark.fill" catalog="system" width="110" height="128"/>
+        <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="chevron.down.circle.fill" catalog="system" width="128" height="123"/>
         <image name="fork.knife" catalog="system" width="94" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
