@@ -189,7 +189,7 @@
                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="GYH-0d-pbO" kind="show" id="Q0V-G9-o5O"/>
+                                            <action selector="CategoryButtonTapped:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="GZ3-wm-NjM"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qaT-5X-axY">
@@ -203,7 +203,7 @@
                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="GYH-0d-pbO" kind="show" id="3U4-h8-ELC"/>
+                                            <action selector="GlassButtonTapped:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="oFu-5n-vug"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6z-cU-upF">
@@ -217,7 +217,7 @@
                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="GYH-0d-pbO" kind="show" id="Cw2-hX-Ot1"/>
+                                            <action selector="IngredientButtonTapped:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="WXH-If-Ap3"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mQ-bj-xQF">
@@ -248,6 +248,11 @@
                     <navigationItem key="navigationItem" id="iS7-B1-SWV">
                         <barButtonItem key="backBarButtonItem" title=" " id="e5H-y0-YUt"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="CategoryButton" destination="T8e-Hu-aSf" id="RXQ-dx-YN3"/>
+                        <outlet property="GlassButton" destination="qaT-5X-axY" id="ERB-2g-15C"/>
+                        <outlet property="IngredientButton" destination="f6z-cU-upF" id="B0b-HP-pgM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bj1-UU-Y3h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -256,13 +261,13 @@
         <!--Drink Filter Table View Controller-->
         <scene sceneID="0nM-70-gpr">
             <objects>
-                <tableViewController id="GYH-0d-pbO" customClass="DrinkFilterTableViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DrinkFilterTableViewController" id="GYH-0d-pbO" customClass="DrinkFilterTableViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="WZo-cg-k6n">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CocktailCell" id="Jjo-mw-Aoi">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterCell" id="Jjo-mw-Aoi">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jjo-mw-Aoi" id="zqF-aZ-UDA">
@@ -276,11 +281,23 @@
                             <outlet property="delegate" destination="GYH-0d-pbO" id="mVN-hu-P3p"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="mD6-M6-Doy"/>
+                    <navigationItem key="navigationItem" id="mD6-M6-Doy">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="JB9-TV-tTr">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="dIm-0h-D7p">
+                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Apply"/>
+                            </button>
+                            <connections>
+                                <action selector="ApplyButton:" destination="GYH-0d-pbO" id="OwT-j4-o9M"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6S-lN-MVE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5265" y="2306"/>
+            <point key="canvasLocation" x="4355" y="1923"/>
         </scene>
         <!--Account-->
         <scene sceneID="KgR-qh-zE0">
@@ -697,7 +714,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="E21-hT-vbK"/>
         <segue reference="Sk7-pB-JAf"/>
-        <segue reference="Q0V-G9-o5O"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark.fill" catalog="system" width="110" height="128"/>
