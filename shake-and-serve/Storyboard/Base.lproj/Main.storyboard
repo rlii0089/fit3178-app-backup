@@ -182,29 +182,24 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ik4-jZ-uze">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOz-6d-uds">
                                 <rect key="frame" x="16" y="719" width="361" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="XAD-u6-lzg"/>
+                                    <constraint firstAttribute="height" constant="50" id="QXN-je-gTl"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Generate" cornerStyle="capsule">
-                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="IngredientButtonTapped:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="Rae-Ge-939"/>
-                                </connections>
+                                <buttonConfiguration key="configuration" style="filled" title="Generate" cornerStyle="capsule"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vMH-yr-5xG"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                         <constraints>
+                            <constraint firstItem="uOz-6d-uds" firstAttribute="bottom" secondItem="vMH-yr-5xG" secondAttribute="bottom" id="2av-rw-GGb"/>
                             <constraint firstItem="vMH-yr-5xG" firstAttribute="trailing" secondItem="5EC-j8-glZ" secondAttribute="trailing" constant="16" id="Jc1-qA-awq"/>
-                            <constraint firstItem="vMH-yr-5xG" firstAttribute="trailing" secondItem="ik4-jZ-uze" secondAttribute="trailing" constant="16" id="TBJ-hN-3ET"/>
-                            <constraint firstItem="ik4-jZ-uze" firstAttribute="bottom" secondItem="vMH-yr-5xG" secondAttribute="bottom" id="kdo-5O-hOm"/>
                             <constraint firstItem="5EC-j8-glZ" firstAttribute="top" secondItem="vMH-yr-5xG" secondAttribute="top" id="opC-af-I2R"/>
-                            <constraint firstItem="ik4-jZ-uze" firstAttribute="leading" secondItem="vMH-yr-5xG" secondAttribute="leading" constant="16" id="pwO-SD-y5a"/>
                             <constraint firstItem="5EC-j8-glZ" firstAttribute="leading" secondItem="vMH-yr-5xG" secondAttribute="leading" constant="16" id="qlM-YN-snB"/>
+                            <constraint firstItem="uOz-6d-uds" firstAttribute="leading" secondItem="vMH-yr-5xG" secondAttribute="leading" constant="16" id="rY4-tM-HuF"/>
+                            <constraint firstItem="vMH-yr-5xG" firstAttribute="trailing" secondItem="uOz-6d-uds" secondAttribute="trailing" constant="16" id="tTS-zD-L8x"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="[GENERATE DRINK]" id="iS7-B1-SWV">

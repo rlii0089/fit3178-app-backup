@@ -110,6 +110,15 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		AD9D44FA2BF1C204007705F1 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				ADD79EB82BDA0477006CFE06 /* Main.storyboard */,
+				ADD79EBD2BDA0479006CFE06 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		ADD79EA62BDA0477006CFE06 = {
 			isa = PBXGroup;
 			children = (
@@ -131,11 +140,10 @@
 			children = (
 				ADD79EC02BDA0479006CFE06 /* Info.plist */,
 				AD72F6342BDA6F6F0056326F /* GoogleService-Info.plist */,
-				AD9651B92BECABB200BAD2FF /* App */,
-				AD9651B62BECAB4B00BAD2FF /* Core */,
-				ADD79EB82BDA0477006CFE06 /* Main.storyboard */,
-				ADD79EBD2BDA0479006CFE06 /* LaunchScreen.storyboard */,
 				ADD79EBB2BDA0479006CFE06 /* Assets.xcassets */,
+				AD9651B92BECABB200BAD2FF /* App */,
+				AD9D44FA2BF1C204007705F1 /* Storyboard */,
+				AD9651B62BECAB4B00BAD2FF /* Core */,
 				AD72F63C2BDA908F0056326F /* HomeViewController.swift */,
 				AD72F6442BDA937A0056326F /* AccountViewController.swift */,
 				ADDED7382BDB2DA5001B4A19 /* SavedRecipesCollectionViewController.swift */,
