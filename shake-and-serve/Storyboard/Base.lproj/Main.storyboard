@@ -298,6 +298,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tJx-9Y-xei"/>
+                    <connections>
+                        <outlet property="DrinkImageView" destination="UjW-dK-f3e" id="2W8-Oh-2FJ"/>
+                        <outlet property="DrinkNameLabel" destination="Lgk-8E-SIu" id="ecB-Sm-vda"/>
+                        <outlet property="IngredientsLabel" destination="5XD-fd-sDI" id="VTe-q5-xDY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9IG-kK-2Do" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

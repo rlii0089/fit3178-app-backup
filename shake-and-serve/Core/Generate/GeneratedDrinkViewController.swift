@@ -8,6 +8,8 @@
 import UIKit
 
 class GeneratedDrinkViewController: UIViewController {
+    
+    var cocktail: Drink?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,7 +17,10 @@ class GeneratedDrinkViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBOutlet weak var DrinkImageView: UIImageView!
+    @IBOutlet weak var DrinkNameLabel: UILabel!
+    @IBOutlet weak var IngredientsLabel: UILabel!
+    
     /*
     // MARK: - Navigation
 

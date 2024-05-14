@@ -176,7 +176,7 @@ class DrinkFilterTableViewController: UITableViewController {
             }
             task.resume()
         }
-
+        
         tableView.reloadData()
     }
     
