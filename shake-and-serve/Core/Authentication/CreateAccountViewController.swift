@@ -40,6 +40,25 @@ class CreateAccountViewController: UIViewController {
                 self.displayMessage(title: "Error", message: "Account creation failed")
             } else {
                 print("Account created successfully")
+                self.signIn()
+            }
+        }
+    }
+    
+    func signIn() {
+        email = EmailTextField.text
+        password = PasswordTextField.text
+        
+        Auth.auth().signIn(withEmail: email!, password: password!) { (authResult, error) in
+            if error != nil {
+                print(error!)
+                self.displayMessage(title: "Error", message: "Invalid email or password")
+            } else {
+                print("Login successful")
+                UserDefaults.standard.set(true, forKey: "isLoggedIn")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let bottomNavigationTabBarController = storyboard.instantiateViewController(withIdentifier: "BottomNavigationTabBarController") as! BottomNavigationTabBarController
+                self.view.window?.rootViewController = bottomNavigationTabBarController
             }
         }
     }

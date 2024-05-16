@@ -23,13 +23,13 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var PasswordTextField: UITextField!
     
     @IBAction func LoginButton(_ sender: Any) {
-        login()
+        signIn()
     }
     
     @IBAction func CreateAccountButton(_ sender: Any) {
     }
     
-    func login() {
+    func signIn() {
         email = EmailTextField.text
         password = PasswordTextField.text
         
@@ -40,7 +40,9 @@ class SignInViewController: UIViewController {
             } else {
                 print("Login successful")
                 UserDefaults.standard.set(true, forKey: "isLoggedIn")
-                self.performSegue(withIdentifier: "loginToHomeSegue", sender: self)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let bottomNavigationTabBarController = storyboard.instantiateViewController(withIdentifier: "BottomNavigationTabBarController") as! BottomNavigationTabBarController
+                self.view.window?.rootViewController = bottomNavigationTabBarController
             }
         }
     }

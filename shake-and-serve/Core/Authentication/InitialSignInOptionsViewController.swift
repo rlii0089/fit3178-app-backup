@@ -25,9 +25,10 @@ class InitialSignInOptionsViewController: UIViewController {
             if let error = error {
                 self.displayMessage(title: "Error", message: error.localizedDescription)
             } else {
-                print("Successfully signed in as anonymous") // For debugging only
                 UserDefaults.standard.set(true, forKey: "isLoggedIn")
-                self.performSegue(withIdentifier: "AnonymousSignInSegue", sender: nil)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let bottomNavigationTabBarController = storyboard.instantiateViewController(withIdentifier: "BottomNavigationTabBarController") as! BottomNavigationTabBarController
+                self.view.window?.rootViewController = bottomNavigationTabBarController
             }
         }
     }

@@ -502,7 +502,7 @@
         <!--Initial Sign In Options-->
         <scene sceneID="oBB-qD-WL0">
             <objects>
-                <viewController title="Initial Sign In Options" id="ZJe-fG-iEJ" customClass="InitialSignInOptionsViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InitialSignInOptionsViewController" title="Initial Sign In Options" id="ZJe-fG-iEJ" customClass="InitialSignInOptionsViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ep0-zt-4Qo">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -557,13 +557,10 @@
                     <navigationItem key="navigationItem" id="PAd-dr-pU8">
                         <barButtonItem key="backBarButtonItem" title=" " id="YZK-6n-msy"/>
                     </navigationItem>
-                    <connections>
-                        <segue destination="Vyo-8E-vC8" kind="show" identifier="AnonymousSignInSegue" id="Sk7-pB-JAf"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCj-pJ-p4D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1971.7557251908397" y="47.887323943661976"/>
+            <point key="canvasLocation" x="2025" y="48"/>
         </scene>
         <!--Sign In-->
         <scene sceneID="Kgs-Df-e31">
@@ -641,12 +638,11 @@
                     <connections>
                         <outlet property="EmailTextField" destination="sif-dR-CIe" id="QYS-M1-lZ1"/>
                         <outlet property="PasswordTextField" destination="HO9-Hf-440" id="dE9-NM-VlV"/>
-                        <segue destination="Vyo-8E-vC8" kind="show" identifier="loginToHomeSegue" id="Mte-AY-suw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hX6-kP-jjj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2766" y="-268"/>
+            <point key="canvasLocation" x="2795" y="-645"/>
         </scene>
         <!--Create Account-->
         <scene sceneID="KPO-tI-gb1">
@@ -708,12 +704,11 @@
                         <outlet property="EmailTextField" destination="T0x-2U-xOE" id="b53-0z-gPZ"/>
                         <outlet property="NameTextField" destination="jfG-Bh-kjg" id="fs5-B2-WPI"/>
                         <outlet property="PasswordTextField" destination="lwj-gt-xVH" id="VUw-5W-Wgc"/>
-                        <segue destination="Vyo-8E-vC8" kind="show" id="8BS-MK-TKW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8VY-QN-XUl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2766" y="432"/>
+            <point key="canvasLocation" x="2795" y="48"/>
         </scene>
         <!--Home-->
         <scene sceneID="wiT-48-4Ka">
@@ -792,8 +787,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="E21-hT-vbK"/>
-        <segue reference="Sk7-pB-JAf"/>
+        <segue reference="8De-M5-ZYv"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark.fill" catalog="system" width="110" height="128"/>

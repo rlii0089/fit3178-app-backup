@@ -19,6 +19,15 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var EmailLabel: UILabel!
     
     @IBAction func SignOutButton(_ sender: Any) {
+        // Update UserDefaults
+        UserDefaults.standard.set(false, forKey: "isLoggedIn")
+        
+        // Navigate to InitialSignInOptionsViewController
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialSignInOptionsViewController = storyboard.instantiateViewController(withIdentifier: "InitialSignInOptionsViewController") as! InitialSignInOptionsViewController
+        let navigationController = UINavigationController(rootViewController: initialSignInOptionsViewController)
+        self.view.window?.rootViewController = navigationController
+
     }
     
     /*
