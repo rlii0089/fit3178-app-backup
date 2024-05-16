@@ -19,6 +19,11 @@ class DrinkRecipeFilterViewController: UIViewController {
     var selectedGlass: String?
     var selectedIngredient: String?
     var containsAlcohol: Bool?
+    var selectedAlcoholic: String = "Alcoholic"
+    
+    var selectedFilters: [String] = []
+    var drinks: [Drink] = []
+    var selectedDrink: Drink?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +43,57 @@ class DrinkRecipeFilterViewController: UIViewController {
     
     @IBAction func alcoholSwitchChanged(_ sender: UISwitch) {
         containsAlcohol = sender.isOn
+        if containsAlcohol == false {
+            selectedAlcoholic = "Non_Alcoholic"
+        } else {
+            selectedAlcoholic = "Alcoholic"
+        }
     }
     
     @IBAction func generateDrinkButtonPressed(_ sender: Any) {
+        generateDrink()
+        
+        guard let generatedDrinkVC = storyboard?.instantiateViewController(withIdentifier: "GeneratedDrinkViewController") as? GeneratedDrinkViewController else { return }
+        
+        // Select a random drink from the drinks array
+        guard let selectedDrink = drinks.randomElement() else {
+            // Handle case where no drinks match selected filters
+            print("No drinks found for selected filters")
+            return
+        }
+        
+        generatedDrinkVC.selectedDrink = selectedDrink
+        navigationController?.pushViewController(generatedDrinkVC, animated: true)
         
     }
+    
+    func generateDrink() {
+        drinks.removeAll()
+        
+        fetchDrinks(filter: selectedCategory ?? "", letter: "c")
+        fetchDrinks(filter: selectedGlass ?? "", letter: "g")
+        fetchDrinks(filter: selectedIngredient ?? "", letter: "i")
+        fetchDrinks(filter: selectedAlcoholic, letter: "a")
+    }
+    
+    func fetchDrinks(filter: String, letter: Character) {
+            let urlString = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?\(letter)=\(filter)"
+            guard let url = URL(string: urlString) else { return }
+            
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
+                guard let data = data, error == nil else {
+                    print("Error fetching data: \(error?.localizedDescription ?? "Unknown error")")
+                    return
+                }
+                
+                do {
+                    let result = try JSONDecoder().decode(DrinksResponse.self, from: data)
+                    self.drinks.append(contentsOf: result.drinks)
+                } catch {
+                    print("Error decoding data: \(error.localizedDescription)")
+                }
+            }.resume()
+        }
     
     func setSelectedFilterOption(option: String, for filterType: String?) {
             switch filterType {
