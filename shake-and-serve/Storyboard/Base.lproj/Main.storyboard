@@ -191,7 +191,7 @@
                                     <constraint firstAttribute="height" constant="50" id="PIG-4c-YBw"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Find Drink" cornerStyle="capsule"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Generate Drink" cornerStyle="capsule"/>
                                 <connections>
                                     <action selector="findDrinkButtonPressed:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="KgM-Xh-ZuC"/>
                                 </connections>

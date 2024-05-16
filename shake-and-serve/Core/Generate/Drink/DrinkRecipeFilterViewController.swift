@@ -13,7 +13,7 @@ class DrinkRecipeFilterViewController: UIViewController {
     @IBOutlet weak var glassButton: UIButton!
     @IBOutlet weak var ingredientButton: UIButton!
     @IBOutlet weak var alcoholSwitch: UISwitch!
-    @IBOutlet weak var findDrinkButton: UIButton!
+    @IBOutlet weak var generateDrinkButton: UIButton!
     
     
     var selectedCategories: [String] = []
@@ -43,7 +43,7 @@ class DrinkRecipeFilterViewController: UIViewController {
         containsAlcohol = sender.isOn
     }
     
-    @IBAction func findDrinkButtonPressed(_ sender: Any) {
+    @IBAction func generateDrinkButtonPressed(_ sender: Any) {
     }
     
     func setSelectedFilterOption(option: String, for filterType: String?) {
