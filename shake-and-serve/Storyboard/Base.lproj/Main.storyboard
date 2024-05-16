@@ -357,21 +357,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QJd-fV-MF8">
-                                <rect key="frame" x="132.66666666666666" y="104" width="127.99999999999997" height="19"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRi-g9-Yzs">
-                                <rect key="frame" x="132.66666666666666" y="131.33333333333334" width="127.99999999999997" height="28.666666666666657"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user@email.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbQ-3V-x0S">
-                                <rect key="frame" x="132.66666666666666" y="168" width="127.99999999999997" height="20.333333333333343"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMh-ku-0qD">
                                 <rect key="frame" x="16" y="703" width="361" height="50"/>
                                 <constraints>
@@ -383,22 +368,36 @@
                                     <action selector="SignOutButton:" destination="bSh-GV-wHY" eventType="touchUpInside" id="nwW-ka-Dqg"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vGu-ga-anb">
+                                <rect key="frame" x="16" y="103" width="361" height="69.333333333333314"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QJd-fV-MF8">
+                                        <rect key="frame" x="0.0" y="0.99999999999999822" width="361" height="19"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anonymous" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRi-g9-Yzs">
+                                        <rect key="frame" x="0.0" y="20.333333333333329" width="361" height="28.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbQ-3V-x0S">
+                                        <rect key="frame" x="0.0" y="49" width="361" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LxB-ls-ASA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="LxB-ls-ASA" firstAttribute="trailing" secondItem="QJd-fV-MF8" secondAttribute="trailing" constant="132.5" id="7Zi-HE-G7R"/>
-                            <constraint firstItem="QJd-fV-MF8" firstAttribute="top" secondItem="LxB-ls-ASA" secondAttribute="top" id="BLb-O4-Wv8"/>
-                            <constraint firstItem="LxB-ls-ASA" firstAttribute="trailing" secondItem="BbQ-3V-x0S" secondAttribute="trailing" constant="132.5" id="Q1C-P6-95f"/>
                             <constraint firstItem="hMh-ku-0qD" firstAttribute="leading" secondItem="LxB-ls-ASA" secondAttribute="leading" constant="16" id="R0X-Os-Hko"/>
-                            <constraint firstItem="BbQ-3V-x0S" firstAttribute="leading" secondItem="LxB-ls-ASA" secondAttribute="leading" constant="132.5" id="Sev-Ec-FEg"/>
+                            <constraint firstItem="vGu-ga-anb" firstAttribute="leading" secondItem="LxB-ls-ASA" secondAttribute="leading" constant="16" id="SXJ-Me-1MH"/>
                             <constraint firstItem="LxB-ls-ASA" firstAttribute="bottom" secondItem="hMh-ku-0qD" secondAttribute="bottom" constant="16" id="V6Z-Zg-uwc"/>
-                            <constraint firstItem="rRi-g9-Yzs" firstAttribute="top" secondItem="QJd-fV-MF8" secondAttribute="bottom" constant="8" id="Zqm-Zp-xSy"/>
-                            <constraint firstItem="QJd-fV-MF8" firstAttribute="leading" secondItem="LxB-ls-ASA" secondAttribute="leading" constant="132.5" id="dv5-dX-HyH"/>
                             <constraint firstItem="LxB-ls-ASA" firstAttribute="trailing" secondItem="hMh-ku-0qD" secondAttribute="trailing" constant="16" id="gPC-uC-5z5"/>
-                            <constraint firstItem="BbQ-3V-x0S" firstAttribute="top" secondItem="rRi-g9-Yzs" secondAttribute="bottom" constant="8" id="lfZ-E5-Sm1"/>
-                            <constraint firstItem="LxB-ls-ASA" firstAttribute="trailing" secondItem="rRi-g9-Yzs" secondAttribute="trailing" constant="132.5" id="pn0-4r-BLz"/>
-                            <constraint firstItem="rRi-g9-Yzs" firstAttribute="leading" secondItem="LxB-ls-ASA" secondAttribute="leading" constant="132.5" id="xpY-wp-gCV"/>
+                            <constraint firstItem="vGu-ga-anb" firstAttribute="top" secondItem="LxB-ls-ASA" secondAttribute="top" id="jWk-q4-V9k"/>
+                            <constraint firstItem="LxB-ls-ASA" firstAttribute="trailing" secondItem="vGu-ga-anb" secondAttribute="trailing" constant="16" id="zLO-Nm-ViG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Account" id="1pO-MX-u0Z"/>

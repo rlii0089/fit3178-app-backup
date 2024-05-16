@@ -25,22 +25,46 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var ConfirmPasswordTextField: UITextField!
     
     @IBAction func CreateAccountButton(_ sender: Any) {
-        if validateFields() {
-            createAccount()
-        }
+        createAccount()
     }
 
     func createAccount() {
-        email = EmailTextField.text
-        password = PasswordTextField.text
+        guard let name = NameTextField.text, !name.isEmpty,
+              let email = EmailTextField.text, !email.isEmpty,
+              let password = PasswordTextField.text, !password.isEmpty,
+              let confirmPassword = ConfirmPasswordTextField.text, !confirmPassword.isEmpty
+        else {
+            displayMessage(title: "Error", message: "All fields are required")
+            return
+        }
         
-        Auth.auth().createUser(withEmail: email!, password: password!) { (authResult, error) in
-            if error != nil {
-                print(error!)
-                self.displayMessage(title: "Error", message: "Account creation failed")
-            } else {
-                print("Account created successfully")
-                self.signIn()
+        guard let password = PasswordTextField.text, let confirmPassword = ConfirmPasswordTextField.text, password == confirmPassword
+        else {
+            displayMessage(title: "Error", message: "Passwords do not match")
+            return
+        }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                self.displayMessage(title: "Error", message: "Account creation failed, please try again")
+                print("Error creating user: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let uid = authResult?.user.uid else { return }
+            
+            // Save user's name to Firestore
+            let db = Firestore.firestore()
+            db.collection("users").document(uid).setData([
+                "name": name,
+                "email": email
+            ]) { error in
+                if let error = error {
+                    self.displayMessage(title: "Error", message: "Account creation failed, please try again")
+                    print("Error saving user data: \(error.localizedDescription)")
+                } else {
+                    self.signIn()
+                }
             }
         }
     }
@@ -52,29 +76,16 @@ class CreateAccountViewController: UIViewController {
         Auth.auth().signIn(withEmail: email!, password: password!) { (authResult, error) in
             if error != nil {
                 print(error!)
-                self.displayMessage(title: "Error", message: "Invalid email or password")
+                self.displayMessage(title: "Error", message: "Account creation failed, please try again")
+                print("Error signing in user: \(error!.localizedDescription)")
             } else {
-                print("Login successful")
+                print("Sign in successful")
                 UserDefaults.standard.set(true, forKey: "isLoggedIn")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let bottomNavigationTabBarController = storyboard.instantiateViewController(withIdentifier: "BottomNavigationTabBarController") as! BottomNavigationTabBarController
                 self.view.window?.rootViewController = bottomNavigationTabBarController
             }
         }
-    }
-
-    func validateFields() -> Bool {
-        if NameTextField.text == "" || EmailTextField.text == "" || PasswordTextField.text == "" || ConfirmPasswordTextField.text == "" {
-            displayMessage(title: "Error", message: "All fields are required")
-            return false
-        }
-        
-        if PasswordTextField.text != ConfirmPasswordTextField.text {
-            displayMessage(title: "Error", message: "Passwords do not match")
-            return false
-        }
-        
-        return true
     }
     
     func displayMessage(title: String, message: String) {
