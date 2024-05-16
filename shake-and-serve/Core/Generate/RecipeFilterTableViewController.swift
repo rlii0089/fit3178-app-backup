@@ -15,16 +15,7 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
     var selectedOptions: [String] = []
     
     let searchBar = UISearchBar()
-    var maxSelections: Int {
-        switch filterType {
-        case "Category", "Glass":
-            return 3
-        case "Ingredient":
-            return 5
-        default:
-            return 0
-        }
-    }
+    var maxSelections: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,10 +46,13 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
         switch filterType {
         case "Category":
             urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list"
+            maxSelections = 3
         case "Glass":
             urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list"
+            maxSelections = 3
         case "Ingredient":
             urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+            maxSelections = 5
         default:
             return
         }
@@ -200,6 +194,17 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
         return true
     }
     */
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateTitle()
+    }
+    
+    func updateTitle() {
+        if let filterType = filterType {
+            self.navigationItem.title = "Select up to \(maxSelections)"
+        }
+    }
 
     /*
     // MARK: - Navigation
