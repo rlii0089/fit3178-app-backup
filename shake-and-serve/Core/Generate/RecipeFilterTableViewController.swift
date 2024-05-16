@@ -88,6 +88,10 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
         tableView.reloadData()
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         filteredOptions = filterOptions
