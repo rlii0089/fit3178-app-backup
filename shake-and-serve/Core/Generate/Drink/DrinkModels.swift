@@ -13,7 +13,6 @@ struct Drink: Decodable {
     let ingredients: [String]
     let instructions: String
     let imageUrl: String?
-    // Add any other properties you need
 }
 
 struct DrinksResponse: Decodable {

@@ -11,24 +11,20 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
     
     var filterType: String?
     var filterOptions: [String] = []
-    var filteredOptions: [String] = []
-    var selectedOptions: [String] = []
+    var sortedFilterOptions: [String] = []
+    
+    var urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?"
     
     let searchBar = UISearchBar()
-    var maxSelections: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchBar()
         fetchFilterOptions()
-        
-        self.tableView.allowsMultipleSelection = true
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     func setupSearchBar() {
@@ -41,18 +37,14 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
     
     func fetchFilterOptions() {
         guard let filterType = filterType else { return }
-        var urlString: String
         
         switch filterType {
         case "Category":
-            urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list"
-            maxSelections = 1
+            urlString += "c=list"
         case "Glass":
-            urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list"
-            maxSelections = 1
+            urlString += "g=list"
         case "Ingredient":
-            urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
-            maxSelections = 5
+            urlString += "i=list"
         default:
             return
         }
@@ -74,7 +66,7 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
                         return nil
                     }
                     self.filterOptions.sort() // Sort alphabetically
-                    self.filteredOptions = self.filterOptions
+                    self.sortedFilterOptions = self.filterOptions
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -88,9 +80,9 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
     // UISearchBarDelegate methods
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
-            filteredOptions = filterOptions
+            sortedFilterOptions = filterOptions
         } else {
-            filteredOptions = filterOptions.filter { $0.lowercased().contains(searchText.lowercased()) }
+            sortedFilterOptions = filterOptions.filter { $0.lowercased().contains(searchText.lowercased()) }
         }
         tableView.reloadData()
     }
@@ -101,7 +93,7 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
-        filteredOptions = filterOptions
+        sortedFilterOptions = filterOptions
         tableView.reloadData()
         searchBar.resignFirstResponder()
     }
@@ -113,18 +105,10 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
     }
-    
-    func updateFilterCount() {
-        if let navController = self.navigationController,
-           let previousVC = navController.viewControllers[navController.viewControllers.count - 2] as? DrinkRecipeFilterViewController {
-            previousVC.updateFilterCount(for: filterType, count: selectedOptions.count)
-        }
-    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
@@ -134,30 +118,18 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FilterOptionCell", for: indexPath)
-        let option = filteredOptions[indexPath.row]
-        cell.textLabel?.text = option
-        cell.accessoryType = selectedOptions.contains(option) ? .checkmark : .none
+        cell.textLabel?.text = filterOptions[indexPath.row]
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedOption = filteredOptions[indexPath.row]
-        if selectedOptions.contains(selectedOption) {
-            if let index = selectedOptions.firstIndex(of: selectedOption) {
-                selectedOptions.remove(at: index)
-            }
-        } else {
-            if selectedOptions.count < maxSelections {
-                selectedOptions.append(selectedOption)
-            } else {
-                tableView.deselectRow(at: indexPath, animated: true)
-                let alert = UIAlertController(title: "Limit Reached", message: "You can only select up to \(maxSelections) \(filterType?.lowercased() ?? "options").", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                present(alert, animated: true, completion: nil)
-            }
+        let selectedOption = filterOptions[indexPath.row]
+        // Pass the selected option back to DrinkRecipeFilterViewController
+        if let navController = self.navigationController,
+           let previousVC = navController.viewControllers[navController.viewControllers.count - 2] as? DrinkRecipeFilterViewController {
+            previousVC.setSelectedFilterOption(option: selectedOption, for: filterType)
+            navController.popViewController(animated: true)
         }
-        tableView.reloadRows(at: [indexPath], with: .automatic)
-        updateFilterCount()
     }
 
     /*
@@ -197,13 +169,7 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateTitle()
-    }
-    
-    func updateTitle() {
-        if let filterType = filterType {
-            self.navigationItem.title = "Select up to \(maxSelections)"
-        }
+        self.navigationItem.title = "Select one \(filterType?.lowercased() ?? "option")"
     }
 
     /*

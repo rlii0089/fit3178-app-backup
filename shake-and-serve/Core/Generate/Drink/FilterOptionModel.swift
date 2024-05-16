@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FilterOption: Decodable {
+struct DrinkFilterOption: Decodable {
     let strCategory: String?
     let strGlass: String?
     let strIngredient1: String?
@@ -15,5 +15,5 @@ struct FilterOption: Decodable {
 }
 
 struct FilterOptionsResponse: Decodable {
-    let drinks: [FilterOption]
+    let drinks: [DrinkFilterOption]
 }

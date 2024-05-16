@@ -130,7 +130,7 @@
                                             <constraint firstAttribute="height" constant="50" id="VHY-fS-eYv"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Category (0)" imagePadding="8" cornerStyle="capsule">
+                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Category" imagePadding="8" cornerStyle="capsule">
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
@@ -144,7 +144,7 @@
                                             <constraint firstAttribute="height" constant="50" id="iP5-BQ-kdV"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Glass (0)" imagePadding="8" cornerStyle="capsule">
+                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Glass" imagePadding="8" cornerStyle="capsule">
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
@@ -158,7 +158,7 @@
                                             <constraint firstAttribute="height" constant="50" id="MR1-BL-lkU"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Ingredient (0)" imagePadding="8" cornerStyle="capsule">
+                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Ingredient" imagePadding="8" cornerStyle="capsule">
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
@@ -311,7 +311,7 @@
                     <connections>
                         <outlet property="DrinkImageView" destination="UjW-dK-f3e" id="2W8-Oh-2FJ"/>
                         <outlet property="DrinkNameLabel" destination="Lgk-8E-SIu" id="ecB-Sm-vda"/>
-                        <outlet property="drinkContainsAlcoholLabel" destination="SzP-2n-jfg" id="7HE-Ep-nNU"/>
+                        <outlet property="drinkAlcoholic" destination="SzP-2n-jfg" id="7HE-Ep-nNU"/>
                         <outlet property="drinkImageView" destination="UjW-dK-f3e" id="arG-Bo-fas"/>
                         <outlet property="drinkIngredientsLabel" destination="5XD-fd-sDI" id="XgI-Bc-VuX"/>
                         <outlet property="drinkNameLabel" destination="Lgk-8E-SIu" id="Qk0-CK-3Mf"/>
