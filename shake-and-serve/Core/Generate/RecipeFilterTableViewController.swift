@@ -31,6 +31,7 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
         searchBar.delegate = self
         searchBar.sizeToFit()
         searchBar.placeholder = "Search for \(filterType ?? "Options")"
+        searchBar.showsCancelButton = true
         tableView.tableHeaderView = searchBar
     }
     
@@ -83,7 +84,6 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
             filteredOptions = filterOptions
         } else {
             filteredOptions = filterOptions.filter { $0.lowercased().contains(searchText.lowercased()) }
-            tableView.reloadData()
         }
         tableView.reloadData()
     }
@@ -93,6 +93,14 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
         filteredOptions = filterOptions
         tableView.reloadData()
         searchBar.resignFirstResponder()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
     }
 
     // MARK: - Table view data source
