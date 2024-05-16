@@ -46,10 +46,10 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
         switch filterType {
         case "Category":
             urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list"
-            maxSelections = 3
+            maxSelections = 1
         case "Glass":
             urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list"
-            maxSelections = 3
+            maxSelections = 1
         case "Ingredient":
             urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
             maxSelections = 5
