@@ -1,15 +1,13 @@
 //
-//  GeneratedDrinkViewController.swift
+//  FoodRecipeFilterViewController.swift
 //  shake-and-serve
 //
-//  Created by Raymond Ruimin Li on 10/5/2024.
+//  Created by Raymond Ruimin Li on 16/5/2024.
 //
 
 import UIKit
 
-class GeneratedDrinkViewController: UIViewController {
-    
-    var cocktail: Drink?
+class FoodRecipeFilterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,10 +15,7 @@ class GeneratedDrinkViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBOutlet weak var DrinkImageView: UIImageView!
-    @IBOutlet weak var DrinkNameLabel: UILabel!
-    @IBOutlet weak var IngredientsLabel: UILabel!
-    
+
     /*
     // MARK: - Navigation
 

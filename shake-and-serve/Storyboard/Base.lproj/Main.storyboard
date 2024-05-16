@@ -70,7 +70,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cyi-so-f0r"/>
-                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cyi-so-f0r" firstAttribute="trailing" secondItem="K0L-sl-tMd" secondAttribute="trailing" constant="16" id="2Wj-F3-Abr"/>
                             <constraint firstItem="S9V-6P-332" firstAttribute="top" secondItem="cyi-so-f0r" secondAttribute="top" constant="210" id="CAW-Mu-TqQ"/>
@@ -86,37 +86,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AnT-Ha-wzh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4355" y="1256"/>
+            <point key="canvasLocation" x="5123" y="724"/>
         </scene>
-        <!--Dish Ingredients Filter-->
+        <!--Food Recipe Filter-->
         <scene sceneID="51P-0w-OFS">
             <objects>
-                <viewController title="Dish Ingredients Filter" id="t86-CL-m4N" customClass="DishIngredientsFilterViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Food Recipe Filter" id="t86-CL-m4N" customClass="FoodRecipeFilterViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zue-h6-ZTS">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="iim-MM-mdD"/>
-                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Z90-18-gy4"/>
-                    <navigationItem key="navigationItem" title="[GENERATE DISH]" id="nfm-Ek-E3Q">
+                    <navigationItem key="navigationItem" title="[FOOD FILTERS]" id="nfm-Ek-E3Q">
                         <barButtonItem key="backBarButtonItem" title=" " id="bhJ-6C-nST"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzb-Sy-ahM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5264.8854961832058" y="917.6056338028169"/>
+            <point key="canvasLocation" x="5905" y="724"/>
         </scene>
-        <!--Drink Ingredients Filter-->
+        <!--Drink Recipe Filter-->
         <scene sceneID="oZg-Yh-XAU">
             <objects>
-                <viewController title="Drink Ingredients Filter" id="TOf-Ig-MJ8" customClass="DrinkIngredientsFilterViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Drink Recipe Filter" id="TOf-Ig-MJ8" customClass="DrinkRecipeFilterViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Dc-8n-zab">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="5EC-j8-glZ">
-                                <rect key="frame" x="16" y="102.99999999999997" width="361" height="475.33333333333326"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5EC-j8-glZ">
+                                <rect key="frame" x="16" y="103" width="361" height="283.33333333333331"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apply Filters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdU-sR-Ym1">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="38.333333333333336"/>
@@ -125,7 +125,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8e-Hu-aSf">
-                                        <rect key="frame" x="0.0" y="102.33333333333334" width="361" height="50"/>
+                                        <rect key="frame" x="0.0" y="54.333333333333343" width="361" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="VHY-fS-eYv"/>
                                         </constraints>
@@ -134,12 +134,9 @@
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
-                                        <connections>
-                                            <action selector="CategoryButtonTapped:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="GZ3-wm-NjM"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qaT-5X-axY">
-                                        <rect key="frame" x="0.0" y="216.33333333333331" width="361" height="50"/>
+                                        <rect key="frame" x="0.0" y="120.33333333333334" width="361" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="iP5-BQ-kdV"/>
                                         </constraints>
@@ -148,12 +145,9 @@
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
-                                        <connections>
-                                            <action selector="GlassButtonTapped:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="oFu-5n-vug"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6z-cU-upF">
-                                        <rect key="frame" x="0.0" y="330.33333333333331" width="361" height="50"/>
+                                        <rect key="frame" x="0.0" y="186.33333333333331" width="361" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="MR1-BL-lkU"/>
                                         </constraints>
@@ -162,12 +156,9 @@
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
-                                        <connections>
-                                            <action selector="IngredientButtonTapped:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="WXH-If-Ap3"/>
-                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mQ-bj-xQF">
-                                        <rect key="frame" x="0.0" y="444.33333333333337" width="361" height="31"/>
+                                        <rect key="frame" x="0.0" y="252.33333333333331" width="361" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contains Alcohol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pC-0P-e0H">
                                                 <rect key="frame" x="0.0" y="0.0" width="312" height="31"/>
@@ -183,42 +174,47 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOz-6d-uds">
-                                <rect key="frame" x="16" y="719" width="361" height="50"/>
+                                <rect key="frame" x="16" y="703" width="361" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="QXN-je-gTl"/>
+                                    <constraint firstAttribute="height" constant="50" id="PIG-4c-YBw"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Generate" cornerStyle="capsule"/>
+                                <connections>
+                                    <action selector="generateButton:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="UXz-6C-U70"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vMH-yr-5xG"/>
-                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="uOz-6d-uds" firstAttribute="bottom" secondItem="vMH-yr-5xG" secondAttribute="bottom" id="2av-rw-GGb"/>
                             <constraint firstItem="vMH-yr-5xG" firstAttribute="trailing" secondItem="5EC-j8-glZ" secondAttribute="trailing" constant="16" id="Jc1-qA-awq"/>
+                            <constraint firstItem="uOz-6d-uds" firstAttribute="leading" secondItem="vMH-yr-5xG" secondAttribute="leading" constant="16" id="K21-jJ-POG"/>
+                            <constraint firstItem="vMH-yr-5xG" firstAttribute="bottom" secondItem="uOz-6d-uds" secondAttribute="bottom" constant="16" id="Xwk-vJ-fJk"/>
+                            <constraint firstItem="vMH-yr-5xG" firstAttribute="trailing" secondItem="uOz-6d-uds" secondAttribute="trailing" constant="16" id="lZG-SR-Yta"/>
                             <constraint firstItem="5EC-j8-glZ" firstAttribute="top" secondItem="vMH-yr-5xG" secondAttribute="top" id="opC-af-I2R"/>
                             <constraint firstItem="5EC-j8-glZ" firstAttribute="leading" secondItem="vMH-yr-5xG" secondAttribute="leading" constant="16" id="qlM-YN-snB"/>
-                            <constraint firstItem="uOz-6d-uds" firstAttribute="leading" secondItem="vMH-yr-5xG" secondAttribute="leading" constant="16" id="rY4-tM-HuF"/>
-                            <constraint firstItem="vMH-yr-5xG" firstAttribute="trailing" secondItem="uOz-6d-uds" secondAttribute="trailing" constant="16" id="tTS-zD-L8x"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="[GENERATE DRINK]" id="iS7-B1-SWV">
+                    <navigationItem key="navigationItem" title="[DRINK FILTERS]" id="iS7-B1-SWV">
                         <barButtonItem key="backBarButtonItem" title=" " id="e5H-y0-YUt"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="CategoryButton" destination="T8e-Hu-aSf" id="RXQ-dx-YN3"/>
-                        <outlet property="GlassButton" destination="qaT-5X-axY" id="ERB-2g-15C"/>
-                        <outlet property="IngredientButton" destination="f6z-cU-upF" id="B0b-HP-pgM"/>
+                        <outlet property="ContainsAlcoholSwitch" destination="h6m-pf-ZaU" id="oQB-0G-UV9"/>
+                        <outlet property="categoryButton" destination="T8e-Hu-aSf" id="8iI-i6-30r"/>
+                        <outlet property="containsAlcoholSwitch" destination="h6m-pf-ZaU" id="yzh-pv-Bqo"/>
+                        <outlet property="glassButton" destination="qaT-5X-axY" id="obM-Wl-5xD"/>
+                        <outlet property="ingredientButton" destination="f6z-cU-upF" id="1kg-hd-F2k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bj1-UU-Y3h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5265" y="1568"/>
+            <point key="canvasLocation" x="5123" y="1401"/>
         </scene>
-        <!--Generated Drink View Controller-->
+        <!--Generated Drink-->
         <scene sceneID="hvN-6Y-sZm">
             <objects>
-                <viewController id="Tav-4j-x21" customClass="GeneratedDrinkViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Generated Drink" id="Tav-4j-x21" customClass="GeneratedDrinkViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cj0-ea-eWJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -302,22 +298,27 @@
                         <outlet property="DrinkImageView" destination="UjW-dK-f3e" id="2W8-Oh-2FJ"/>
                         <outlet property="DrinkNameLabel" destination="Lgk-8E-SIu" id="ecB-Sm-vda"/>
                         <outlet property="IngredientsLabel" destination="5XD-fd-sDI" id="VTe-q5-xDY"/>
+                        <outlet property="drinkContainsAlcoholLabel" destination="SzP-2n-jfg" id="7HE-Ep-nNU"/>
+                        <outlet property="drinkImage" destination="UjW-dK-f3e" id="arG-Bo-fas"/>
+                        <outlet property="drinkIngredientsListLabel" destination="5XD-fd-sDI" id="nmL-jH-GJM"/>
+                        <outlet property="drinkNameLabel" destination="Lgk-8E-SIu" id="Qk0-CK-3Mf"/>
+                        <outlet property="drinkServingsLabel" destination="Kjm-LT-k42" id="0ih-bB-b6V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9IG-kK-2Do" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6018" y="1568"/>
+            <point key="canvasLocation" x="5905" y="1400"/>
         </scene>
-        <!--Drink Filter Table View Controller-->
+        <!--Recipe Filter-->
         <scene sceneID="0nM-70-gpr">
             <objects>
-                <tableViewController storyboardIdentifier="DrinkFilterTableViewController" id="GYH-0d-pbO" customClass="DrinkFilterTableViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DrinkFilterTableViewController" title="Recipe Filter" id="GYH-0d-pbO" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="WZo-cg-k6n">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterCell" id="Jjo-mw-Aoi">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Jjo-mw-Aoi">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jjo-mw-Aoi" id="zqF-aZ-UDA">
@@ -347,7 +348,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6S-lN-MVE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5265" y="2206"/>
+            <point key="canvasLocation" x="4355" y="1401"/>
         </scene>
         <!--Account-->
         <scene sceneID="KgR-qh-zE0">
@@ -409,7 +410,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wiv-WD-2bh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5264.8854961832058" y="-1156.3380281690143"/>
+            <point key="canvasLocation" x="5123" y="-632"/>
         </scene>
         <!--BottomNavigation-->
         <scene sceneID="iNV-GN-2ey">
@@ -467,7 +468,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ztI-xk-Ye0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5347" y="48"/>
+            <point key="canvasLocation" x="5123" y="48"/>
         </scene>
         <!--Shopping List-->
         <scene sceneID="3dn-oV-vvQ">
@@ -496,7 +497,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rcz-dx-aw9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6199" y="48"/>
+            <point key="canvasLocation" x="5906" y="48"/>
         </scene>
         <!--Initial Sign In Options-->
         <scene sceneID="oBB-qD-WL0">
@@ -559,7 +560,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCj-pJ-p4D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2025" y="48"/>
+            <point key="canvasLocation" x="2018" y="724"/>
         </scene>
         <!--Sign In-->
         <scene sceneID="Kgs-Df-e31">
@@ -641,7 +642,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hX6-kP-jjj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2795" y="-645"/>
+            <point key="canvasLocation" x="2789" y="48"/>
         </scene>
         <!--Create Account-->
         <scene sceneID="KPO-tI-gb1">
@@ -707,7 +708,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8VY-QN-XUl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2795" y="48"/>
+            <point key="canvasLocation" x="2789" y="724"/>
         </scene>
         <!--Home-->
         <scene sceneID="wiT-48-4Ka">
@@ -726,7 +727,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DY8-0Y-vUs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3575" y="1251"/>
+            <point key="canvasLocation" x="4355" y="724"/>
         </scene>
         <!--Account-->
         <scene sceneID="ZMN-YU-5RT">
@@ -745,7 +746,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AYE-nS-l97" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4465" y="-1155"/>
+            <point key="canvasLocation" x="4355" y="-631"/>
         </scene>
         <!--Saved Recipes-->
         <scene sceneID="1HT-ZQ-ijz">
@@ -764,7 +765,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLr-jn-sBa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4465" y="48"/>
+            <point key="canvasLocation" x="4355" y="48"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bEq-gm-4vn">
@@ -782,7 +783,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBF-Xh-0hF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1184" y="48"/>
+            <point key="canvasLocation" x="1173" y="724"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -802,9 +803,6 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

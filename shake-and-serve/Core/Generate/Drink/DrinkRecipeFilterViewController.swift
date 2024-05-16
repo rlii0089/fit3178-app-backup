@@ -1,13 +1,13 @@
 //
-//  DishIngredientsFilterViewController.swift
+//  DrinkRecipeFilterViewController.swift
 //  shake-and-serve
 //
-//  Created by Raymond Ruimin Li on 25/4/2024.
+//  Created by Raymond Ruimin Li on 16/5/2024.
 //
 
 import UIKit
 
-class DishIngredientsFilterViewController: UIViewController {
+class DrinkRecipeFilterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,7 +15,16 @@ class DishIngredientsFilterViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBOutlet weak var categoryButton: UIButton!
+    @IBOutlet weak var glassButton: UIButton!
+    @IBOutlet weak var ingredientButton: UIButton!
+    @IBOutlet weak var containsAlcoholSwitch: UISwitch!
+    
+    @IBAction func generateButton(_ sender: Any) {
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
