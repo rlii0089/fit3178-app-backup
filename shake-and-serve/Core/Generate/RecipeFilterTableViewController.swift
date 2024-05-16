@@ -7,13 +7,17 @@
 
 import UIKit
 
-class RecipeFilterTableViewController: UITableViewController {
+class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegate {
     
     var filterType: String?
     var filterOptions: [String] = []
+    var filteredOptions: [String] = []
+    
+    let searchBar = UISearchBar()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSearchBar()
         fetchFilterOptions()
 
         // Uncomment the following line to preserve selection between presentations
@@ -21,6 +25,13 @@ class RecipeFilterTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func setupSearchBar() {
+        searchBar.delegate = self
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search for \(filterType ?? "Options")"
+        tableView.tableHeaderView = searchBar
     }
     
     func fetchFilterOptions() {
@@ -41,19 +52,9 @@ class RecipeFilterTableViewController: UITableViewController {
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                print("Error fetching filter options: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let data = data else {
-                print("No data received")
-                return
-            }
-            
+            if let data = data {
                 do {
                     let filterOptionsResponse = try JSONDecoder().decode(FilterOptionsResponse.self, from: data)
-                    print("API Response: \(filterOptionsResponse)")
                     self.filterOptions = filterOptionsResponse.drinks.compactMap { option in
                         if let category = option.strCategory {
                             return category
@@ -64,15 +65,34 @@ class RecipeFilterTableViewController: UITableViewController {
                         }
                         return nil
                     }
-                    print("Filter Options: \(self.filterOptions)")
+                    self.filterOptions.sort() // Sort alphabetically
+                    self.filteredOptions = self.filterOptions
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
                 } catch {
                     print("Error decoding data: \(error)")
                 }
-            
+            }
         }.resume()
+    }
+    
+    // UISearchBarDelegate methods
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            filteredOptions = filterOptions
+        } else {
+            filteredOptions = filterOptions.filter { $0.lowercased().contains(searchText.lowercased()) }
+            tableView.reloadData()
+        }
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        filteredOptions = filterOptions
+        tableView.reloadData()
+        searchBar.resignFirstResponder()
     }
 
     // MARK: - Table view data source
