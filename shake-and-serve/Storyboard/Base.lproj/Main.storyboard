@@ -191,7 +191,10 @@
                                     <constraint firstAttribute="height" constant="50" id="PIG-4c-YBw"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Generate" cornerStyle="capsule"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Find Drink" cornerStyle="capsule"/>
+                                <connections>
+                                    <action selector="findDrinkButtonPressed:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="KgM-Xh-ZuC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vMH-yr-5xG"/>
@@ -211,6 +214,7 @@
                     <connections>
                         <outlet property="alcoholSwitch" destination="h6m-pf-ZaU" id="b8L-4y-iZX"/>
                         <outlet property="categoryButton" destination="T8e-Hu-aSf" id="BFI-rx-YcU"/>
+                        <outlet property="findDrinkButton" destination="uOz-6d-uds" id="8dD-fk-iUS"/>
                         <outlet property="glassButton" destination="qaT-5X-axY" id="Ail-CQ-yhx"/>
                         <outlet property="ingredientButton" destination="f6z-cU-upF" id="cjo-um-bK8"/>
                         <segue destination="GYH-0d-pbO" kind="show" identifier="ShowFilterOptions" id="jw0-BV-jaG"/>
@@ -308,8 +312,8 @@
                         <outlet property="DrinkNameLabel" destination="Lgk-8E-SIu" id="ecB-Sm-vda"/>
                         <outlet property="IngredientsLabel" destination="5XD-fd-sDI" id="VTe-q5-xDY"/>
                         <outlet property="drinkContainsAlcoholLabel" destination="SzP-2n-jfg" id="7HE-Ep-nNU"/>
-                        <outlet property="drinkImage" destination="UjW-dK-f3e" id="arG-Bo-fas"/>
-                        <outlet property="drinkIngredientsListLabel" destination="5XD-fd-sDI" id="nmL-jH-GJM"/>
+                        <outlet property="drinkImageView" destination="UjW-dK-f3e" id="arG-Bo-fas"/>
+                        <outlet property="drinkIngredientsLabel" destination="5XD-fd-sDI" id="nmL-jH-GJM"/>
                         <outlet property="drinkNameLabel" destination="Lgk-8E-SIu" id="Qk0-CK-3Mf"/>
                         <outlet property="drinkServingsLabel" destination="Kjm-LT-k42" id="0ih-bB-b6V"/>
                     </connections>
