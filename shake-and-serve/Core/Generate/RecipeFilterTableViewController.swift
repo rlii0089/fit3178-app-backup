@@ -41,9 +41,19 @@ class RecipeFilterTableViewController: UITableViewController {
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data {
+            if let error = error {
+                print("Error fetching filter options: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let data = data else {
+                print("No data received")
+                return
+            }
+            
                 do {
                     let filterOptionsResponse = try JSONDecoder().decode(FilterOptionsResponse.self, from: data)
+                    print("API Response: \(filterOptionsResponse)")
                     self.filterOptions = filterOptionsResponse.drinks.compactMap { option in
                         if let category = option.strCategory {
                             return category
@@ -54,13 +64,14 @@ class RecipeFilterTableViewController: UITableViewController {
                         }
                         return nil
                     }
+                    print("Filter Options: \(self.filterOptions)")
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
                 } catch {
                     print("Error decoding data: \(error)")
                 }
-            }
+            
         }.resume()
     }
 
