@@ -14,8 +14,13 @@ class AccountViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    @IBOutlet weak var ProfileImage: UIImageView!
+    @IBOutlet weak var NameLabel: UILabel!
+    @IBOutlet weak var EmailLabel: UILabel!
     
-
+    @IBAction func SignOutButton(_ sender: Any) {
+    }
+    
     /*
     // MARK: - Navigation
 

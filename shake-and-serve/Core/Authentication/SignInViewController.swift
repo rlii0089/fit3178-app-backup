@@ -39,6 +39,7 @@ class SignInViewController: UIViewController {
                 self.displayMessage(title: "Error", message: "Invalid email or password")
             } else {
                 print("Login successful")
+                UserDefaults.standard.set(true, forKey: "isLoggedIn")
                 self.performSegue(withIdentifier: "loginToHomeSegue", sender: self)
             }
         }

@@ -13,7 +13,7 @@
         <!--Home-->
         <scene sceneID="6gu-6J-Bxj">
             <objects>
-                <viewController title="Home" id="VUE-6j-eDD" customClass="HomeViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" title="Home" id="VUE-6j-eDD" customClass="HomeViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wmf-ak-2Qw">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -357,43 +357,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QJd-fV-MF8">
-                                <rect key="frame" x="132" y="104" width="128" height="126.66666666666674"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QJd-fV-MF8">
+                                <rect key="frame" x="132.66666666666666" y="104" width="127.99999999999997" height="19"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRi-g9-Yzs">
-                                <rect key="frame" x="132" y="239" width="128" height="28.666666666666742"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRi-g9-Yzs">
+                                <rect key="frame" x="132.66666666666666" y="131.33333333333334" width="127.99999999999997" height="28.666666666666657"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMh-ku-0qD">
-                                <rect key="frame" x="16" y="719" width="361" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="See-A0-g3R"/>
-                                    <constraint firstAttribute="width" constant="361" id="l0j-r5-C1E"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Sign Out" cornerStyle="capsule"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user@email.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbQ-3V-x0S">
-                                <rect key="frame" x="132" y="276" width="128" height="20.333333333333258"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user@email.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbQ-3V-x0S">
+                                <rect key="frame" x="132.66666666666666" y="168" width="127.99999999999997" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMh-ku-0qD">
+                                <rect key="frame" x="16" y="703" width="361" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="RC3-pq-ald"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Sign Out" cornerStyle="capsule"/>
+                                <connections>
+                                    <action selector="SignOutButton:" destination="bSh-GV-wHY" eventType="touchUpInside" id="nwW-ka-Dqg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LxB-ls-ASA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="hMh-ku-0qD" firstAttribute="leading" secondItem="LxB-ls-ASA" secondAttribute="leading" constant="16" id="JMh-ie-zfC"/>
-                            <constraint firstItem="LxB-ls-ASA" firstAttribute="trailing" secondItem="hMh-ku-0qD" secondAttribute="trailing" constant="16" id="dGR-e9-X9K"/>
-                            <constraint firstItem="hMh-ku-0qD" firstAttribute="bottom" secondItem="LxB-ls-ASA" secondAttribute="bottom" id="vlR-iC-76I"/>
+                            <constraint firstItem="LxB-ls-ASA" firstAttribute="trailing" secondItem="QJd-fV-MF8" secondAttribute="trailing" constant="132.5" id="7Zi-HE-G7R"/>
+                            <constraint firstItem="QJd-fV-MF8" firstAttribute="top" secondItem="LxB-ls-ASA" secondAttribute="top" id="BLb-O4-Wv8"/>
+                            <constraint firstItem="LxB-ls-ASA" firstAttribute="trailing" secondItem="BbQ-3V-x0S" secondAttribute="trailing" constant="132.5" id="Q1C-P6-95f"/>
+                            <constraint firstItem="hMh-ku-0qD" firstAttribute="leading" secondItem="LxB-ls-ASA" secondAttribute="leading" constant="16" id="R0X-Os-Hko"/>
+                            <constraint firstItem="BbQ-3V-x0S" firstAttribute="leading" secondItem="LxB-ls-ASA" secondAttribute="leading" constant="132.5" id="Sev-Ec-FEg"/>
+                            <constraint firstItem="LxB-ls-ASA" firstAttribute="bottom" secondItem="hMh-ku-0qD" secondAttribute="bottom" constant="16" id="V6Z-Zg-uwc"/>
+                            <constraint firstItem="rRi-g9-Yzs" firstAttribute="top" secondItem="QJd-fV-MF8" secondAttribute="bottom" constant="8" id="Zqm-Zp-xSy"/>
+                            <constraint firstItem="QJd-fV-MF8" firstAttribute="leading" secondItem="LxB-ls-ASA" secondAttribute="leading" constant="132.5" id="dv5-dX-HyH"/>
+                            <constraint firstItem="LxB-ls-ASA" firstAttribute="trailing" secondItem="hMh-ku-0qD" secondAttribute="trailing" constant="16" id="gPC-uC-5z5"/>
+                            <constraint firstItem="BbQ-3V-x0S" firstAttribute="top" secondItem="rRi-g9-Yzs" secondAttribute="bottom" constant="8" id="lfZ-E5-Sm1"/>
+                            <constraint firstItem="LxB-ls-ASA" firstAttribute="trailing" secondItem="rRi-g9-Yzs" secondAttribute="trailing" constant="132.5" id="pn0-4r-BLz"/>
+                            <constraint firstItem="rRi-g9-Yzs" firstAttribute="leading" secondItem="LxB-ls-ASA" secondAttribute="leading" constant="132.5" id="xpY-wp-gCV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Account" id="1pO-MX-u0Z"/>
+                    <connections>
+                        <outlet property="EmailLabel" destination="BbQ-3V-x0S" id="rh6-hl-SAq"/>
+                        <outlet property="NameLabel" destination="rRi-g9-Yzs" id="lAD-MQ-WjA"/>
+                        <outlet property="ProfileImage" destination="QJd-fV-MF8" id="9KQ-3C-dXh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wiv-WD-2bh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -402,7 +415,7 @@
         <!--BottomNavigation-->
         <scene sceneID="iNV-GN-2ey">
             <objects>
-                <tabBarController title="BottomNavigation" id="Vyo-8E-vC8" customClass="BottomNavigationTabBarController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="BottomNavigationTabBarController" title="BottomNavigation" id="Vyo-8E-vC8" customClass="BottomNavigationTabBarController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="mEQ-Uj-Yvb"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ReE-TY-2IH">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>

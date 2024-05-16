@@ -26,6 +26,7 @@ class InitialSignInOptionsViewController: UIViewController {
                 self.displayMessage(title: "Error", message: error.localizedDescription)
             } else {
                 print("Successfully signed in as anonymous") // For debugging only
+                UserDefaults.standard.set(true, forKey: "isLoggedIn")
                 self.performSegue(withIdentifier: "AnonymousSignInSegue", sender: nil)
             }
         }
