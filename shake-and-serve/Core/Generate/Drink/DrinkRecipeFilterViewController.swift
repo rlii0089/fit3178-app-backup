@@ -20,6 +20,9 @@ class DrinkRecipeFilterViewController: UIViewController {
     var selectedGlasses: [String] = []
     var selectedIngredients: [String] = []
     var containsAlcohol: Bool?
+    
+    // Selected filters
+    var selectedFilters: DrinkFilterQuery?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +47,10 @@ class DrinkRecipeFilterViewController: UIViewController {
     }
     
     @IBAction func generateDrinkButtonPressed(_ sender: Any) {
+        // Pass selected filters data to GeneratedDrinkViewController
+        guard let generatedDrinkVC = storyboard?.instantiateViewController(withIdentifier: "GeneratedDrinkViewController") as? GeneratedDrinkViewController else { return }
+        generatedDrinkVC.selectedFilters = selectedFilters
+        navigationController?.pushViewController(generatedDrinkVC, animated: true)
     }
     
     func setSelectedFilterOption(option: String, for filterType: String?) {

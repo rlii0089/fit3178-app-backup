@@ -15,6 +15,9 @@ class GeneratedDrinkViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        drinkQueryManager.delegate = self
+        generateRandomDrink()
 
         // Do any additional setup after loading the view.
     }
@@ -25,7 +28,7 @@ class GeneratedDrinkViewController: UIViewController {
     @IBOutlet weak var drinkContainsAlcoholLabel: UILabel!
     @IBOutlet weak var drinkIngredientsLabel: UILabel!
     
-    func fetchDrinks() {
+    func generateRandomDrink() {
         guard let selectedFilters = selectedFilters else { return }
         drinkQueryManager.fetchDrinks(for: selectedFilters)
     }
@@ -82,5 +85,6 @@ extension GeneratedDrinkViewController: DrinkFilterQueryDelegate {
     
     func didFailWithError(_ error: Error) {
         // Handle error
+        print("Error generating drink")
     }
 }

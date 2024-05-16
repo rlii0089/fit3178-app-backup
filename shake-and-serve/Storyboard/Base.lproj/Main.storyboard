@@ -193,7 +193,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Generate Drink" cornerStyle="capsule"/>
                                 <connections>
-                                    <action selector="findDrinkButtonPressed:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="KgM-Xh-ZuC"/>
+                                    <action selector="generateDrinkButtonPressed:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="QRf-PT-Gg3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -214,7 +214,7 @@
                     <connections>
                         <outlet property="alcoholSwitch" destination="h6m-pf-ZaU" id="b8L-4y-iZX"/>
                         <outlet property="categoryButton" destination="T8e-Hu-aSf" id="BFI-rx-YcU"/>
-                        <outlet property="findDrinkButton" destination="uOz-6d-uds" id="8dD-fk-iUS"/>
+                        <outlet property="generateDrinkButton" destination="uOz-6d-uds" id="GJG-DF-pi8"/>
                         <outlet property="glassButton" destination="qaT-5X-axY" id="Ail-CQ-yhx"/>
                         <outlet property="ingredientButton" destination="f6z-cU-upF" id="cjo-um-bK8"/>
                         <segue destination="GYH-0d-pbO" kind="show" identifier="ShowFilterOptions" id="jw0-BV-jaG"/>
@@ -227,7 +227,7 @@
         <!--Generated Drink-->
         <scene sceneID="hvN-6Y-sZm">
             <objects>
-                <viewController title="Generated Drink" id="Tav-4j-x21" customClass="GeneratedDrinkViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GeneratedDrinkViewController" title="Generated Drink" id="Tav-4j-x21" customClass="GeneratedDrinkViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cj0-ea-eWJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -274,8 +274,8 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="t5V-wL-zjU">
-                                <rect key="frame" x="16" y="719" width="361" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="t5V-wL-zjU">
+                                <rect key="frame" x="16" y="704" width="361" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Servings" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cr7-In-OgS">
                                         <rect key="frame" x="0.0" y="0.0" width="105" height="50"/>
@@ -304,16 +304,16 @@
                             <constraint firstItem="wFj-RO-hSG" firstAttribute="top" secondItem="t0v-L3-Q8T" secondAttribute="top" id="MRu-yk-nqw"/>
                             <constraint firstItem="t0v-L3-Q8T" firstAttribute="trailing" secondItem="wFj-RO-hSG" secondAttribute="trailing" constant="16" id="ZiN-dB-hun"/>
                             <constraint firstItem="wFj-RO-hSG" firstAttribute="leading" secondItem="t0v-L3-Q8T" secondAttribute="leading" constant="16" id="dli-jQ-gBu"/>
+                            <constraint firstItem="t0v-L3-Q8T" firstAttribute="bottom" secondItem="t5V-wL-zjU" secondAttribute="bottom" constant="64" id="vrx-ny-Y3h"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tJx-9Y-xei"/>
                     <connections>
                         <outlet property="DrinkImageView" destination="UjW-dK-f3e" id="2W8-Oh-2FJ"/>
                         <outlet property="DrinkNameLabel" destination="Lgk-8E-SIu" id="ecB-Sm-vda"/>
-                        <outlet property="IngredientsLabel" destination="5XD-fd-sDI" id="VTe-q5-xDY"/>
                         <outlet property="drinkContainsAlcoholLabel" destination="SzP-2n-jfg" id="7HE-Ep-nNU"/>
                         <outlet property="drinkImageView" destination="UjW-dK-f3e" id="arG-Bo-fas"/>
-                        <outlet property="drinkIngredientsLabel" destination="5XD-fd-sDI" id="nmL-jH-GJM"/>
+                        <outlet property="drinkIngredientsLabel" destination="5XD-fd-sDI" id="XgI-Bc-VuX"/>
                         <outlet property="drinkNameLabel" destination="Lgk-8E-SIu" id="Qk0-CK-3Mf"/>
                         <outlet property="drinkServingsLabel" destination="Kjm-LT-k42" id="0ih-bB-b6V"/>
                     </connections>
