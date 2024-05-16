@@ -15,9 +15,9 @@ class DrinkRecipeFilterViewController: UIViewController {
     @IBOutlet weak var alcoholSwitch: UISwitch!
     
     
-    var selectedCategory: String?
-    var selectedGlass: String?
-    var selectedIngredient: String?
+    var selectedCategories: [String] = []
+    var selectedGlasses: [String] = []
+    var selectedIngredients: [String] = []
     var containsAlcohol: Bool?
 
     override func viewDidLoad() {
@@ -43,28 +43,68 @@ class DrinkRecipeFilterViewController: UIViewController {
     }
     
     func setSelectedFilterOption(option: String, for filterType: String?) {
+        guard let filterType = filterType else { return }
         switch filterType {
         case "Category":
-            selectedCategory = option
-            categoryButton.setTitle(option, for: .normal)
+            if let index = selectedCategories.firstIndex(of: option) {
+                selectedCategories.remove(at: index)
+            } else if selectedCategories.count < 3 {
+                selectedCategories.append(option)
+            }
         case "Glass":
-            selectedGlass = option
-            glassButton.setTitle(option, for: .normal)
+            if let index = selectedGlasses.firstIndex(of: option) {
+                selectedGlasses.remove(at: index)
+            } else if selectedGlasses.count < 3 {
+                selectedGlasses.append(option)
+            }
         case "Ingredient":
-            selectedIngredient = option
-            ingredientButton.setTitle(option, for: .normal)
+            if let index = selectedIngredients.firstIndex(of: option) {
+                selectedIngredients.remove(at: index)
+            } else if selectedIngredients.count < 5 {
+                selectedIngredients.append(option)
+            }
+        default:
+            break
+        }
+        updateButtonTitles()
+    }
+    
+    func updateFilterCount(for filterType: String?, count: Int) {
+        guard let filterType = filterType else { return }
+        switch filterType {
+        case "Category":
+            categoryButton.setTitle("Category (\(count))", for: .normal)
+        case "Glass":
+            glassButton.setTitle("Glass (\(count))", for: .normal)
+        case "Ingredient":
+            ingredientButton.setTitle("Ingredient (\(count))", for: .normal)
         default:
             break
         }
     }
     
+    func updateButtonTitles() {
+        categoryButton.setTitle("Category (\(selectedCategories.count))", for: .normal)
+        glassButton.setTitle("Glass (\(selectedGlasses.count))", for: .normal)
+        ingredientButton.setTitle("Ingredient (\(selectedIngredients.count))", for: .normal)
+    }
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowFilterOptions",
-           let filterType = sender as? String,
-           let destinationVC = segue.destination as? RecipeFilterTableViewController {
+        if let destinationVC = segue.destination as? RecipeFilterTableViewController,
+           let filterType = sender as? String {
             destinationVC.filterType = filterType
+            switch filterType {
+            case "Category":
+                destinationVC.selectedOptions = selectedCategories
+            case "Glass":
+                destinationVC.selectedOptions = selectedGlasses
+            case "Ingredient":
+                destinationVC.selectedOptions = selectedIngredients
+            default:
+                break
+            }
         }
     }
 

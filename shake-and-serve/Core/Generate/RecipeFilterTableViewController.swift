@@ -12,13 +12,26 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
     var filterType: String?
     var filterOptions: [String] = []
     var filteredOptions: [String] = []
+    var selectedOptions: [String] = []
     
     let searchBar = UISearchBar()
+    var maxSelections: Int {
+        switch filterType {
+        case "Category", "Glass":
+            return 3
+        case "Ingredient":
+            return 5
+        default:
+            return 0
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchBar()
         fetchFilterOptions()
+        
+        self.tableView.allowsMultipleSelection = true
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -106,6 +119,13 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
     }
+    
+    func updateFilterCount() {
+        if let navController = self.navigationController,
+           let previousVC = navController.viewControllers[navController.viewControllers.count - 2] as? DrinkRecipeFilterViewController {
+            previousVC.updateFilterCount(for: filterType, count: selectedOptions.count)
+        }
+    }
 
     // MARK: - Table view data source
 
@@ -120,18 +140,30 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FilterOptionCell", for: indexPath)
-        cell.textLabel?.text = filterOptions[indexPath.row]
+        let option = filteredOptions[indexPath.row]
+        cell.textLabel?.text = option
+        cell.accessoryType = selectedOptions.contains(option) ? .checkmark : .none
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedOption = filterOptions[indexPath.row]
-        // Pass the selected option back to DrinkRecipeFilterViewController
-        if let navController = self.navigationController,
-           let previousVC = navController.viewControllers[navController.viewControllers.count - 2] as? DrinkRecipeFilterViewController {
-            previousVC.setSelectedFilterOption(option: selectedOption, for: filterType)
-            navController.popViewController(animated: true)
+        let selectedOption = filteredOptions[indexPath.row]
+        if selectedOptions.contains(selectedOption) {
+            if let index = selectedOptions.firstIndex(of: selectedOption) {
+                selectedOptions.remove(at: index)
+            }
+        } else {
+            if selectedOptions.count < maxSelections {
+                selectedOptions.append(selectedOption)
+            } else {
+                tableView.deselectRow(at: indexPath, animated: true)
+                let alert = UIAlertController(title: "Limit Reached", message: "You can only select up to \(maxSelections) \(filterType?.lowercased() ?? "options").", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                present(alert, animated: true, completion: nil)
+            }
         }
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+        updateFilterCount()
     }
 
     /*
