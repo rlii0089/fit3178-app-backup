@@ -134,6 +134,9 @@
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="categoryButtonPressed:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="bNz-MW-R61"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qaT-5X-axY">
                                         <rect key="frame" x="0.0" y="120.33333333333334" width="361" height="50"/>
@@ -145,6 +148,9 @@
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="glassButtonPressed:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="aUd-M7-UK6"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6z-cU-upF">
                                         <rect key="frame" x="0.0" y="186.33333333333331" width="361" height="50"/>
@@ -156,6 +162,9 @@
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="ingredientButtonPressed:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="1So-yo-nuI"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mQ-bj-xQF">
                                         <rect key="frame" x="0.0" y="252.33333333333331" width="361" height="31"/>
@@ -168,6 +177,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h6m-pf-ZaU">
                                                 <rect key="frame" x="312" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="alcoholSwitchChanged:" destination="TOf-Ig-MJ8" eventType="valueChanged" id="deX-qx-ygs"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -180,9 +192,6 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Generate" cornerStyle="capsule"/>
-                                <connections>
-                                    <action selector="generateButton:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="UXz-6C-U70"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vMH-yr-5xG"/>
@@ -200,11 +209,11 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="e5H-y0-YUt"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="ContainsAlcoholSwitch" destination="h6m-pf-ZaU" id="oQB-0G-UV9"/>
-                        <outlet property="categoryButton" destination="T8e-Hu-aSf" id="8iI-i6-30r"/>
-                        <outlet property="containsAlcoholSwitch" destination="h6m-pf-ZaU" id="yzh-pv-Bqo"/>
-                        <outlet property="glassButton" destination="qaT-5X-axY" id="obM-Wl-5xD"/>
-                        <outlet property="ingredientButton" destination="f6z-cU-upF" id="1kg-hd-F2k"/>
+                        <outlet property="alcoholSwitch" destination="h6m-pf-ZaU" id="b8L-4y-iZX"/>
+                        <outlet property="categoryButton" destination="T8e-Hu-aSf" id="BFI-rx-YcU"/>
+                        <outlet property="glassButton" destination="qaT-5X-axY" id="Ail-CQ-yhx"/>
+                        <outlet property="ingredientButton" destination="f6z-cU-upF" id="cjo-um-bK8"/>
+                        <segue destination="GYH-0d-pbO" kind="show" identifier="ShowFilterOptions" id="jw0-BV-jaG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bj1-UU-Y3h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -307,7 +316,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9IG-kK-2Do" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5905" y="1400"/>
+            <point key="canvasLocation" x="4355" y="1400"/>
         </scene>
         <!--Recipe Filter-->
         <scene sceneID="0nM-70-gpr">
@@ -318,7 +327,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Jjo-mw-Aoi">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterOptionCell" id="Jjo-mw-Aoi">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jjo-mw-Aoi" id="zqF-aZ-UDA">
@@ -327,28 +336,12 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="GYH-0d-pbO" id="nfP-GK-JoD"/>
-                            <outlet property="delegate" destination="GYH-0d-pbO" id="mVN-hu-P3p"/>
-                        </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="mD6-M6-Doy">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="JB9-TV-tTr">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="dIm-0h-D7p">
-                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Apply"/>
-                                <connections>
-                                    <action selector="ApplyButton:" destination="GYH-0d-pbO" eventType="touchUpInside" id="bPs-JI-bSU"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="mD6-M6-Doy"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6S-lN-MVE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4355" y="1401"/>
+            <point key="canvasLocation" x="5905" y="1401"/>
         </scene>
         <!--Account-->
         <scene sceneID="KgR-qh-zE0">

@@ -8,9 +8,13 @@
 import UIKit
 
 class RecipeFilterTableViewController: UITableViewController {
+    
+    var filterType: String?
+    var filterOptions: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchFilterOptions()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -18,28 +22,74 @@ class RecipeFilterTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    func fetchFilterOptions() {
+        guard let filterType = filterType else { return }
+        var urlString: String
+        
+        switch filterType {
+        case "Category":
+            urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list"
+        case "Glass":
+            urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list"
+        case "Ingredient":
+            urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+        default:
+            return
+        }
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data = data {
+                do {
+                    let filterOptionsResponse = try JSONDecoder().decode(FilterOptionsResponse.self, from: data)
+                    self.filterOptions = filterOptionsResponse.drinks.compactMap { option in
+                        if let category = option.strCategory {
+                            return category
+                        } else if let glass = option.strGlass {
+                            return glass
+                        } else if let ingredient = option.strIngredient1 {
+                            return ingredient
+                        }
+                        return nil
+                    }
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                } catch {
+                    print("Error decoding data: \(error)")
+                }
+            }
+        }.resume()
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return filterOptions.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FilterOptionCell", for: indexPath)
+        cell.textLabel?.text = filterOptions[indexPath.row]
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedOption = filterOptions[indexPath.row]
+        // Pass the selected option back to DrinkRecipeFilterViewController
+        if let navController = self.navigationController,
+           let previousVC = navController.viewControllers[navController.viewControllers.count - 2] as? DrinkRecipeFilterViewController {
+            previousVC.setSelectedFilterOption(option: selectedOption, for: filterType)
+            navController.popViewController(animated: true)
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
