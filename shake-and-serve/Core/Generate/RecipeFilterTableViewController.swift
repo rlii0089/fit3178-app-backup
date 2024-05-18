@@ -7,129 +7,31 @@
 
 import UIKit
 
-class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegate {
-    
-    var filterType: String?
-    var filterOptions: [String] = []
-    var sortedFilterOptions: [String] = []
+class RecipeFilterTableViewController: UITableViewController {
     
     var urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?"
-    
-    let searchBar = UISearchBar()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSearchBar()
-        fetchFilterOptions()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
     }
     
-    func setupSearchBar() {
-        searchBar.delegate = self
-        searchBar.sizeToFit()
-        searchBar.placeholder = "Search for \(filterType ?? "Options")"
-        searchBar.showsCancelButton = true
-        tableView.tableHeaderView = searchBar
-    }
-    
-    func fetchFilterOptions() {
-        guard let filterType = filterType else { return }
-        
-        switch filterType {
-        case "Category":
-            urlString += "c=list"
-        case "Glass":
-            urlString += "g=list"
-        case "Ingredient":
-            urlString += "i=list"
-        default:
-            return
-        }
-        
-        guard let url = URL(string: urlString) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data {
-                do {
-                    let filterOptionsResponse = try JSONDecoder().decode(FilterOptionsResponse.self, from: data)
-                    self.filterOptions = filterOptionsResponse.drinks.compactMap { option in
-                        if let category = option.strCategory {
-                            return category
-                        } else if let glass = option.strGlass {
-                            return glass
-                        } else if let ingredient = option.strIngredient1 {
-                            return ingredient
-                        }
-                        return nil
-                    }
-                    self.filterOptions.sort() // Sort alphabetically
-                    self.sortedFilterOptions = self.filterOptions
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                } catch {
-                    print("Error decoding data: \(error)")
-                }
-            }
-        }.resume()
-    }
-    
-    // UISearchBarDelegate methods
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            sortedFilterOptions = filterOptions
-        } else {
-            sortedFilterOptions = filterOptions.filter { $0.lowercased().contains(searchText.lowercased()) }
-        }
-        tableView.reloadData()
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
-        sortedFilterOptions = filterOptions
-        tableView.reloadData()
-        searchBar.resignFirstResponder()
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(true, animated: true)
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(false, animated: true)
-    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filterOptions.count
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FilterOptionCell", for: indexPath)
-        cell.textLabel?.text = filterOptions[indexPath.row]
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedOption = filterOptions[indexPath.row]
-        // Pass the selected option back to DrinkRecipeFilterViewController
-        if let navController = self.navigationController,
-           let previousVC = navController.viewControllers[navController.viewControllers.count - 2] as? DrinkRecipeFilterViewController {
-            previousVC.setSelectedFilterOption(option: selectedOption, for: filterType)
-            navController.popViewController(animated: true)
-        }
     }
 
     /*
@@ -166,11 +68,6 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
         return true
     }
     */
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationItem.title = "Select one \(filterType?.lowercased() ?? "option")"
-    }
 
     /*
     // MARK: - Navigation

@@ -8,12 +8,9 @@
 import UIKit
 
 class GeneratedDrinkViewController: UIViewController {
-    
-    var selectedDrink: Drink?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        displaySelectedDrink()
     }
     
     @IBOutlet weak var drinkImageView: UIImageView!
@@ -21,37 +18,6 @@ class GeneratedDrinkViewController: UIViewController {
     @IBOutlet weak var drinkServingsLabel: UILabel!
     @IBOutlet weak var drinkAlcoholic: UILabel!
     @IBOutlet weak var drinkIngredientsLabel: UILabel!
-    
-    func displaySelectedDrink() {
-        guard let drink = selectedDrink else { return }
-        
-        drinkNameLabel.text = drink.name
-        drinkAlcoholic.text = drink.alcoholic
-        
-        // Iterate through ingredients array and create a string separated by commas
-        var ingredientsString = ""
-        for ingredient in drink.ingredients {
-            if !ingredient.isEmpty {
-                if !ingredientsString.isEmpty {
-                    ingredientsString += ", "
-                }
-                ingredientsString += ingredient
-            }
-        }
-        drinkIngredientsLabel.text = ingredientsString
-        
-        // Load image asynchronously
-        if let imageUrlString = drink.imageUrl,
-           let imageUrl = URL(string: imageUrlString) {
-            DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: imageUrl) {
-                    DispatchQueue.main.async {
-                        self.drinkImageView.image = UIImage(data: data)
-                    }
-                }
-            }
-        }
-    }
     
     /*
     // MARK: - Navigation
