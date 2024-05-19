@@ -17,6 +17,7 @@
 		AD7D7CBB2BE603C70052FB3B /* BottomNavigationTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7D7CBA2BE603C70052FB3B /* BottomNavigationTabBarController.swift */; };
 		AD7D7CBD2BE620120052FB3B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7D7CBC2BE620120052FB3B /* SignInViewController.swift */; };
 		AD7D7CC12BE6212B0052FB3B /* InitialSignInOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7D7CC02BE6212B0052FB3B /* InitialSignInOptionsViewController.swift */; };
+		AD84F66F2BF9667A0020217A /* CocktailDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD84F66E2BF9667A0020217A /* CocktailDBClient.swift */; };
 		ADB06C642BF5F44C001F46BE /* FoodRecipeFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB06C632BF5F44C001F46BE /* FoodRecipeFilterViewController.swift */; };
 		ADB06C682BF5F4E3001F46BE /* DrinkRecipeFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB06C672BF5F4E3001F46BE /* DrinkRecipeFilterViewController.swift */; };
 		ADB06C6A2BF5F5A0001F46BE /* RecipeFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB06C692BF5F5A0001F46BE /* RecipeFilterTableViewController.swift */; };
@@ -37,6 +38,7 @@
 		AD7D7CBA2BE603C70052FB3B /* BottomNavigationTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavigationTabBarController.swift; sourceTree = "<group>"; };
 		AD7D7CBC2BE620120052FB3B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		AD7D7CC02BE6212B0052FB3B /* InitialSignInOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSignInOptionsViewController.swift; sourceTree = "<group>"; };
+		AD84F66E2BF9667A0020217A /* CocktailDBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDBClient.swift; sourceTree = "<group>"; };
 		ADB06C632BF5F44C001F46BE /* FoodRecipeFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecipeFilterViewController.swift; sourceTree = "<group>"; };
 		ADB06C672BF5F4E3001F46BE /* DrinkRecipeFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkRecipeFilterViewController.swift; sourceTree = "<group>"; };
 		ADB06C692BF5F5A0001F46BE /* RecipeFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFilterTableViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				AD84F66D2BF963080020217A /* Tab Bar */,
 				AD9651B72BECAB7700BAD2FF /* Authentication */,
 				AD9651B82BECAB8D00BAD2FF /* Generate */,
+				AD84F66E2BF9667A0020217A /* CocktailDBClient.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				ADB06C6C2BF5F5E9001F46BE /* GeneratedDrinkViewController.swift in Sources */,
 				AD7D7CBB2BE603C70052FB3B /* BottomNavigationTabBarController.swift in Sources */,
 				AD7D7CC12BE6212B0052FB3B /* InitialSignInOptionsViewController.swift in Sources */,
+				AD84F66F2BF9667A0020217A /* CocktailDBClient.swift in Sources */,
 				AD7D7CBD2BE620120052FB3B /* SignInViewController.swift in Sources */,
 				AD72F63D2BDA908F0056326F /* HomeViewController.swift in Sources */,
 				ADB06C682BF5F4E3001F46BE /* DrinkRecipeFilterViewController.swift in Sources */,

@@ -7,31 +7,72 @@
 
 import UIKit
 
-class RecipeFilterTableViewController: UITableViewController {
+class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegate {
     
-    var urlString = "https://www.thecocktaildb.com/api/json/v1/1/list.php?"
+    var filterType: CocktailDBClient.FilterType!
+    var filters: [String] = []
+    var filteredFilters: [String] = []
+    var selectedFilters: [String] = []
+    var isMultiSelect: Bool = false
+    
+    let searchBar = UISearchBar()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
+        navigationItem.titleView = searchBar
+        fetchFilters()
+    }
+    
+    func fetchFilters() {
+        CocktailDBClient.shared.fetchFilters(type: filterType) { [weak self] filters in
+            DispatchQueue.main.async {
+                self?.filters = filters ?? []
+                self?.filteredFilters = self?.filters ?? []
+                self?.tableView.reloadData()
+            }
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            filteredFilters = filters
+        } else {
+            filteredFilters = filters.filter { $0.lowercased().contains(searchText.lowercased()) }
+        }
+        tableView.reloadData()
     }
     
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return filteredFilters.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FilterOptionCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FilterCell", for: indexPath)
+        cell.textLabel?.text = filteredFilters[indexPath.row]
+        cell.accessoryType = selectedFilters.contains(filteredFilters[indexPath.row]) ? .checkmark : .none
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedFilter = filteredFilters[indexPath.row]
+        if isMultiSelect {
+            if selectedFilters.contains(selectedFilter) {
+                selectedFilters.removeAll { $0 == selectedFilter }
+            } else if selectedFilters.count < 3 {
+                selectedFilters.append(selectedFilter)
+            }
+        } else {
+            selectedFilters = [selectedFilter]
+        }
+        tableView.reloadData()
     }
 
     /*
