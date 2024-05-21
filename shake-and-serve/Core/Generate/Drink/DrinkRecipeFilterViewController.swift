@@ -38,16 +38,39 @@ class DrinkRecipeFilterViewController: UIViewController {
         if let alcoholic = selectedAlcoholic {
             filters.append(("a", alcoholic))
         }
-        
-        fetchDrinksRecursively(filters: filters, index: 0, results: []) { [weak self] drinks in
-            guard let drinks = drinks, !drinks.isEmpty else {
-                // Handle no results
-                print("No drinks found")
-                return
+
+        if filters.isEmpty {
+            fetchRandomDrink()
+        } else {
+            fetchDrinksRecursively(filters: filters, index: 0, results: []) { [weak self] drinks in
+                guard let drinks = drinks, !drinks.isEmpty else {
+                    // Handle no results
+                    print("No drinks found with filters")
+                    return
+                }
+                let randomDrink = drinks.randomElement()
+                self?.displayGeneratedDrink(drink: randomDrink)
             }
-            let randomDrink = drinks.randomElement()
-            self?.displayGeneratedDrink(drink: randomDrink)
         }
+    }
+
+    func fetchRandomDrink() {
+        let urlStr = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+        guard let url = URL(string: urlStr) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                   let drinks = json["drinks"] as? [[String: Any]] {
+                    let randomDrink = drinks.randomElement()
+                    self.displayGeneratedDrink(drink: randomDrink)
+                }
+            } catch {
+                print("Error fetching random drink")
+            }
+        }.resume()
     }
     
     func fetchDrinksRecursively(filters: [(String, String)], index: Int, results: [[String: Any]], completion: @escaping ([[String: Any]]?) -> Void) {
