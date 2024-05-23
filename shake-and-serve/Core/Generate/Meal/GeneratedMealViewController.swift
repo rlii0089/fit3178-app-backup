@@ -48,6 +48,14 @@ class GeneratedMealViewController: UIViewController {
             mealNameLabel.text = mealName
         }
         
+        if let mealCategory = meal["strCategory"] as? String {
+            mealCategoryLabel.text = mealCategory
+        }
+        
+        if let mealArea = meal["strArea"] as? String {
+            mealAreaLabel.text = mealArea
+        }
+        
         if let mealImageURL = meal["strMealThumb"] as? String, let url = URL(string: mealImageURL) {
             // Load image asynchronously
             URLSession.shared.dataTask(with: url) { data, response, error in

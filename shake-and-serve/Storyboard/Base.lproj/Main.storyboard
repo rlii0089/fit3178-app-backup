@@ -583,6 +583,7 @@
                     <navigationItem key="navigationItem" id="tJx-9Y-xei"/>
                     <connections>
                         <outlet property="drinkAlcoholicLabel" destination="SzP-2n-jfg" id="7hg-tg-8lp"/>
+                        <outlet property="drinkGlassLabel" destination="4MH-cC-bxq" id="vdW-zH-6Za"/>
                         <outlet property="drinkImageView" destination="UjW-dK-f3e" id="arG-Bo-fas"/>
                         <outlet property="drinkNameLabel" destination="Lgk-8E-SIu" id="Qk0-CK-3Mf"/>
                     </connections>

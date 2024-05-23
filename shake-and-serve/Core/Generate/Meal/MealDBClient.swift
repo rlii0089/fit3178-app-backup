@@ -45,7 +45,7 @@ class MealDBClient {
                         }
                     case .ingredient:
                         if let ingredients = json["meals"] as? [[String: String]] {
-                            let ingredientNames = ingredients.compactMap { $0["strIngredient"] }
+                            let ingredientNames = ingredients.compactMap { $0["strIngredient"]}
                             completion(ingredientNames.sorted())
                         }
                     }

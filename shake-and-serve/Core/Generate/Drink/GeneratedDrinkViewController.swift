@@ -14,6 +14,7 @@ class GeneratedDrinkViewController: UIViewController {
     @IBOutlet weak var drinkImageView: UIImageView!
     @IBOutlet weak var drinkNameLabel: UILabel!
     @IBOutlet weak var drinkAlcoholicLabel: UILabel!
+    @IBOutlet weak var drinkGlassLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,10 @@ class GeneratedDrinkViewController: UIViewController {
         
         if let drinkAlcoholic = drink["strAlcoholic"] as? String {
             drinkAlcoholicLabel.text = drinkAlcoholic
+        }
+        
+        if let drinkGlass = drink["strGlass"] as? String {
+            drinkGlassLabel.text = drinkGlass
         }
         
         if let drinkImageURL = drink["strDrinkThumb"] as? String, let url = URL(string: drinkImageURL) {
