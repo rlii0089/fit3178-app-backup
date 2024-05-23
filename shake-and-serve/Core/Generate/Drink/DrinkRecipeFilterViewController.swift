@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreMotion
 
 class DrinkRecipeFilterViewController: UIViewController {
     
@@ -13,6 +14,9 @@ class DrinkRecipeFilterViewController: UIViewController {
     var selectedGlass: String?
     var selectedIngredients: [String] = []
     var selectedAlcoholic: String?
+    
+    let motionManager = CMMotionManager()
+    var shakeThreshold = 2.0
     
     @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet weak var glassButton: UIButton!
@@ -22,6 +26,24 @@ class DrinkRecipeFilterViewController: UIViewController {
     
     @IBAction func generateDrinkButtonPressed(_ sender: Any) {
         fetchFilteredDrinks()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        motionManager.stopAccelerometerUpdates()
+    }
+
+    func setupShakeDetection() {
+        if motionManager.isAccelerometerAvailable {
+            motionManager.accelerometerUpdateInterval = 0.2
+            motionManager.startAccelerometerUpdates(to: .main) { (data, error) in
+                guard let data = data else { return }
+                let acceleration = data.acceleration
+                if (fabs(acceleration.x) > self.shakeThreshold || fabs(acceleration.y) > self.shakeThreshold || fabs(acceleration.z) > self.shakeThreshold) {
+                    self.fetchFilteredDrinks()
+                }
+            }
+        }
     }
     
     func fetchFilteredDrinks() {

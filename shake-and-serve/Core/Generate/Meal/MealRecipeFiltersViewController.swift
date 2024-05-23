@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import CoreMotion
 
 class MealRecipeFiltersViewController: UIViewController {
     var selectedCategory: String?
     var selectedArea: String?
     var selectedIngredients: [String] = []
+    
+    let motionManager = CMMotionManager()
+    var shakeThreshold = 2.0
 
     @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet weak var areaButton: UIButton!
@@ -19,6 +23,24 @@ class MealRecipeFiltersViewController: UIViewController {
     
     @IBAction func generateMealButtonPressed(_ sender: Any) {
         fetchFilteredMeals()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        motionManager.stopAccelerometerUpdates()
+    }
+
+    func setupShakeDetection() {
+        if motionManager.isAccelerometerAvailable {
+            motionManager.accelerometerUpdateInterval = 0.2
+            motionManager.startAccelerometerUpdates(to: .main) { (data, error) in
+                guard let data = data else { return }
+                let acceleration = data.acceleration
+                if (fabs(acceleration.x) > self.shakeThreshold || fabs(acceleration.y) > self.shakeThreshold || fabs(acceleration.z) > self.shakeThreshold) {
+                    self.fetchFilteredMeals()
+                }
+            }
+        }
     }
     
     func fetchFilteredMeals() {
