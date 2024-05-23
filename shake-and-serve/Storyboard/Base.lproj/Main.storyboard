@@ -183,7 +183,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5EC-j8-glZ">
                                 <rect key="frame" x="16" y="103" width="361" height="302.33333333333331"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apply Filters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdU-sR-Ym1">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to generate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdU-sR-Ym1">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="38.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                         <nil key="textColor"/>
@@ -237,7 +237,7 @@
                                             <constraint firstAttribute="height" constant="50" id="Y2R-Oa-wVq"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Alcoholic" imagePadding="8" cornerStyle="capsule">
+                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Alcohol" imagePadding="8" cornerStyle="capsule">
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
@@ -247,34 +247,49 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOz-6d-uds">
-                                <rect key="frame" x="16" y="703" width="361" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="PIG-4c-YBw"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Generate Drink" cornerStyle="capsule"/>
-                                <connections>
-                                    <action selector="generateDrinkButtonPressed:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="QRf-PT-Gg3"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="X67-2g-cVw">
+                                <rect key="frame" x="16" y="666.66666666666663" width="361" height="86.333333333333371"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVs-rn-D64">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOz-6d-uds">
+                                        <rect key="frame" x="0.0" y="36.333333333333371" width="361" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="BHb-K1-lQq"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Tap to generate drink" cornerStyle="capsule"/>
+                                        <connections>
+                                            <action selector="generateDrinkButtonPressed:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="QRf-PT-Gg3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vMH-yr-5xG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="X67-2g-cVw" firstAttribute="leading" secondItem="vMH-yr-5xG" secondAttribute="leading" constant="16" id="I2M-Gf-iit"/>
                             <constraint firstItem="vMH-yr-5xG" firstAttribute="trailing" secondItem="5EC-j8-glZ" secondAttribute="trailing" constant="16" id="Jc1-qA-awq"/>
-                            <constraint firstItem="uOz-6d-uds" firstAttribute="leading" secondItem="vMH-yr-5xG" secondAttribute="leading" constant="16" id="K21-jJ-POG"/>
-                            <constraint firstItem="vMH-yr-5xG" firstAttribute="bottom" secondItem="uOz-6d-uds" secondAttribute="bottom" constant="16" id="Xwk-vJ-fJk"/>
-                            <constraint firstItem="vMH-yr-5xG" firstAttribute="trailing" secondItem="uOz-6d-uds" secondAttribute="trailing" constant="16" id="lZG-SR-Yta"/>
+                            <constraint firstItem="vMH-yr-5xG" firstAttribute="trailing" secondItem="X67-2g-cVw" secondAttribute="trailing" constant="16" id="ny4-Du-f3b"/>
                             <constraint firstItem="5EC-j8-glZ" firstAttribute="top" secondItem="vMH-yr-5xG" secondAttribute="top" id="opC-af-I2R"/>
                             <constraint firstItem="5EC-j8-glZ" firstAttribute="leading" secondItem="vMH-yr-5xG" secondAttribute="leading" constant="16" id="qlM-YN-snB"/>
+                            <constraint firstItem="vMH-yr-5xG" firstAttribute="bottom" secondItem="X67-2g-cVw" secondAttribute="bottom" constant="16" id="rie-4x-vw1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="[DRINK FILTERS]" id="iS7-B1-SWV">
+                    <navigationItem key="navigationItem" title="Apply Filters" id="iS7-B1-SWV">
                         <barButtonItem key="backBarButtonItem" title=" " id="e5H-y0-YUt"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="alcoholicButton" destination="vqY-0z-RZm" id="yTx-97-dpt"/>
+                        <outlet property="categoryButton" destination="T8e-Hu-aSf" id="0bh-cV-PR7"/>
                         <outlet property="generateDrinkButton" destination="uOz-6d-uds" id="GJG-DF-pi8"/>
+                        <outlet property="glassButton" destination="qaT-5X-axY" id="lMG-JO-891"/>
+                        <outlet property="ingredientButton" destination="f6z-cU-upF" id="F1c-uh-2gI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bj1-UU-Y3h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

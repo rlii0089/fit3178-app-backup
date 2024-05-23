@@ -19,8 +19,25 @@ class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.delegate = self
-        navigationItem.titleView = searchBar
+        
+        switch isMultiSelect {
+        case true:
+            navigationItem.title = "Select up to 3 items"
+        case false:
+            navigationItem.title = "Select 1 item"
+        }
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.showsCancelButton = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        navigationItem.searchController = searchController
+        // Ensure the search bar is always visible.
+        navigationItem.hidesSearchBarWhenScrolling = false
+        
+
         fetchFilters()
     }
     

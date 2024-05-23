@@ -14,6 +14,10 @@ class DrinkRecipeFilterViewController: UIViewController {
     var selectedIngredients: [String] = []
     var selectedAlcoholic: String?
     
+    @IBOutlet weak var categoryButton: UIButton!
+    @IBOutlet weak var glassButton: UIButton!
+    @IBOutlet weak var ingredientButton: UIButton!
+    @IBOutlet weak var alcoholicButton: UIButton!
     @IBOutlet weak var generateDrinkButton: UIButton!
     
     @IBAction func generateDrinkButtonPressed(_ sender: Any) {
@@ -143,17 +147,30 @@ class DrinkRecipeFilterViewController: UIViewController {
         }
     }
     
+    
+    func updateButtonTitle(button: UIButton, title: String, selectedItems: [String]) {
+        if selectedItems.isEmpty {
+            button.setTitle(title, for: .normal)
+        } else {
+            button.setTitle(selectedItems.joined(separator: ", "), for: .normal)
+        }
+    }
+    
     @IBAction func unwindToDrinkRecipeFilter(segue: UIStoryboardSegue) {
         if let sourceVC = segue.source as? RecipeFilterTableViewController {
             switch sourceVC.filterType {
             case .category:
                 selectedCategory = sourceVC.selectedFilters.first
+                updateButtonTitle(button: categoryButton, title: "Category", selectedItems: [selectedCategory].compactMap { $0 })
             case .glass:
                 selectedGlass = sourceVC.selectedFilters.first
+                updateButtonTitle(button: glassButton, title: "Glass", selectedItems: [selectedGlass].compactMap { $0 })
             case .ingredient:
                 selectedIngredients = sourceVC.selectedFilters
+                updateButtonTitle(button: ingredientButton, title: "Ingredients", selectedItems: selectedIngredients)
             case .alcoholic:
                 selectedAlcoholic = sourceVC.selectedFilters.first
+                updateButtonTitle(button: alcoholicButton, title: "Alcohol", selectedItems: [selectedAlcoholic].compactMap { $0 })
             default:
                 break
             }
