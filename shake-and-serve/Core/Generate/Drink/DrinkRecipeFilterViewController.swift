@@ -21,7 +21,6 @@ class DrinkRecipeFilterViewController: UIViewController {
     @IBOutlet weak var generateDrinkButton: UIButton!
     
     @IBAction func generateDrinkButtonPressed(_ sender: Any) {
-        // Combine filters and fetch drink recipe
         fetchFilteredDrinks()
     }
     

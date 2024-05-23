@@ -1,5 +1,5 @@
 //
-//  CocktailDBClient.swift
+//  MealDBClient.swift
 //  shake-and-serve
 //
 //  Created by Raymond Ruimin Li.
@@ -7,16 +7,15 @@
 
 import Foundation
 
-class CocktailDBClient {
-    static let shared = CocktailDBClient()
-    private let baseURL = "https://www.thecocktaildb.com/api/json/v1/1"
+class MealDBClient {
+    static let shared = MealDBClient()
+    private let baseURL = "https://www.themealdb.com/api/json/v1/1"
     private let session = URLSession.shared
     
     enum FilterType: String {
         case category = "list.php?c=list"
-        case glass = "list.php?g=list"
+        case area = "list.php?a=list"
         case ingredient = "list.php?i=list"
-        case alcoholic = "list.php?a=list"
     }
     
     func fetchFilters(type: FilterType, completion: @escaping ([String]?) -> Void) {
@@ -35,24 +34,19 @@ class CocktailDBClient {
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                     switch type {
                     case .category:
-                        if let categories = json["drinks"] as? [[String: String]] {
+                        if let categories = json["meals"] as? [[String: String]] {
                             let categoryNames = categories.compactMap { $0["strCategory"] }
                             completion(categoryNames.sorted())
                         }
-                    case .glass:
-                        if let glasses = json["drinks"] as? [[String: String]] {
-                            let glassNames = glasses.compactMap { $0["strGlass"] }
-                            completion(glassNames.sorted())
+                    case .area:
+                        if let areas = json["meals"] as? [[String: String]] {
+                            let areaNames = areas.compactMap { $0["strArea"] }
+                            completion(areaNames.sorted())
                         }
                     case .ingredient:
-                        if let ingredients = json["drinks"] as? [[String: String]] {
-                            let ingredientNames = ingredients.compactMap { $0["strIngredient1"] }
+                        if let ingredients = json["meals"] as? [[String: String]] {
+                            let ingredientNames = ingredients.compactMap { $0["strIngredient"] }
                             completion(ingredientNames.sorted())
-                        }
-                    case .alcoholic:
-                        if let alcoholics = json["drinks"] as? [[String: String]] {
-                            let alcoholicNames = alcoholics.compactMap { $0["strAlcoholic"] }
-                            completion(alcoholicNames.sorted())
                         }
                     }
                 } else {

@@ -2,7 +2,7 @@
 //  GeneratedDrinkViewController.swift
 //  shake-and-serve
 //
-//  Created by Raymond Ruimin Li on 16/5/2024.
+//  Created by Raymond Ruimin Li.
 //
 
 import UIKit
@@ -10,7 +10,11 @@ import UIKit
 class GeneratedDrinkViewController: UIViewController {
     
     var drink: [String: Any]?
-
+    
+    @IBOutlet weak var drinkImageView: UIImageView!
+    @IBOutlet weak var drinkNameLabel: UILabel!
+    @IBOutlet weak var drinkAlcoholicLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let drink = drink {
@@ -18,10 +22,6 @@ class GeneratedDrinkViewController: UIViewController {
             fetchFullDrink(drinkID: drink["idDrink"] as! String)
         }
     }
-    
-    @IBOutlet weak var drinkImageView: UIImageView!
-    @IBOutlet weak var drinkNameLabel: UILabel!
-    @IBOutlet weak var drinkAlcoholicLabel: UILabel!
     
     func fetchFullDrink(drinkID: String) {
         let url = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=\(drinkID)")!
@@ -62,13 +62,4 @@ class GeneratedDrinkViewController: UIViewController {
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
