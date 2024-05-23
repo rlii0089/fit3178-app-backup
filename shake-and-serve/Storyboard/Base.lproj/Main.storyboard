@@ -280,8 +280,8 @@
                                             <constraint firstAttribute="height" constant="50" id="tXR-be-BLz"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="leading" title="Create Shopping List" imagePadding="8" cornerStyle="capsule">
-                                            <imageReference key="image" image="cart.fill" catalog="system" symbolScale="default"/>
+                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="leading" title="Save Recipe" imagePadding="8" cornerStyle="capsule">
+                                            <imageReference key="image" image="heart.fill" catalog="system" symbolScale="default"/>
                                         </buttonConfiguration>
                                     </button>
                                 </subviews>
@@ -306,6 +306,7 @@
                         <outlet property="mealCategoryLabel" destination="vsN-Su-6as" id="Z8L-ks-3GU"/>
                         <outlet property="mealImageView" destination="wZu-GX-faH" id="fBm-uy-S5U"/>
                         <outlet property="mealNameLabel" destination="BX7-kk-UHZ" id="1UQ-yQ-SGa"/>
+                        <outlet property="mealSaveRecipeButton" destination="Qkt-ty-dY2" id="Gxe-FK-JST"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53Z-kt-fBD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -337,7 +338,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="5Qp-GO-LGE">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="R9a-zu-bc1">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="jR0-B4-zl0">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="jR0-B4-zl0">
                                 <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -559,8 +560,8 @@
                                             <constraint firstAttribute="height" constant="50" id="uwZ-b2-DKk"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="leading" title="Create Shopping List" imagePadding="8" cornerStyle="capsule">
-                                            <imageReference key="image" image="cart.fill" catalog="system" symbolScale="default"/>
+                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="leading" title="Save Recipe" imagePadding="8" cornerStyle="capsule">
+                                            <imageReference key="image" image="heart.fill" catalog="system" symbolScale="default"/>
                                         </buttonConfiguration>
                                     </button>
                                 </subviews>
@@ -586,6 +587,7 @@
                         <outlet property="drinkGlassLabel" destination="4MH-cC-bxq" id="vdW-zH-6Za"/>
                         <outlet property="drinkImageView" destination="UjW-dK-f3e" id="arG-Bo-fas"/>
                         <outlet property="drinkNameLabel" destination="Lgk-8E-SIu" id="Qk0-CK-3Mf"/>
+                        <outlet property="drinkSaveRecipeButton" destination="KGf-5F-Ugt" id="Lsm-Ct-14l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9IG-kK-2Do" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1073,9 +1075,9 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark.fill" catalog="system" width="110" height="128"/>
-        <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="chevron.down.circle.fill" catalog="system" width="128" height="123"/>
         <image name="fork.knife" catalog="system" width="94" height="128"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>

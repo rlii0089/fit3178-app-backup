@@ -16,6 +16,8 @@ class GeneratedMealViewController: UIViewController {
     @IBOutlet weak var mealCategoryLabel: UILabel!
     @IBOutlet weak var mealAreaLabel: UILabel!
     
+    @IBOutlet weak var mealSaveRecipeButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let meal = meal {

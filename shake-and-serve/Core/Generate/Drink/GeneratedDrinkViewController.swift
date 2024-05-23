@@ -16,6 +16,8 @@ class GeneratedDrinkViewController: UIViewController {
     @IBOutlet weak var drinkAlcoholicLabel: UILabel!
     @IBOutlet weak var drinkGlassLabel: UILabel!
     
+    @IBOutlet weak var drinkSaveRecipeButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let drink = drink {
