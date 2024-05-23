@@ -274,6 +274,12 @@
                             <constraint firstItem="oDn-m4-Kvc" firstAttribute="bottom" secondItem="gZf-FK-bxZ" secondAttribute="bottom" constant="64" id="zTR-Ef-1RE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="foodAreaLabel" destination="xVk-ko-2ch" id="shE-pt-rZD"/>
+                        <outlet property="foodCategoryLabel" destination="vsN-Su-6as" id="Z8L-ks-3GU"/>
+                        <outlet property="foodImageView" destination="wZu-GX-faH" id="fBm-uy-S5U"/>
+                        <outlet property="foodNameLabel" destination="BX7-kk-UHZ" id="1UQ-yQ-SGa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53Z-kt-fBD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
