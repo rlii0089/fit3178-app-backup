@@ -21,6 +21,11 @@ class MealRecipeFiltersViewController: UIViewController {
     @IBOutlet weak var ingredientButton: UIButton!
     @IBOutlet weak var generateButton: UIButton!
     
+    @IBOutlet weak var selectedCategoryLabel: UILabel!
+    @IBOutlet weak var selectedAreaLabel: UILabel!
+    @IBOutlet weak var selectedIngredientsLabel: UILabel!
+    
+    
     @IBAction func generateMealButtonPressed(_ sender: Any) {
         fetchFilteredMeals()
     }

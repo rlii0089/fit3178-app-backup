@@ -15,6 +15,7 @@ class GeneratedMealViewController: UIViewController {
     @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var mealCategoryLabel: UILabel!
     @IBOutlet weak var mealAreaLabel: UILabel!
+    @IBOutlet weak var mealIngredientsTextView: UITextView!
     
     @IBOutlet weak var mealSaveRecipeButton: UIButton!
     
@@ -69,4 +70,18 @@ class GeneratedMealViewController: UIViewController {
         }
     }
     
+    @IBAction func saveRecipeButtonPressed(_ sender: Any) {
+        guard let meal = meal else { return }
+        let id = meal["idMeal"] as? String ?? ""
+        let name = meal["strMeal"] as? String ?? ""
+        let imageURL = meal["strMealThumb"] as? String ?? ""
+        let instructions = meal["strInstructions"] as? String ?? ""
+
+        let recipe = Recipe(id: id, name: name, imageURL: imageURL, instructions: instructions)
+        RecipeStorage.shared.saveRecipe(recipe)
+        
+        let alert = UIAlertController(title: "Saved", message: "The meal recipe has been saved.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
 }

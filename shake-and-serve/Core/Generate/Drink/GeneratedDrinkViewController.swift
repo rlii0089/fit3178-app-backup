@@ -15,6 +15,7 @@ class GeneratedDrinkViewController: UIViewController {
     @IBOutlet weak var drinkNameLabel: UILabel!
     @IBOutlet weak var drinkAlcoholicLabel: UILabel!
     @IBOutlet weak var drinkGlassLabel: UILabel!
+    @IBOutlet weak var drinkIngredientsTextView: UITextView!
     
     @IBOutlet weak var drinkSaveRecipeButton: UIButton!
     
@@ -69,4 +70,18 @@ class GeneratedDrinkViewController: UIViewController {
         }
     }
     
+    @IBAction func saveRecipeButtonPressed(_ sender: Any) {
+        guard let drink = drink else { return }
+        let id = drink["idDrink"] as? String ?? ""
+        let name = drink["strDrink"] as? String ?? ""
+        let imageURL = drink["strDrinkThumb"] as? String ?? ""
+        let instructions = drink["strInstructions"] as? String ?? ""
+
+        let recipe = Recipe(id: id, name: name, imageURL: imageURL, instructions: instructions)
+        RecipeStorage.shared.saveRecipe(recipe)
+        
+        let alert = UIAlertController(title: "Saved", message: "The drink recipe has been saved.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
 }
