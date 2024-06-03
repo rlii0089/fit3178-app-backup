@@ -1,5 +1,5 @@
 //
-//  DrinkRecipeFilterViewController.swift
+//  DrinkRecipeFiltersViewController.swift
 //  shake-and-serve
 //
 //  Created by Raymond Ruimin Li on 16/5/2024.
@@ -8,7 +8,7 @@
 import UIKit
 import CoreMotion
 
-class DrinkRecipeFilterViewController: UIViewController {
+class DrinkRecipeFiltersViewController: UIViewController {
     
     var selectedCategory: String?
     var selectedGlass: String?
@@ -157,7 +157,7 @@ class DrinkRecipeFilterViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVC = segue.destination as? RecipeFilterTableViewController {
+        if let destinationVC = segue.destination as? DrinkFilterListTableViewController {
             if segue.identifier == "CategorySegue" {
                 destinationVC.filterType = .category
                 destinationVC.isMultiSelect = false
@@ -184,7 +184,7 @@ class DrinkRecipeFilterViewController: UIViewController {
     }
     
     @IBAction func unwindToDrinkRecipeFilter(segue: UIStoryboardSegue) {
-        if let sourceVC = segue.source as? RecipeFilterTableViewController {
+        if let sourceVC = segue.source as? DrinkFilterListTableViewController {
             switch sourceVC.filterType {
             case .category:
                 selectedCategory = sourceVC.selectedFilters.first

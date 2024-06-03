@@ -1,5 +1,5 @@
 //
-//  RecipeFilterTableViewController.swift
+//  DrinkFilterListTableViewController.swift
 //  shake-and-serve
 //
 //  Created by Raymond Ruimin Li on 16/5/2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecipeFilterTableViewController: UITableViewController, UISearchBarDelegate {
+class DrinkFilterListTableViewController: UITableViewController, UISearchBarDelegate {
     
     var filterType: CocktailDBClient.FilterType!
     var filters: [String] = []

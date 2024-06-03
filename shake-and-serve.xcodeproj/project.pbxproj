@@ -25,8 +25,8 @@
 		ADAD40032C0001A6008CEA1E /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAD40022C0001A6008CEA1E /* RecipeDetailViewController.swift */; };
 		ADAD40052C0007C9008CEA1E /* RecipeCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAD40042C0007C9008CEA1E /* RecipeCellCollectionViewCell.swift */; };
 		ADB06C642BF5F44C001F46BE /* MealRecipeFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB06C632BF5F44C001F46BE /* MealRecipeFiltersViewController.swift */; };
-		ADB06C682BF5F4E3001F46BE /* DrinkRecipeFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB06C672BF5F4E3001F46BE /* DrinkRecipeFilterViewController.swift */; };
-		ADB06C6A2BF5F5A0001F46BE /* RecipeFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB06C692BF5F5A0001F46BE /* RecipeFilterTableViewController.swift */; };
+		ADB06C682BF5F4E3001F46BE /* DrinkRecipeFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB06C672BF5F4E3001F46BE /* DrinkRecipeFiltersViewController.swift */; };
+		ADB06C6A2BF5F5A0001F46BE /* DrinkFilterListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB06C692BF5F5A0001F46BE /* DrinkFilterListTableViewController.swift */; };
 		ADB06C6C2BF5F5E9001F46BE /* GeneratedDrinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB06C6B2BF5F5E9001F46BE /* GeneratedDrinkViewController.swift */; };
 		ADD79EB32BDA0477006CFE06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD79EB22BDA0477006CFE06 /* AppDelegate.swift */; };
 		ADD79EB52BDA0477006CFE06 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD79EB42BDA0477006CFE06 /* SceneDelegate.swift */; };
@@ -52,8 +52,8 @@
 		ADAD40022C0001A6008CEA1E /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		ADAD40042C0007C9008CEA1E /* RecipeCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		ADB06C632BF5F44C001F46BE /* MealRecipeFiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRecipeFiltersViewController.swift; sourceTree = "<group>"; };
-		ADB06C672BF5F4E3001F46BE /* DrinkRecipeFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkRecipeFilterViewController.swift; sourceTree = "<group>"; };
-		ADB06C692BF5F5A0001F46BE /* RecipeFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFilterTableViewController.swift; sourceTree = "<group>"; };
+		ADB06C672BF5F4E3001F46BE /* DrinkRecipeFiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkRecipeFiltersViewController.swift; sourceTree = "<group>"; };
+		ADB06C692BF5F5A0001F46BE /* DrinkFilterListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkFilterListTableViewController.swift; sourceTree = "<group>"; };
 		ADB06C6B2BF5F5E9001F46BE /* GeneratedDrinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedDrinkViewController.swift; sourceTree = "<group>"; };
 		ADD79EAF2BDA0477006CFE06 /* shake-and-serve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "shake-and-serve.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADD79EB22BDA0477006CFE06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -163,8 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				AD84F66E2BF9667A0020217A /* CocktailDBClient.swift */,
-				ADB06C672BF5F4E3001F46BE /* DrinkRecipeFilterViewController.swift */,
-				ADB06C692BF5F5A0001F46BE /* RecipeFilterTableViewController.swift */,
+				ADB06C672BF5F4E3001F46BE /* DrinkRecipeFiltersViewController.swift */,
+				ADB06C692BF5F5A0001F46BE /* DrinkFilterListTableViewController.swift */,
 				ADB06C6B2BF5F5E9001F46BE /* GeneratedDrinkViewController.swift */,
 			);
 			path = Drink;
@@ -292,9 +292,9 @@
 				AD7D7CBD2BE620120052FB3B /* SignInViewController.swift in Sources */,
 				AD72F63D2BDA908F0056326F /* HomeViewController.swift in Sources */,
 				AD9302272BFF2B8000079B57 /* MealFilterListTableViewController.swift in Sources */,
-				ADB06C682BF5F4E3001F46BE /* DrinkRecipeFilterViewController.swift in Sources */,
+				ADB06C682BF5F4E3001F46BE /* DrinkRecipeFiltersViewController.swift in Sources */,
 				ADD79EB52BDA0477006CFE06 /* SceneDelegate.swift in Sources */,
-				ADB06C6A2BF5F5A0001F46BE /* RecipeFilterTableViewController.swift in Sources */,
+				ADB06C6A2BF5F5A0001F46BE /* DrinkFilterListTableViewController.swift in Sources */,
 				ADAD40052C0007C9008CEA1E /* RecipeCellCollectionViewCell.swift in Sources */,
 				ADB06C642BF5F44C001F46BE /* MealRecipeFiltersViewController.swift in Sources */,
 				AD72F6452BDA937A0056326F /* AccountViewController.swift in Sources */,

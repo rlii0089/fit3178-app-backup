@@ -365,10 +365,10 @@
             </objects>
             <point key="canvasLocation" x="6688" y="724"/>
         </scene>
-        <!--Drink Recipe Filter-->
+        <!--Drink Recipe Filters-->
         <scene sceneID="oZg-Yh-XAU">
             <objects>
-                <viewController title="Drink Recipe Filter" id="TOf-Ig-MJ8" customClass="DrinkRecipeFilterViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Drink Recipe Filters" id="TOf-Ig-MJ8" customClass="DrinkRecipeFiltersViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Dc-8n-zab">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -621,10 +621,10 @@
             </objects>
             <point key="canvasLocation" x="6687.7862595419847" y="1400"/>
         </scene>
-        <!--Recipe Filter-->
+        <!--Drink Filter List-->
         <scene sceneID="0nM-70-gpr">
             <objects>
-                <tableViewController title="Recipe Filter" id="GYH-0d-pbO" customClass="RecipeFilterTableViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Drink Filter List" id="GYH-0d-pbO" customClass="DrinkFilterListTableViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="WZo-cg-k6n">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1171,7 +1171,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="8De-M5-ZYv"/>
         <segue reference="7Gh-aX-WZQ"/>
-        <segue reference="do8-bv-yq7"/>
+        <segue reference="Cnc-Mq-oNG"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark.fill" catalog="system" width="110" height="128"/>
