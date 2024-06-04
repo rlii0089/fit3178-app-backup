@@ -10,10 +10,13 @@ import CoreMotion
 
 class DrinkRecipeFiltersViewController: UIViewController {
     
-    var selectedCategory: String?
-    var selectedGlass: String?
+    var selectedCategory: [String] = []
+    var selectedGlass: [String] = []
     var selectedIngredients: [String] = []
-    var selectedAlcoholic: String?
+    var selectedAlcoholic: [String] = []
+
+    var filtersToQuery: [(String, String)] = []
+    var listOfDrinkIDs: [String] = []
     
     let motionManager = CMMotionManager()
     var shakeThreshold = 2.0
@@ -31,7 +34,7 @@ class DrinkRecipeFiltersViewController: UIViewController {
     
     
     @IBAction func generateDrinkButtonPressed(_ sender: Any) {
-        fetchFilteredDrinks()
+        generateDrink()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -46,135 +49,131 @@ class DrinkRecipeFiltersViewController: UIViewController {
                 guard let data = data else { return }
                 let acceleration = data.acceleration
                 if (fabs(acceleration.x) > self.shakeThreshold || fabs(acceleration.y) > self.shakeThreshold || fabs(acceleration.z) > self.shakeThreshold) {
-                    self.fetchFilteredDrinks()
+                    self.generateDrink()
                 }
             }
         }
     }
-    
-    func fetchFilteredDrinks() {
-        var filters: [(String, String)] = []
-        
-        if let category = selectedCategory {
-            filters.append(("c", category))
+
+    func generateDrink() {
+        filtersToQuery.removeAll()
+        listOfDrinkIDs.removeAll()
+
+        if !selectedCategory.isEmpty {
+            for category in selectedCategory {
+                filtersToQuery.append(("c", category))
+            }
         }
-        if let glass = selectedGlass {
-            filters.append(("g", glass))
+        if !selectedGlass.isEmpty {
+            for glass in selectedGlass {
+                filtersToQuery.append(("g", glass))
+            }
         }
         if !selectedIngredients.isEmpty {
             for ingredient in selectedIngredients {
-                filters.append(("i", ingredient))
+                filtersToQuery.append(("i", ingredient))
             }
         }
-        if let alcoholic = selectedAlcoholic {
-            filters.append(("a", alcoholic))
+        if !selectedAlcoholic.isEmpty {
+            for alcoholic in selectedAlcoholic {
+                filtersToQuery.append(("a", alcoholic))
+            }
         }
 
-        if filters.isEmpty {
-            fetchRandomDrink()
-        } else {
-            fetchDrinksRecursively(filters: filters, index: 0, results: []) { [weak self] drinks in
-                guard let drinks = drinks, !drinks.isEmpty else {
-                    // Handle no results
-                    print("No drinks found with filters")
-                    return
+        let dispatchGroup = DispatchGroup()
+
+        switch filtersToQuery.count {
+        case 0:
+            dispatchGroup.enter()
+            fetchDrinkIDByRandom {
+                dispatchGroup.leave()
+            }
+        case 1:
+            dispatchGroup.enter()
+            fetchDrinkIDByFilter(filter: filtersToQuery[0]) {
+                dispatchGroup.leave()
+            }
+        default:
+            for filter in filtersToQuery {
+                dispatchGroup.enter()
+                fetchDrinkIDByFilter(filter: filter) {
+                    dispatchGroup.leave()
                 }
-                let randomDrink = drinks.randomElement()
-                self?.displayGeneratedDrink(drink: randomDrink)
+
+                dispatchGroup.notify(queue: .main) {
+                    for drinkID in self.listOfDrinkIDs {
+                        if self.listOfDrinkIDs.filter({ $0 == drinkID }).count == 1 {
+                            self.listOfDrinkIDs.removeAll { $0 == drinkID }
+                        }
+                    }
+                }
             }
         }
-    }
 
-    func fetchRandomDrink() {
-        let urlStr = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
-        guard let url = URL(string: urlStr) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else { return }
+        dispatchGroup.notify(queue: .main) { // Wait until all network requests have completed
+            let uniqueListOfDrinkIDs = Set(self.listOfDrinkIDs)
+            let randomDrinkID = uniqueListOfDrinkIDs.randomElement()
+            self.displayGeneratedDrink(drinkID: randomDrinkID ?? "")
             
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                   let drinks = json["drinks"] as? [[String: Any]] {
-                    let randomDrink = drinks.randomElement()
-                    self.displayGeneratedDrink(drink: randomDrink)
-                }
-            } catch {
-                print("Error fetching random drink")
-            }
-        }.resume()
+        }
+
     }
-    
-    func fetchDrinksRecursively(filters: [(String, String)], index: Int, results: [[String: Any]], completion: @escaping ([[String: Any]]?) -> Void) {
-        if index >= filters.count {
-            completion(results)
-            return
-        }
-        
-        let filter = filters[index]
-        let urlStr = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?\(filter.0)=\(filter.1)"
-        guard let url = URL(string: urlStr) else {
-            completion(nil)
-            return
-        }
+
+    func fetchDrinkIDByRandom(completion: @escaping () -> Void) {
+        let url = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/random.php")!
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
-                completion(nil)
+                completion() // Call completion even if there's an error
                 return
             }
             
             do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                   let drinks = json["drinks"] as? [[String: Any]] {
-                    var combinedResults = results
-                    if !results.isEmpty {
-                        combinedResults = results.filter { drink in
-                            drinks.contains { $0["idDrink"] as? String == drink["idDrink"] as? String }
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    if let drinks = json["drinks"] as? [[String: Any]] {
+                        for drink in drinks {
+                            if let id = drink["drinks"] as? String {
+                                self.listOfDrinkIDs.append(id)
+                            }
                         }
-                    } else {
-                        combinedResults = drinks
                     }
-                    self.fetchDrinksRecursively(filters: filters, index: index + 1, results: combinedResults, completion: completion)
-                } else {
-                    completion(nil)
                 }
             } catch {
-                completion(nil)
+                print(error)
             }
+
+            completion() // Call completion when the task completes
         }.resume()
     }
-    
-    func displayGeneratedDrink(drink: [String: Any]?) {
-        guard let drink = drink else { return }
-        DispatchQueue.main.async {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let generatedDrinkVC = storyboard.instantiateViewController(withIdentifier: "GeneratedDrinkViewController") as? GeneratedDrinkViewController {
-                generatedDrinkVC.drink = drink
-                self.navigationController?.pushViewController(generatedDrinkVC, animated: true)
-            }
-        }
+
+
+    func fetchDrinkIDByFilter(filter: (String, String), completion: @escaping () -> Void) {
+        let url = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/filter.php?\(filter.0)=\(filter.1)")!
         
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVC = segue.destination as? DrinkFilterListTableViewController {
-            if segue.identifier == "CategorySegue" {
-                destinationVC.filterType = .category
-                destinationVC.isMultiSelect = false
-            } else if segue.identifier == "GlassSegue" {
-                destinationVC.filterType = .glass
-                destinationVC.isMultiSelect = false
-            } else if segue.identifier == "IngredientSegue" {
-                destinationVC.filterType = .ingredient
-                destinationVC.isMultiSelect = true
-            } else if segue.identifier == "AlcoholicSegue" {
-                destinationVC.filterType = .alcoholic
-                destinationVC.isMultiSelect = false
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                completion() // Call completion even if there's an error
+                return
             }
-        }
+            
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    if let drinks = json["drinks"] as? [[String: Any]] {
+                        for drink in drinks {
+                            if let id = drink["idDrink"] as? String {
+                                self.listOfDrinkIDs.append(id)
+                            }
+                        }
+                    }
+                }
+            } catch {
+                print(error)
+            }
+
+            completion() // Call completion when the task completes
+        }.resume()
     }
-    
-    
+
     func updateButtonTitle(button: UIButton, title: String, selectedItems: [String]) {
         if selectedItems.isEmpty {
             button.setTitle(title, for: .normal)
@@ -183,21 +182,57 @@ class DrinkRecipeFiltersViewController: UIViewController {
         }
     }
     
+    func displayGeneratedDrink(drinkID: String) {
+        guard !drinkID.isEmpty else {
+            print("No drink ID found")
+            return
+        }
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let generatedDrinkVC = storyboard.instantiateViewController(withIdentifier: "GeneratedDrinkViewController") as? GeneratedDrinkViewController {
+                generatedDrinkVC.selectedDrinkID = drinkID
+                self.navigationController?.pushViewController(generatedDrinkVC, animated: true)
+            }
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? DrinkFilterListTableViewController {
+            switch segue.identifier {
+            case "CategorySegue":
+                destinationVC.filterType = .category
+                destinationVC.isMultiSelect = false
+            case "GlassSegue":
+                destinationVC.filterType = .glass
+                destinationVC.isMultiSelect = false
+            case "IngredientSegue":
+                destinationVC.filterType = .ingredient
+                destinationVC.isMultiSelect = true
+            case "AlcoholicSegue":
+                destinationVC.filterType = .alcoholic
+                destinationVC.isMultiSelect = false
+            default:
+                break
+            }
+        }
+    }
+    
     @IBAction func unwindToDrinkRecipeFilter(segue: UIStoryboardSegue) {
         if let sourceVC = segue.source as? DrinkFilterListTableViewController {
             switch sourceVC.filterType {
             case .category:
-                selectedCategory = sourceVC.selectedFilters.first
-                updateButtonTitle(button: categoryButton, title: "Category", selectedItems: [selectedCategory].compactMap { $0 })
+                selectedCategory = sourceVC.selectedFilters
+                updateButtonTitle(button: categoryButton, title: "Category", selectedItems: selectedCategory)
             case .glass:
-                selectedGlass = sourceVC.selectedFilters.first
-                updateButtonTitle(button: glassButton, title: "Glass", selectedItems: [selectedGlass].compactMap { $0 })
+                selectedGlass = sourceVC.selectedFilters
+                updateButtonTitle(button: glassButton, title: "Glass", selectedItems: selectedGlass)
             case .ingredient:
                 selectedIngredients = sourceVC.selectedFilters
                 updateButtonTitle(button: ingredientButton, title: "Ingredients", selectedItems: selectedIngredients)
             case .alcoholic:
-                selectedAlcoholic = sourceVC.selectedFilters.first
-                updateButtonTitle(button: alcoholicButton, title: "Alcohol", selectedItems: [selectedAlcoholic].compactMap { $0 })
+                selectedAlcoholic = sourceVC.selectedFilters
+                updateButtonTitle(button: alcoholicButton, title: "Alcohol", selectedItems: selectedAlcoholic)
             default:
                 break
             }

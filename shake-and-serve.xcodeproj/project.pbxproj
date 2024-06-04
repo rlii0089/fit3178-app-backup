@@ -34,6 +34,8 @@
 		ADD79EBC2BDA0479006CFE06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADD79EBB2BDA0479006CFE06 /* Assets.xcassets */; };
 		ADD79EBF2BDA0479006CFE06 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = ADD79EBE2BDA0479006CFE06 /* Base */; };
 		ADDED7392BDB2DA5001B4A19 /* SavedRecipesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDED7382BDB2DA5001B4A19 /* SavedRecipesCollectionViewController.swift */; };
+		ADE6D02F2C0D8B8000D63A3F /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE6D02E2C0D8B8000D63A3F /* Meal.swift */; };
+		ADE6D0312C0D8BCE00D63A3F /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE6D0302C0D8BCE00D63A3F /* Drink.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		ADD79EBE2BDA0479006CFE06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADD79EC02BDA0479006CFE06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADDED7382BDB2DA5001B4A19 /* SavedRecipesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipesCollectionViewController.swift; sourceTree = "<group>"; };
+		ADE6D02E2C0D8B8000D63A3F /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		ADE6D0302C0D8BCE00D63A3F /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,8 @@
 			children = (
 				AD9302282BFF3BF200079B57 /* Meal */,
 				ADB06C662BF5F4C2001F46BE /* Drink */,
+				ADE6D02E2C0D8B8000D63A3F /* Meal.swift */,
+				ADE6D0302C0D8BCE00D63A3F /* Drink.swift */,
 			);
 			path = Generate;
 			sourceTree = "<group>";
@@ -293,8 +299,10 @@
 				AD72F63D2BDA908F0056326F /* HomeViewController.swift in Sources */,
 				AD9302272BFF2B8000079B57 /* MealFilterListTableViewController.swift in Sources */,
 				ADB06C682BF5F4E3001F46BE /* DrinkRecipeFiltersViewController.swift in Sources */,
+				ADE6D0312C0D8BCE00D63A3F /* Drink.swift in Sources */,
 				ADD79EB52BDA0477006CFE06 /* SceneDelegate.swift in Sources */,
 				ADB06C6A2BF5F5A0001F46BE /* DrinkFilterListTableViewController.swift in Sources */,
+				ADE6D02F2C0D8B8000D63A3F /* Meal.swift in Sources */,
 				ADAD40052C0007C9008CEA1E /* RecipeCellCollectionViewCell.swift in Sources */,
 				ADB06C642BF5F44C001F46BE /* MealRecipeFiltersViewController.swift in Sources */,
 				AD72F6452BDA937A0056326F /* AccountViewController.swift in Sources */,

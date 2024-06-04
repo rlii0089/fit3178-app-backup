@@ -9,6 +9,7 @@ import UIKit
 
 class GeneratedMealViewController: UIViewController {
 
+    var selectedMealID: String?
     var meal: [String: Any]?
     
     @IBOutlet weak var mealImageView: UIImageView!
@@ -21,9 +22,8 @@ class GeneratedMealViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let meal = meal {
-            print(meal)
-            fetchFullMeal(mealID: meal["idMeal"] as! String)
+        if let selectedMealID = selectedMealID {
+            fetchFullMeal(mealID: selectedMealID)
         }
     }
     

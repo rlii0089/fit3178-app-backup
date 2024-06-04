@@ -9,6 +9,7 @@ import UIKit
 
 class GeneratedDrinkViewController: UIViewController {
     
+    var selectedDrinkID: String?
     var drink: [String: Any]?
     
     @IBOutlet weak var drinkImageView: UIImageView!
@@ -21,9 +22,8 @@ class GeneratedDrinkViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let drink = drink {
-            print(drink)
-            fetchFullDrink(drinkID: drink["idDrink"] as! String)
+        if let selectedDrinkID = selectedDrinkID {
+            fetchFullDrink(drinkID: selectedDrinkID)
         }
     }
     

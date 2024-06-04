@@ -6,15 +6,15 @@
 //
 
 import UIKit
-import CoreMotion
 
 class MealRecipeFiltersViewController: UIViewController {
-    var selectedCategory: String?
-    var selectedArea: String?
+
+    var selectedCategory: [String] = []
+    var selectedArea: [String] = []
     var selectedIngredients: [String] = []
-    
-    let motionManager = CMMotionManager()
-    var shakeThreshold = 2.0
+
+    var filtersToQuery: [(String, String)] = []
+    var listOfMealIDs: [String] = []
 
     @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet weak var areaButton: UIButton!
@@ -27,132 +27,125 @@ class MealRecipeFiltersViewController: UIViewController {
     
     
     @IBAction func generateMealButtonPressed(_ sender: Any) {
-        fetchFilteredMeals()
+        generateMeal()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        motionManager.stopAccelerometerUpdates()
-    }
-
-    func setupShakeDetection() {
-        if motionManager.isAccelerometerAvailable {
-            motionManager.accelerometerUpdateInterval = 0.2
-            motionManager.startAccelerometerUpdates(to: .main) { (data, error) in
-                guard let data = data else { return }
-                let acceleration = data.acceleration
-                if (fabs(acceleration.x) > self.shakeThreshold || fabs(acceleration.y) > self.shakeThreshold || fabs(acceleration.z) > self.shakeThreshold) {
-                    self.fetchFilteredMeals()
-                }
+    func generateMeal() {
+        filtersToQuery.removeAll()
+        listOfMealIDs.removeAll()
+        
+        
+        if !selectedCategory.isEmpty {
+            for category in selectedCategory {
+                filtersToQuery.append(("c", category))
             }
         }
-    }
-    
-    func fetchFilteredMeals() {
-        var filters: [(String, String)] = []
-        
-        if let category = selectedCategory {
-            filters.append(("c", category))
-        }
-        if let area = selectedArea {
-            filters.append(("a", area))
+        if !selectedArea.isEmpty {
+            for area in selectedArea {
+                filtersToQuery.append(("a", area))
+            }
         }
         if !selectedIngredients.isEmpty {
             for ingredient in selectedIngredients {
-                filters.append(("i", ingredient))
+                filtersToQuery.append(("i", ingredient))
             }
         }
         
-        fetchMealsRecursively(filters: filters, index: 0, results: []) { [weak self] meals in
-            guard let meals = meals, !meals.isEmpty else {
-                // Handle no results
-                print("No meals found with filters")
-                return
+        let dispatchGroup = DispatchGroup() // Create a dispatch group
+
+        switch filtersToQuery.count {
+        case 0:
+            dispatchGroup.enter()
+            fetchMealIDByRandom {
+                dispatchGroup.leave()
             }
-            let randomMeal = meals.randomElement()
-            self?.displayGeneratedMeal(meal: randomMeal)
+        case 1:
+            dispatchGroup.enter()
+            fetchMealIDByFilter(filter: filtersToQuery[0]) {
+                dispatchGroup.leave()
+            }
+        default:
+            for filter in filtersToQuery {
+                dispatchGroup.enter()
+                fetchMealIDByFilter(filter: filter) {
+                    dispatchGroup.leave()
+                }
+
+                dispatchGroup.notify(queue: .main) { // Wait until all network requests have completed
+                    for mealID in self.listOfMealIDs {
+                        // if meal id appears only once, remove it from the list
+                        if self.listOfMealIDs.filter({ $0 == mealID }).count == 1 {
+                            self.listOfMealIDs.removeAll { $0 == mealID }
+                        }
+                    }
+                }
+            }
         }
-    }
-    
-    func fetchRandomMeal() {
-        let urlStr = "https://www.themealdb.com/api/json/v1/1/random.php"
-        guard let url = URL(string: urlStr) else { return }
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else { return }
+
+        dispatchGroup.notify(queue: .main) { // Wait until all network requests have completed
+            let uniqueListOfMealIDs = Set(self.listOfMealIDs)
+            let randomMealID = uniqueListOfMealIDs.randomElement()
+            self.displayGeneratedMeal(mealID: randomMealID ?? "")
             
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                   let meals = json["meals"] as? [[String: Any]] {
-                    let randomMeal = meals.randomElement()
-                    self.displayGeneratedMeal(meal: randomMeal)
-                }
-            } catch {
-                print("Error fetching random drink")
-            }
-        }.resume()
+        }
+
     }
-    
-    func fetchMealsRecursively(filters: [(String, String)], index: Int, results: [[String: Any]], completion: @escaping ([[String: Any]]?) -> Void) {
-        if index >= filters.count {
-            completion(results)
-            return
-        }
+
+    func fetchMealIDByRandom(completion: @escaping () -> Void) {
+        let url = URL(string: "https://www.themealdb.com/api/json/v1/1/random.php")!
         
-        let filter = filters[index]
-        let urlStr = "https://www.themealdb.com/api/json/v1/1/filter.php?\(filter.0)=\(filter.1)"
-        guard let url = URL(string: urlStr) else {
-            completion(nil)
-            return
-        }
-        
-        fetchAllMeals(from: url, accumulatedResults: []) { meals in
-            var combinedResults = results
-            if !results.isEmpty {
-                combinedResults = results.filter { meal in
-                    meals.contains { $0["idMeal"] as? String == meal["idMeal"] as? String }
-                }
-            } else {
-                combinedResults = meals
-            }
-            self.fetchMealsRecursively(filters: filters, index: index + 1, results: combinedResults, completion: completion)
-        }
-    }
-    
-    func fetchAllMeals(from url: URL, accumulatedResults: [[String: Any]], completion: @escaping ([[String: Any]]) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
-                completion(accumulatedResults)
+                completion() // Call completion even if there's an error
                 return
             }
             
             do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                   let meals = json["meals"] as? [[String: Any]] {
-                    let newResults = accumulatedResults + meals
-                    completion(newResults)
-                } else {
-                    completion(accumulatedResults)
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    if let meals = json["meals"] as? [[String: Any]] {
+                        for meal in meals {
+                            if let id = meal["idMeal"] as? String {
+                                self.listOfMealIDs.append(id)
+                            }
+                        }
+                    }
                 }
             } catch {
-                completion(accumulatedResults)
+                print(error)
             }
+
+            completion() // Call completion when the task completes
         }.resume()
     }
-    
-    func displayGeneratedMeal(meal: [String: Any]?) {
-        guard let meal = meal else { return }
-        DispatchQueue.main.async {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let generatedDrinkVC = storyboard.instantiateViewController(withIdentifier: "GeneratedMealViewController") as? GeneratedMealViewController {
-                generatedDrinkVC.meal = meal
-                self.navigationController?.pushViewController(generatedDrinkVC, animated: true)
+
+    func fetchMealIDByFilter(filter: (String, String), completion: @escaping () -> Void) {
+        let url = URL(string: "https://www.themealdb.com/api/json/v1/1/filter.php?\(filter.0)=\(filter.1)")!
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                completion() // Call completion even if there's an error
+                return
             }
-        }
-        
+            
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    if let meals = json["meals"] as? [[String: Any]] {
+                        for meal in meals {
+                            if let id = meal["idMeal"] as? String {
+                                self.listOfMealIDs.append(id)
+                            }
+                        }
+                    }
+                }
+            } catch {
+                print(error)
+            }
+
+            completion() // Call completion when the task completes
+        }.resume()
     }
-        
-    
+
     func updateButtonTitle(button: UIButton, title: String, selectedItems: [String]) {
         if selectedItems.isEmpty {
             button.setTitle(title, for: .normal)
@@ -160,18 +153,36 @@ class MealRecipeFiltersViewController: UIViewController {
             button.setTitle(selectedItems.joined(separator: ", "), for: .normal)
         }
     }
+
+    func displayGeneratedMeal(mealID: String) {
+        guard !mealID.isEmpty else {
+            print("No meal ID found")
+            return
+        }
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let generatedMealVC = storyboard.instantiateViewController(withIdentifier: "GeneratedMealViewController") as? GeneratedMealViewController {
+                generatedMealVC.selectedMealID = mealID
+                self.navigationController?.pushViewController(generatedMealVC, animated: true)
+            }
+        }
+        
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? MealFilterListTableViewController {
-            if segue.identifier == "MealCategorySegue" {
+            switch segue.identifier {
+            case "MealCategorySegue":
                 destinationVC.filterType = .category
                 destinationVC.isMultiSelect = false
-            } else if segue.identifier == "MealAreaSegue" {
+            case "MealAreaSegue":
                 destinationVC.filterType = .area
                 destinationVC.isMultiSelect = false
-            } else if segue.identifier == "MealIngredientSegue" {
+            case "MealIngredientSegue":
                 destinationVC.filterType = .ingredient
                 destinationVC.isMultiSelect = true
+            default:
+                break
             }
         }
     }
@@ -180,11 +191,11 @@ class MealRecipeFiltersViewController: UIViewController {
         if let sourceVC = segue.source as? MealFilterListTableViewController {
             switch sourceVC.filterType {
             case .category:
-                selectedCategory = sourceVC.selectedFilters.first
-                updateButtonTitle(button: categoryButton, title: "Category", selectedItems: [selectedCategory].compactMap { $0 })
+                selectedCategory = sourceVC.selectedFilters
+                updateButtonTitle(button: categoryButton, title: "Category", selectedItems: selectedCategory)
             case .area:
-                selectedArea = sourceVC.selectedFilters.first
-                updateButtonTitle(button: areaButton, title: "Area", selectedItems: [selectedArea].compactMap { $0 })
+                selectedArea = sourceVC.selectedFilters
+                updateButtonTitle(button: areaButton, title: "Area", selectedItems: selectedArea)
             case .ingredient:
                 selectedIngredients = sourceVC.selectedFilters
                 updateButtonTitle(button: ingredientButton, title: "Ingredients", selectedItems: selectedIngredients)
