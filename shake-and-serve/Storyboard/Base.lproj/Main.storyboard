@@ -317,7 +317,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mealAddToShhoppingListButton" destination="R4i-cg-Zrb" id="5vE-3T-kg7"/>
                         <outlet property="mealAreaLabel" destination="xVk-ko-2ch" id="shE-pt-rZD"/>
                         <outlet property="mealCategoryLabel" destination="vsN-Su-6as" id="Z8L-ks-3GU"/>
                         <outlet property="mealImageView" destination="wZu-GX-faH" id="fBm-uy-S5U"/>
@@ -682,7 +681,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="I8l-kL-5AL">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShoppingItemCell" id="I8l-kL-5AL">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I8l-kL-5AL" id="g9r-WH-LMU">

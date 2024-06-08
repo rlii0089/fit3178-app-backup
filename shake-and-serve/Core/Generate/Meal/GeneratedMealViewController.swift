@@ -26,6 +26,19 @@ class GeneratedMealViewController: UIViewController {
             fetchFullMeal(mealID: selectedMealID)
         }
     }
+    @IBAction func mealAddToShhoppingListButtonPressed(_ sender: Any) {
+        var ingredients: [(String?, String?)] = []
+        for i in 1...20 {
+            let ingredientKey = "strIngredient\(i)"
+            let measurementKey = "strMeasure\(i)"
+            if let ingredient = meal?[ingredientKey] as? String,
+               let measurement = meal?[measurementKey] as? String {
+                ingredients.append((ingredient, measurement))
+            }
+        }
+
+        addIngredientsToShoppingList(ingredients: ingredients)
+    }
     
     func fetchFullMeal(mealID: String) {
         let url = URL(string: "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(mealID)")!
@@ -69,6 +82,25 @@ class GeneratedMealViewController: UIViewController {
             }.resume()
         }
     }
+    
+    func addIngredientsToShoppingList(ingredients: [(String?, String?)]) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        for (ingredient, measurement) in ingredients {
+            guard let ingredient = ingredient, let measurement = measurement else { continue }
+
+            let newItem = ShoppingItem(context: context)
+            newItem.name = ingredient
+            newItem.measurement = measurement
+        }
+
+        do {
+            try context.save()
+        } catch {
+            print("Failed to save items: \(error)")
+        }
+    }
+
     
     @IBAction func saveRecipeButtonPressed(_ sender: Any) {
         guard let meal = meal else { return }

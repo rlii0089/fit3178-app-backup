@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD6FB6862C14476C00A31C9E /* ShoppingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6FB6852C14476C00A31C9E /* ShoppingListTableViewController.swift */; };
+		AD6FB6902C1456C400A31C9E /* ShoppingListModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD6FB68E2C1456C400A31C9E /* ShoppingListModel.xcdatamodeld */; };
 		AD72F62F2BDA691B0056326F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AD72F62E2BDA691B0056326F /* FirebaseAuth */; };
 		AD72F6312BDA691B0056326F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AD72F6302BDA691B0056326F /* FirebaseFirestore */; };
 		AD72F6332BDA691B0056326F /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AD72F6322BDA691B0056326F /* FirebaseFirestoreSwift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		AD6FB6852C14476C00A31C9E /* ShoppingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewController.swift; sourceTree = "<group>"; };
+		AD6FB68F2C1456C400A31C9E /* ShoppingListModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoppingListModel.xcdatamodel; sourceTree = "<group>"; };
 		AD72F6342BDA6F6F0056326F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD72F6382BDA8D660056326F /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		AD72F63C2BDA908F0056326F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -92,9 +94,18 @@
 			path = "Shopping List";
 			sourceTree = "<group>";
 		};
+		AD6FB68A2C14553C00A31C9E /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				AD6FB68E2C1456C400A31C9E /* ShoppingListModel.xcdatamodeld */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
 		AD84F66D2BF963080020217A /* Tab Bar */ = {
 			isa = PBXGroup;
 			children = (
+				AD6FB68A2C14553C00A31C9E /* DataModel */,
 				AD7D7CBA2BE603C70052FB3B /* BottomNavigationTabBarController.swift */,
 				AD72F63C2BDA908F0056326F /* HomeViewController.swift */,
 				ADDED7382BDB2DA5001B4A19 /* SavedRecipesCollectionViewController.swift */,
@@ -315,6 +326,7 @@
 				ADB06C6A2BF5F5A0001F46BE /* DrinkFilterListTableViewController.swift in Sources */,
 				ADE6D02F2C0D8B8000D63A3F /* Meal.swift in Sources */,
 				ADAD40052C0007C9008CEA1E /* RecipeCellCollectionViewCell.swift in Sources */,
+				AD6FB6902C1456C400A31C9E /* ShoppingListModel.xcdatamodeld in Sources */,
 				ADB06C642BF5F44C001F46BE /* MealRecipeFiltersViewController.swift in Sources */,
 				AD72F6452BDA937A0056326F /* AccountViewController.swift in Sources */,
 				AD6FB6862C14476C00A31C9E /* ShoppingListTableViewController.swift in Sources */,
@@ -568,6 +580,20 @@
 			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		AD6FB68E2C1456C400A31C9E /* ShoppingListModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AD6FB68F2C1456C400A31C9E /* ShoppingListModel.xcdatamodel */,
+			);
+			currentVersion = AD6FB68F2C1456C400A31C9E /* ShoppingListModel.xcdatamodel */;
+			name = ShoppingListModel.xcdatamodeld;
+			path = "/Users/ruiminli/Documents/FIT3178/shake-and-serve/shake-and-serve/Core/Tab Bar/DataModel/ShoppingListModel.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ADD79EA72BDA0477006CFE06 /* Project object */;
 }
