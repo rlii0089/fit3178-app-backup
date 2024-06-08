@@ -2,16 +2,14 @@
 //  SavedRecipesCollectionViewController.swift
 //  shake-and-serve
 //
-//  Created by Raymond Ruimin Li.
+//  Created by Raymond Ruimin Li on 8/6/2024.
 //
 
 import UIKit
 
-private let reuseIdentifier = "RecipeCell"
+private let reuseIdentifier = "Cell"
 
 class SavedRecipesCollectionViewController: UICollectionViewController {
-    
-    var savedRecipes: [Recipe] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,17 +17,11 @@ class SavedRecipesCollectionViewController: UICollectionViewController {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
+        // Register cell classes
+        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
-        loadSavedRecipes()
     }
-    
-    
-    func loadSavedRecipes() {
-        savedRecipes = RecipeStorage.shared.getSavedRecipes()
-        collectionView.reloadData()
-    }
-    
 
     /*
     // MARK: - Navigation
@@ -45,19 +37,20 @@ class SavedRecipesCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return savedRecipes.count
+        return 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! RecipeCellCollectionViewCell
-        let recipe = savedRecipes[indexPath.item]
-        cell.configure(with: recipe)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+    
+        // Configure the cell
+    
         return cell
     }
 
@@ -91,21 +84,5 @@ class SavedRecipesCollectionViewController: UICollectionViewController {
     
     }
     */
-    
-    
-    // Navigate to recipe detail view controller when a recipe is selected
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let recipe = savedRecipes[indexPath.item]
-        // Perform segue to RecipeDetailViewController
-        performSegue(withIdentifier: "showRecipeDetail", sender: recipe)
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showRecipeDetail",
-           let destinationVC = segue.destination as? RecipeDetailViewController,
-           let recipe = sender as? Recipe {
-            destinationVC.recipe = recipe
-        }
-    }
 
 }
