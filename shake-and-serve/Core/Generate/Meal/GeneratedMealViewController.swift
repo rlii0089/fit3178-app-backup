@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class GeneratedMealViewController: UIViewController {
 
@@ -124,5 +125,39 @@ class GeneratedMealViewController: UIViewController {
     
     @IBAction func saveRecipeButtonPressed(_ sender: Any) {
         
+        guard let meal = meal,
+              let mealId = meal["idMeal"] as? String,
+              let currentUser = Auth.auth().currentUser else {
+            print("Failed to get meal id or user not authenticated")
+            return
+        }
+
+        let db = Firestore.firestore()
+        let userDocRef = db.collection("users").document(currentUser.uid)
+        
+        userDocRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                userDocRef.updateData([
+                    "savedMealRecipes": FieldValue.arrayUnion([mealId])
+                ]) { err in
+                    if let err = err {
+                        print("Error updating document: \(err)")
+                    } else {
+                        print("Recipe successfully saved!")
+                    }
+                }
+            } else {
+                userDocRef.setData([
+                    "savedRecipes": [mealId]
+                ]) { err in
+                    if let err = err {
+                        print("Error setting document: \(err)")
+                    } else {
+                        print("Recipe successfully saved!")
+                    }
+                }
+            }
+        }
     }
+    
 }
