@@ -19,8 +19,7 @@ class ShoppingListTableViewController: UITableViewController {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        navigationItem.leftBarButtonItem = editButtonItem
     }
     
     
@@ -35,7 +34,26 @@ class ShoppingListTableViewController: UITableViewController {
             print("Failed to fetch items: \(error)")
         }
     }
+    @IBAction func clearButtonPressed(_ sender: Any) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
+        // Delete all items from Core Data
+        for item in items {
+            context.delete(item)
+        }
+
+        // Save changes
+        do {
+            try context.save()
+        } catch {
+            print("Failed to clear items: \(error)")
+        }
+
+        // Refresh table view
+        items.removeAll()
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

@@ -31,11 +31,14 @@ class GeneratedMealViewController: UIViewController {
         for i in 1...20 {
             let ingredientKey = "strIngredient\(i)"
             let measurementKey = "strMeasure\(i)"
-            if let ingredient = meal?[ingredientKey] as? String,
-               let measurement = meal?[measurementKey] as? String {
-                print("Ingredient: \(ingredient), Measurement: \(measurement)")
-                ingredients.append((ingredient, measurement))
+            guard let ingredient = meal?[ingredientKey] as? String, !ingredient.isEmpty else {
+                continue // Skip empty ingredients
             }
+            
+            let measurement = meal?[measurementKey] as? String ?? ""
+            ingredients.append((ingredient, measurement))
+            
+            print("Ingredient: \(ingredient), Measurement: \(measurement)")
         }
 
         addIngredientsToShoppingList(ingredients: ingredients)
