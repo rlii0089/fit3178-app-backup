@@ -150,7 +150,7 @@ class MealRecipeFiltersViewController: UIViewController {
         if selectedItems.isEmpty {
             button.setTitle(title, for: .normal)
         } else {
-            button.setTitle(selectedItems.joined(separator: ", "), for: .normal)
+            button.setTitle(title + ": " + selectedItems.joined(separator: ", "), for: .normal)
         }
     }
 

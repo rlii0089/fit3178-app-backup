@@ -27,11 +27,6 @@ class DrinkRecipeFiltersViewController: UIViewController {
     @IBOutlet weak var alcoholicButton: UIButton!
     @IBOutlet weak var generateDrinkButton: UIButton!
     
-    @IBOutlet weak var selectedCategoryLabel: UILabel!
-    @IBOutlet weak var selectedGlassLabel: UILabel!
-    @IBOutlet weak var selectedIngredientsLabel: UILabel!
-    @IBOutlet weak var selectedAlcoholicLabel: UILabel!
-    
     
     @IBAction func generateDrinkButtonPressed(_ sender: Any) {
         generateDrink()

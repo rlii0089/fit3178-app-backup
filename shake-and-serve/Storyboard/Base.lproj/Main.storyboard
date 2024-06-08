@@ -18,19 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="S9V-6P-332">
-                                <rect key="frame" x="16" y="313" width="361" height="54.666666666666686"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake &amp; Serve" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSX-h6-DjV">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="54.666666666666664"/>
-                                        <fontDescription key="fontDescription" name="AlNile-Bold" family="Al Nile" pointSize="40"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K0L-sl-tMd">
-                                <rect key="frame" x="16" y="608.33333333333337" width="361" height="144.66666666666663"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake &amp; Serve" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSX-h6-DjV">
+                                <rect key="frame" x="16" y="252.99999999999997" width="361" height="54.666666666666657"/>
+                                <fontDescription key="fontDescription" name="AlNile-Bold" family="Al Nile" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="K0L-sl-tMd">
+                                <rect key="frame" x="16" y="592.33333333333337" width="361" height="160.66666666666663"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generate A Recipe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FV-eB-gdJ">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="28.666666666666668"/>
@@ -39,7 +34,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMG-B5-CG7">
-                                        <rect key="frame" x="0.0" y="36.666666666666629" width="361" height="50"/>
+                                        <rect key="frame" x="0.0" y="44.666666666666629" width="361" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="bnq-Pu-A2n"/>
                                         </constraints>
@@ -53,7 +48,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7P-8d-bDf">
-                                        <rect key="frame" x="0.0" y="94.666666666666629" width="361" height="50"/>
+                                        <rect key="frame" x="0.0" y="110.66666666666663" width="361" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="5CX-tz-Mw6"/>
                                         </constraints>
@@ -72,11 +67,11 @@
                         <viewLayoutGuide key="safeArea" id="cyi-so-f0r"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="cyi-so-f0r" firstAttribute="trailing" secondItem="ZSX-h6-DjV" secondAttribute="trailing" constant="16" id="1fG-R4-97b"/>
                             <constraint firstItem="cyi-so-f0r" firstAttribute="trailing" secondItem="K0L-sl-tMd" secondAttribute="trailing" constant="16" id="2Wj-F3-Abr"/>
-                            <constraint firstItem="S9V-6P-332" firstAttribute="top" secondItem="cyi-so-f0r" secondAttribute="top" constant="210" id="CAW-Mu-TqQ"/>
-                            <constraint firstItem="cyi-so-f0r" firstAttribute="trailing" secondItem="S9V-6P-332" secondAttribute="trailing" constant="16" id="J82-Mc-u15"/>
-                            <constraint firstItem="cyi-so-f0r" firstAttribute="bottom" secondItem="K0L-sl-tMd" secondAttribute="bottom" constant="16" id="Mh1-mJ-2wx"/>
-                            <constraint firstItem="S9V-6P-332" firstAttribute="leading" secondItem="cyi-so-f0r" secondAttribute="leading" constant="16" id="eJr-uF-6mP"/>
+                            <constraint firstItem="ZSX-h6-DjV" firstAttribute="top" secondItem="cyi-so-f0r" secondAttribute="top" constant="150" id="6rj-dI-T9r"/>
+                            <constraint firstItem="cyi-so-f0r" firstAttribute="bottom" secondItem="K0L-sl-tMd" secondAttribute="bottom" constant="16" id="Y26-xp-iHW"/>
+                            <constraint firstItem="ZSX-h6-DjV" firstAttribute="leading" secondItem="cyi-so-f0r" secondAttribute="leading" constant="16" id="tYe-qq-0ZV"/>
                             <constraint firstItem="K0L-sl-tMd" firstAttribute="leading" secondItem="cyi-so-f0r" secondAttribute="leading" constant="16" id="zOP-Zd-rs0"/>
                         </constraints>
                     </view>
@@ -97,21 +92,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="kAE-am-ziA">
-                                <rect key="frame" x="16" y="102.99999999999997" width="361" height="345.33333333333326"/>
+                                <rect key="frame" x="16" y="103" width="361" height="272"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to generate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNm-GM-luR">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="38.333333333333336"/>
-                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngd-7c-dIe">
-                                        <rect key="frame" x="0.0" y="54.333333333333343" width="361" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="rxe-yu-VIo"/>
+                                            <constraint firstAttribute="height" constant="80" id="rxe-yu-VIo"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Category" imagePadding="8" cornerStyle="capsule">
+                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Category" imagePadding="8" cornerStyle="capsule" titleAlignment="center">
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
@@ -119,19 +108,13 @@
                                             <segue destination="OKK-5X-fGv" kind="show" identifier="MealCategorySegue" id="Cnc-Mq-oNG"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Any" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfn-n1-x96">
-                                        <rect key="frame" x="0.0" y="120.33333333333333" width="361" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVF-T0-Sl3">
-                                        <rect key="frame" x="0.0" y="156.66666666666669" width="361" height="50"/>
+                                        <rect key="frame" x="0.0" y="96" width="361" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Iat-os-g9T"/>
+                                            <constraint firstAttribute="height" constant="80" id="Iat-os-g9T"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Area" imagePadding="8" cornerStyle="capsule">
+                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Area" imagePadding="8" cornerStyle="capsule" titleAlignment="center">
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
@@ -139,19 +122,13 @@
                                             <segue destination="OKK-5X-fGv" kind="show" identifier="MealAreaSegue" id="Cwf-Di-f6h"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Any" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1KH-Os-g2o">
-                                        <rect key="frame" x="0.0" y="222.66666666666669" width="361" height="20.333333333333343"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6x-FB-wrq">
-                                        <rect key="frame" x="0.0" y="259" width="361" height="50"/>
+                                        <rect key="frame" x="0.0" y="192" width="361" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="REA-WR-6QV"/>
+                                            <constraint firstAttribute="height" constant="80" id="REA-WR-6QV"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Ingredient" imagePadding="8" cornerStyle="capsule">
+                                        <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Ingredient" imagePadding="8" cornerStyle="capsule" titleAlignment="center">
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
@@ -159,30 +136,21 @@
                                             <segue destination="OKK-5X-fGv" kind="show" identifier="MealIngredientSegue" id="do8-bv-yq7"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Any" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMJ-H4-YET">
-                                        <rect key="frame" x="0.0" y="325" width="361" height="20.333333333333314"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3nX-cW-JXr">
-                                <rect key="frame" x="16" y="666.66666666666663" width="361" height="86.333333333333371"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3nX-cW-JXr">
+                                <rect key="frame" x="16" y="680.33333333333337" width="361" height="72.666666666666629"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWg-Q1-EpR">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="20.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake To Generate!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNm-GM-luR">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="38.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkv-lR-36O">
-                                        <rect key="frame" x="0.0" y="36.333333333333371" width="361" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="sAQ-bS-Lcx"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="38.333333333333258" width="361" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Tap to generate meal" cornerStyle="capsule"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="or press here" cornerStyle="capsule"/>
                                         <connections>
                                             <action selector="generateDrinkButtonPressed:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="5PO-1B-VRY"/>
                                             <action selector="generateMealButtonPressed:" destination="t86-CL-m4N" eventType="touchUpInside" id="iqq-Ux-8aS"/>
@@ -211,9 +179,6 @@
                         <outlet property="categoryButton" destination="Ngd-7c-dIe" id="eYm-Ql-cdQ"/>
                         <outlet property="generateButton" destination="dkv-lR-36O" id="j8c-4A-Er2"/>
                         <outlet property="ingredientButton" destination="S6x-FB-wrq" id="L6R-wC-Tx0"/>
-                        <outlet property="selectedAreaLabel" destination="1KH-Os-g2o" id="L2e-xB-GTW"/>
-                        <outlet property="selectedCategoryLabel" destination="Tfn-n1-x96" id="ghu-1g-Obp"/>
-                        <outlet property="selectedIngredientsLabel" destination="QMJ-H4-YET" id="uxc-zc-dtG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzb-Sy-ahM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -243,53 +208,30 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsN-Su-6as">
-                                        <rect key="frame" x="0.0" y="54.333333333333321" width="361" height="20.333333333333336"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVk-ko-2ch">
-                                        <rect key="frame" x="0.0" y="90.666666666666686" width="361" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gy4-MY-ChL">
-                                        <rect key="frame" x="0.0" y="126.99999999999999" width="361" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yAz-eV-K81">
-                                        <rect key="frame" x="0.0" y="163.33333333333331" width="361" height="191.66666666666669"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kV5-3G-cwZ">
+                                        <rect key="frame" x="0.0" y="54.333333333333314" width="361" height="56.666666666666657"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsN-Su-6as">
+                                                <rect key="frame" x="0.0" y="18.333333333333371" width="180.66666666666666" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVk-ko-2ch">
+                                                <rect key="frame" x="180.66666666666663" y="18.333333333333371" width="180.33333333333337" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Ingredients" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAz-eV-K81">
+                                        <rect key="frame" x="0.0" y="127" width="361" height="228"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-FK-bxZ">
-                                <rect key="frame" x="16" y="752" width="361" height="50"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Servings" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Nt-jJ-fJw">
-                                        <rect key="frame" x="0.0" y="0.0" width="121.66666666666667" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4i-cg-Zrb">
-                                        <rect key="frame" x="137.66666666666663" y="0.0" width="223.33333333333337" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="ch0-he-uOZ"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="cart.fill" catalog="system" imagePlacement="leading" title="Add To Shopping List" imagePadding="8" cornerStyle="capsule"/>
-                                        <connections>
-                                            <action selector="mealAddToShhoppingListButtonPressed:" destination="PCO-Kb-N7M" eventType="touchUpInside" id="bcU-tH-OM9"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qkt-ty-dY2">
@@ -305,23 +247,34 @@
                                     <action selector="saveRecipeButtonPressed:" destination="PCO-Kb-N7M" eventType="touchUpInside" id="L40-GN-Lpc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4i-cg-Zrb">
+                                <rect key="frame" x="16" y="752" width="361" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ch0-he-uOZ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="cart.fill" catalog="system" imagePlacement="leading" title="Add To Shopping List" imagePadding="8" cornerStyle="capsule"/>
+                                <connections>
+                                    <action selector="mealAddToShoppingListButtonPressed:" destination="PCO-Kb-N7M" eventType="touchUpInside" id="AmX-XD-Tx3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oDn-m4-Kvc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="oDn-m4-Kvc" firstAttribute="bottom" secondItem="R4i-cg-Zrb" secondAttribute="bottom" constant="16" id="8LF-sf-27u"/>
                             <constraint firstItem="wwi-eJ-uUq" firstAttribute="leading" secondItem="oDn-m4-Kvc" secondAttribute="leading" constant="16" id="A6Y-Y2-7rS"/>
                             <constraint firstItem="Qkt-ty-dY2" firstAttribute="leading" secondItem="oDn-m4-Kvc" secondAttribute="leading" constant="16" id="ICQ-1O-mM9"/>
-                            <constraint firstItem="oDn-m4-Kvc" firstAttribute="trailing" secondItem="gZf-FK-bxZ" secondAttribute="trailing" constant="16" id="QrK-J0-veO"/>
                             <constraint firstItem="wZu-GX-faH" firstAttribute="leading" secondItem="oDn-m4-Kvc" secondAttribute="leading" id="S3o-fb-WUw"/>
+                            <constraint firstItem="R4i-cg-Zrb" firstAttribute="leading" secondItem="oDn-m4-Kvc" secondAttribute="leading" constant="16" id="Sm9-ph-eLZ"/>
                             <constraint firstItem="wZu-GX-faH" firstAttribute="trailing" secondItem="oDn-m4-Kvc" secondAttribute="trailing" id="Sq2-5T-tb3"/>
                             <constraint firstItem="oDn-m4-Kvc" firstAttribute="trailing" secondItem="wwi-eJ-uUq" secondAttribute="trailing" constant="16" id="a2u-CD-r4H"/>
                             <constraint firstItem="wZu-GX-faH" firstAttribute="top" secondItem="oDn-m4-Kvc" secondAttribute="top" id="ab2-VA-vWl"/>
                             <constraint firstItem="Qkt-ty-dY2" firstAttribute="top" secondItem="wwi-eJ-uUq" secondAttribute="bottom" constant="16" id="e4M-By-vfx"/>
-                            <constraint firstItem="gZf-FK-bxZ" firstAttribute="top" secondItem="Qkt-ty-dY2" secondAttribute="bottom" constant="16" id="qBF-VC-V6k"/>
+                            <constraint firstItem="R4i-cg-Zrb" firstAttribute="top" secondItem="Qkt-ty-dY2" secondAttribute="bottom" constant="16" id="g80-la-8hy"/>
+                            <constraint firstItem="oDn-m4-Kvc" firstAttribute="trailing" secondItem="R4i-cg-Zrb" secondAttribute="trailing" constant="16" id="l74-re-9Ai"/>
                             <constraint firstItem="oDn-m4-Kvc" firstAttribute="trailing" secondItem="Qkt-ty-dY2" secondAttribute="trailing" constant="16" id="qhj-zZ-zH6"/>
                             <constraint firstItem="wwi-eJ-uUq" firstAttribute="top" secondItem="wZu-GX-faH" secondAttribute="bottom" constant="16" id="tRu-f3-lcm"/>
-                            <constraint firstItem="gZf-FK-bxZ" firstAttribute="leading" secondItem="oDn-m4-Kvc" secondAttribute="leading" constant="16" id="yxX-nI-cn7"/>
-                            <constraint firstItem="oDn-m4-Kvc" firstAttribute="bottom" secondItem="gZf-FK-bxZ" secondAttribute="bottom" constant="16" id="zTR-Ef-1RE"/>
                         </constraints>
                     </view>
                     <connections>
@@ -331,7 +284,6 @@
                         <outlet property="mealIngredientsTextView" destination="yAz-eV-K81" id="6gT-Jq-Xv5"/>
                         <outlet property="mealNameLabel" destination="BX7-kk-UHZ" id="1UQ-yQ-SGa"/>
                         <outlet property="mealSaveRecipeButton" destination="Qkt-ty-dY2" id="Gxe-FK-JST"/>
-                        <outlet property="mealServingsTextField" destination="9Nt-jJ-fJw" id="U80-nK-Pra"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53Z-kt-fBD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -389,18 +341,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5EC-j8-glZ">
-                                <rect key="frame" x="16" y="103.00000000000003" width="361" height="447.66666666666674"/>
+                                <rect key="frame" x="16" y="103" width="361" height="368"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to generate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdU-sR-Ym1">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="38.333333333333336"/>
-                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8e-Hu-aSf">
-                                        <rect key="frame" x="0.0" y="54.333333333333343" width="361" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="VHY-fS-eYv"/>
+                                            <constraint firstAttribute="height" constant="80" id="VHY-fS-eYv"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Category" imagePadding="8" cornerStyle="capsule">
@@ -411,16 +357,10 @@
                                             <segue destination="GYH-0d-pbO" kind="show" identifier="CategorySegue" id="h9O-wj-lLo"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Any" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeJ-p9-EUP">
-                                        <rect key="frame" x="0.0" y="120.33333333333333" width="361" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qaT-5X-axY">
-                                        <rect key="frame" x="0.0" y="156.66666666666669" width="361" height="50"/>
+                                        <rect key="frame" x="0.0" y="96" width="361" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="iP5-BQ-kdV"/>
+                                            <constraint firstAttribute="height" constant="80" id="iP5-BQ-kdV"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Glass" imagePadding="8" cornerStyle="capsule">
@@ -431,16 +371,10 @@
                                             <segue destination="GYH-0d-pbO" kind="show" identifier="GlassSegue" id="Pob-tQ-dg2"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Any" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdO-Dl-AgF">
-                                        <rect key="frame" x="0.0" y="222.66666666666669" width="361" height="20.333333333333343"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6z-cU-upF">
-                                        <rect key="frame" x="0.0" y="259" width="361" height="50"/>
+                                        <rect key="frame" x="0.0" y="192" width="361" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="MR1-BL-lkU"/>
+                                            <constraint firstAttribute="height" constant="80" id="MR1-BL-lkU"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Ingredient" imagePadding="8" cornerStyle="capsule">
@@ -451,16 +385,10 @@
                                             <segue destination="GYH-0d-pbO" kind="show" identifier="IngredientSegue" id="d0o-jE-pkb"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Any" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jn9-zG-T27">
-                                        <rect key="frame" x="0.0" y="325" width="361" height="20.333333333333314"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqY-0z-RZm">
-                                        <rect key="frame" x="0.0" y="361.33333333333331" width="361" height="50"/>
+                                        <rect key="frame" x="0.0" y="288" width="361" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Y2R-Oa-wVq"/>
+                                            <constraint firstAttribute="height" constant="80" id="Y2R-Oa-wVq"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Alcohol" imagePadding="8" cornerStyle="capsule">
@@ -471,30 +399,21 @@
                                             <segue destination="GYH-0d-pbO" kind="show" identifier="AlcoholicSegue" id="7Gh-aX-WZQ"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Any" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Eg-lk-y2m">
-                                        <rect key="frame" x="0.0" y="427.33333333333337" width="361" height="20.333333333333314"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="X67-2g-cVw">
-                                <rect key="frame" x="16" y="666.66666666666663" width="361" height="86.333333333333371"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="X67-2g-cVw">
+                                <rect key="frame" x="16" y="680.33333333333337" width="361" height="72.666666666666629"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVs-rn-D64">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="20.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to generate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdU-sR-Ym1">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="38.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOz-6d-uds">
-                                        <rect key="frame" x="0.0" y="36.333333333333371" width="361" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="BHb-K1-lQq"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="38.333333333333258" width="361" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Tap to generate drink" cornerStyle="capsule"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="or press here" cornerStyle="capsule"/>
                                         <connections>
                                             <action selector="generateDrinkButtonPressed:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="QRf-PT-Gg3"/>
                                         </connections>
@@ -522,10 +441,6 @@
                         <outlet property="generateDrinkButton" destination="uOz-6d-uds" id="GJG-DF-pi8"/>
                         <outlet property="glassButton" destination="qaT-5X-axY" id="lMG-JO-891"/>
                         <outlet property="ingredientButton" destination="f6z-cU-upF" id="F1c-uh-2gI"/>
-                        <outlet property="selectedAlcoholicLabel" destination="2Eg-lk-y2m" id="IDu-eU-VjP"/>
-                        <outlet property="selectedCategoryLabel" destination="aeJ-p9-EUP" id="ja8-0o-9d5"/>
-                        <outlet property="selectedGlassLabel" destination="qdO-Dl-AgF" id="NzJ-Fn-qjQ"/>
-                        <outlet property="selectedIngredientsLabel" destination="Jn9-zG-T27" id="FV1-9w-yO7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bj1-UU-Y3h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -555,50 +470,30 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alcoholic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzP-2n-jfg">
-                                        <rect key="frame" x="0.0" y="54.333333333333321" width="361" height="20.333333333333336"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Glass" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MH-cC-bxq">
-                                        <rect key="frame" x="0.0" y="90.666666666666686" width="361" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4s-DS-6MY">
-                                        <rect key="frame" x="0.0" y="126.99999999999999" width="361" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EMQ-wS-lVm">
-                                        <rect key="frame" x="0.0" y="163.33333333333331" width="361" height="191.66666666666669"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1d7-ps-ckj">
+                                        <rect key="frame" x="0.0" y="54.333333333333314" width="361" height="56.666666666666657"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alcoholic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzP-2n-jfg">
+                                                <rect key="frame" x="0.0" y="18.333333333333371" width="180.66666666666666" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Glass" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MH-cC-bxq">
+                                                <rect key="frame" x="180.66666666666663" y="18.333333333333371" width="180.33333333333337" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Ingredients" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMQ-wS-lVm">
+                                        <rect key="frame" x="0.0" y="127" width="361" height="228"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="t5V-wL-zjU">
-                                <rect key="frame" x="16" y="752" width="361" height="50"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Servings" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cr7-In-OgS">
-                                        <rect key="frame" x="0.0" y="0.0" width="121.66666666666667" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4R-zz-KrG">
-                                        <rect key="frame" x="137.66666666666663" y="0.0" width="223.33333333333337" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="f7V-cU-Etf"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="cart.fill" catalog="system" imagePlacement="leading" title="Add To Shopping List" imagePadding="8" cornerStyle="capsule"/>
-                                    </button>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGf-5F-Ugt">
@@ -614,22 +509,30 @@
                                     <action selector="saveRecipeButtonPressed:" destination="Tav-4j-x21" eventType="touchUpInside" id="Bh2-d7-Zrf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4R-zz-KrG">
+                                <rect key="frame" x="16" y="752" width="361" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="f7V-cU-Etf"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="cart.fill" catalog="system" imagePlacement="leading" title="Add To Shopping List" imagePadding="8" cornerStyle="capsule"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="t0v-L3-Q8T"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="t0v-L3-Q8T" firstAttribute="trailing" secondItem="t5V-wL-zjU" secondAttribute="trailing" constant="16" id="1gk-7V-UPl"/>
-                            <constraint firstItem="t5V-wL-zjU" firstAttribute="leading" secondItem="t0v-L3-Q8T" secondAttribute="leading" constant="16" id="7fU-Ht-Dl0"/>
+                            <constraint firstItem="t0v-L3-Q8T" firstAttribute="bottom" secondItem="C4R-zz-KrG" secondAttribute="bottom" constant="16" id="FjK-u8-vwv"/>
                             <constraint firstItem="t0v-L3-Q8T" firstAttribute="trailing" secondItem="UjW-dK-f3e" secondAttribute="trailing" id="MHc-wM-Krv"/>
                             <constraint firstItem="KGf-5F-Ugt" firstAttribute="top" secondItem="wFj-RO-hSG" secondAttribute="bottom" constant="16" id="Mhr-3p-ZTf"/>
+                            <constraint firstItem="t0v-L3-Q8T" firstAttribute="trailing" secondItem="C4R-zz-KrG" secondAttribute="trailing" constant="16" id="S6X-Vh-iuF"/>
                             <constraint firstItem="wFj-RO-hSG" firstAttribute="leading" secondItem="t0v-L3-Q8T" secondAttribute="leading" constant="16" id="Tcd-Sk-2g5"/>
-                            <constraint firstItem="t5V-wL-zjU" firstAttribute="top" secondItem="KGf-5F-Ugt" secondAttribute="bottom" constant="16" id="Wds-I5-thf"/>
+                            <constraint firstItem="C4R-zz-KrG" firstAttribute="top" secondItem="KGf-5F-Ugt" secondAttribute="bottom" constant="16" id="g8H-lL-fwC"/>
                             <constraint firstItem="wFj-RO-hSG" firstAttribute="top" secondItem="UjW-dK-f3e" secondAttribute="bottom" constant="16" id="io6-Zt-2Dl"/>
                             <constraint firstItem="UjW-dK-f3e" firstAttribute="trailing" secondItem="t0v-L3-Q8T" secondAttribute="trailing" id="kzb-rX-gnH"/>
                             <constraint firstItem="KGf-5F-Ugt" firstAttribute="leading" secondItem="t0v-L3-Q8T" secondAttribute="leading" constant="16" id="nm3-rY-vpc"/>
                             <constraint firstItem="UjW-dK-f3e" firstAttribute="top" secondItem="t0v-L3-Q8T" secondAttribute="top" id="psE-G4-doY"/>
+                            <constraint firstItem="C4R-zz-KrG" firstAttribute="leading" secondItem="t0v-L3-Q8T" secondAttribute="leading" constant="16" id="rya-F8-8m3"/>
                             <constraint firstItem="t0v-L3-Q8T" firstAttribute="trailing" secondItem="wFj-RO-hSG" secondAttribute="trailing" constant="16" id="tNc-oI-fBJ"/>
-                            <constraint firstItem="t0v-L3-Q8T" firstAttribute="bottom" secondItem="t5V-wL-zjU" secondAttribute="bottom" constant="16" id="vrx-ny-Y3h"/>
                             <constraint firstItem="t0v-L3-Q8T" firstAttribute="trailing" secondItem="KGf-5F-Ugt" secondAttribute="trailing" constant="16" id="vtx-Gz-mkH"/>
                             <constraint firstItem="UjW-dK-f3e" firstAttribute="leading" secondItem="t0v-L3-Q8T" secondAttribute="leading" id="yiW-Bx-kqv"/>
                         </constraints>
@@ -643,7 +546,6 @@
                         <outlet property="drinkIngredientsTextView" destination="EMQ-wS-lVm" id="a2W-vC-rc0"/>
                         <outlet property="drinkNameLabel" destination="Lgk-8E-SIu" id="Qk0-CK-3Mf"/>
                         <outlet property="drinkSaveRecipeButton" destination="KGf-5F-Ugt" id="Lsm-Ct-14l"/>
-                        <outlet property="drinkServingsTextField" destination="cr7-In-OgS" id="dsm-NA-QQD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9IG-kK-2Do" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

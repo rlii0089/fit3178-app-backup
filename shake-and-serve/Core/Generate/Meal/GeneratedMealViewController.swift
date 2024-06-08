@@ -19,7 +19,6 @@ class GeneratedMealViewController: UIViewController {
     @IBOutlet weak var mealIngredientsTextView: UITextView!
     
     @IBOutlet weak var mealSaveRecipeButton: UIButton!
-    @IBOutlet weak var mealServingsTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +26,8 @@ class GeneratedMealViewController: UIViewController {
             fetchFullMeal(mealID: selectedMealID)
         }
     }
-    @IBAction func mealAddToShhoppingListButtonPressed(_ sender: Any) {
+    
+    @IBAction func mealAddToShoppingListButtonPressed(_ sender: Any) {
         var ingredients: [(String?, String?)] = []
         for i in 1...20 {
             let ingredientKey = "strIngredient\(i)"
@@ -71,11 +71,11 @@ class GeneratedMealViewController: UIViewController {
         }
         
         if let mealCategory = meal["strCategory"] as? String {
-            mealCategoryLabel.text = mealCategory
+            mealCategoryLabel.text = "Category: " + mealCategory
         }
         
         if let mealArea = meal["strArea"] as? String {
-            mealAreaLabel.text = mealArea
+            mealAreaLabel.text = "Area: " + mealArea
         }
         
         if let mealImageURL = meal["strMealThumb"] as? String, let url = URL(string: mealImageURL) {
@@ -87,6 +87,18 @@ class GeneratedMealViewController: UIViewController {
                 }
             }.resume()
         }
+        
+        
+        // ingredients
+        var ingredientsString = "Ingredients:"
+
+        for i in 1...20 {
+            let ingredientKey = "strIngredient\(i)"
+            if let ingredient = meal[ingredientKey] as? String, !ingredient.isEmpty {
+                ingredientsString += "\n- \(ingredient)"
+            }
+        }
+        mealIngredientsTextView.text = ingredientsString
     }
     
     func addIngredientsToShoppingList(ingredients: [(String?, String?)]) {
