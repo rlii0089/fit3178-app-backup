@@ -295,22 +295,27 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4i-cg-Zrb">
-                                <rect key="frame" x="103" y="661" width="186" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4i-cg-Zrb">
+                                <rect key="frame" x="16" y="661.66666666666663" width="361" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add To Shopping List"/>
+                                <connections>
+                                    <action selector="mealAddToShhoppingListButtonPressed:" destination="PCO-Kb-N7M" eventType="touchUpInside" id="bcU-tH-OM9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oDn-m4-Kvc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="wwi-eJ-uUq" firstAttribute="leading" secondItem="oDn-m4-Kvc" secondAttribute="leading" constant="16" id="A6Y-Y2-7rS"/>
+                            <constraint firstItem="R4i-cg-Zrb" firstAttribute="leading" secondItem="oDn-m4-Kvc" secondAttribute="leading" constant="16" id="B2y-dE-K9T"/>
+                            <constraint firstItem="oDn-m4-Kvc" firstAttribute="trailing" secondItem="R4i-cg-Zrb" secondAttribute="trailing" constant="16" id="Ekc-4W-bRJ"/>
                             <constraint firstItem="oDn-m4-Kvc" firstAttribute="trailing" secondItem="gZf-FK-bxZ" secondAttribute="trailing" constant="16" id="QrK-J0-veO"/>
                             <constraint firstItem="wZu-GX-faH" firstAttribute="leading" secondItem="oDn-m4-Kvc" secondAttribute="leading" id="S3o-fb-WUw"/>
                             <constraint firstItem="wZu-GX-faH" firstAttribute="trailing" secondItem="oDn-m4-Kvc" secondAttribute="trailing" id="Sq2-5T-tb3"/>
                             <constraint firstItem="oDn-m4-Kvc" firstAttribute="trailing" secondItem="wwi-eJ-uUq" secondAttribute="trailing" constant="16" id="a2u-CD-r4H"/>
                             <constraint firstItem="wZu-GX-faH" firstAttribute="top" secondItem="oDn-m4-Kvc" secondAttribute="top" id="ab2-VA-vWl"/>
+                            <constraint firstItem="gZf-FK-bxZ" firstAttribute="top" secondItem="R4i-cg-Zrb" secondAttribute="bottom" constant="8" id="fE4-9u-rRg"/>
                             <constraint firstItem="wwi-eJ-uUq" firstAttribute="top" secondItem="wZu-GX-faH" secondAttribute="bottom" constant="16" id="tRu-f3-lcm"/>
                             <constraint firstItem="gZf-FK-bxZ" firstAttribute="leading" secondItem="oDn-m4-Kvc" secondAttribute="leading" constant="16" id="yxX-nI-cn7"/>
                             <constraint firstItem="oDn-m4-Kvc" firstAttribute="bottom" secondItem="gZf-FK-bxZ" secondAttribute="bottom" constant="64" id="zTR-Ef-1RE"/>

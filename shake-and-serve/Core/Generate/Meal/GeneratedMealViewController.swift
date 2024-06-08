@@ -33,6 +33,7 @@ class GeneratedMealViewController: UIViewController {
             let measurementKey = "strMeasure\(i)"
             if let ingredient = meal?[ingredientKey] as? String,
                let measurement = meal?[measurementKey] as? String {
+                print("Ingredient: \(ingredient), Measurement: \(measurement)")
                 ingredients.append((ingredient, measurement))
             }
         }
@@ -96,6 +97,7 @@ class GeneratedMealViewController: UIViewController {
 
         do {
             try context.save()
+            print("Ingredients saved successfully.")
         } catch {
             print("Failed to save items: \(error)")
         }
