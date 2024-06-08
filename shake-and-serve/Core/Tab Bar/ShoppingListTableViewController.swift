@@ -11,13 +11,15 @@ import CoreData
 class ShoppingListTableViewController: UITableViewController {
     
     var items: [ShoppingItem] = []
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchItems()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchItems()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
         navigationItem.leftBarButtonItem = editButtonItem
     }
@@ -72,25 +74,33 @@ class ShoppingListTableViewController: UITableViewController {
         return cell
     }
 
-    /*
-    // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+            // Delete the item from Core Data
+            let itemToDelete = items[indexPath.row]
+            context.delete(itemToDelete)
+
+            // Remove the item from the items array
+            items.remove(at: indexPath.row)
+
+            // Save changes
+            do {
+                try context.save()
+            } catch {
+                print("Failed to delete item: \(error)")
+            }
+
+            // Delete the row from the table view
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
 
     /*
     // Override to support rearranging the table view.

@@ -717,6 +717,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Shopping List" id="qLI-hJ-f51">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Byg-BK-nLp"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="dHE-do-nqs">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="BNf-AV-s01">
                                 <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
@@ -930,22 +931,6 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Saved Recipes" id="zfM-qh-zve">
                         <barButtonItem key="backBarButtonItem" title=" " id="ZZc-Q3-JbE"/>
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="ijm-YX-wcl">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Jlr-Co-nAP">
-                                <rect key="frame" x="16" y="4.6666666666666679" width="87" height="34.666666666666657"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Edit"/>
-                            </button>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="AlR-hO-xCf">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="2Xt-Z4-oBy">
-                                <rect key="frame" x="290" y="4.6666666666666679" width="87" height="34.666666666666657"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Clear"/>
-                            </button>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="DWB-7o-K3V" kind="show" identifier="showRecipeDetail" id="Dpw-py-Fqs"/>
