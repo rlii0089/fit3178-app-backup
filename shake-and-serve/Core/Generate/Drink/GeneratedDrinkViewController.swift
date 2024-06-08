@@ -20,6 +20,7 @@ class GeneratedDrinkViewController: UIViewController {
     
     @IBOutlet weak var drinkAddToShoppingListButton: UIButton!
     @IBOutlet weak var drinkSaveRecipeButton: UIButton!
+    @IBOutlet weak var drinkServingsTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -19,6 +19,7 @@ class GeneratedMealViewController: UIViewController {
     @IBOutlet weak var mealIngredientsTextView: UITextView!
     
     @IBOutlet weak var mealSaveRecipeButton: UIButton!
+    @IBOutlet weak var mealServingsTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()

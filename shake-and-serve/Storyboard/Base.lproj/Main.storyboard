@@ -331,6 +331,7 @@
                         <outlet property="mealIngredientsTextView" destination="yAz-eV-K81" id="6gT-Jq-Xv5"/>
                         <outlet property="mealNameLabel" destination="BX7-kk-UHZ" id="1UQ-yQ-SGa"/>
                         <outlet property="mealSaveRecipeButton" destination="Qkt-ty-dY2" id="Gxe-FK-JST"/>
+                        <outlet property="mealServingsTextField" destination="9Nt-jJ-fJw" id="U80-nK-Pra"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53Z-kt-fBD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -642,6 +643,7 @@
                         <outlet property="drinkIngredientsTextView" destination="EMQ-wS-lVm" id="a2W-vC-rc0"/>
                         <outlet property="drinkNameLabel" destination="Lgk-8E-SIu" id="Qk0-CK-3Mf"/>
                         <outlet property="drinkSaveRecipeButton" destination="KGf-5F-Ugt" id="Lsm-Ct-14l"/>
+                        <outlet property="drinkServingsTextField" destination="cr7-In-OgS" id="dsm-NA-QQD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9IG-kK-2Do" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
