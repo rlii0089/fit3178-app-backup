@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD6FB6862C14476C00A31C9E /* ShoppingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6FB6852C14476C00A31C9E /* ShoppingListTableViewController.swift */; };
 		AD72F62F2BDA691B0056326F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AD72F62E2BDA691B0056326F /* FirebaseAuth */; };
 		AD72F6312BDA691B0056326F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AD72F6302BDA691B0056326F /* FirebaseFirestore */; };
 		AD72F6332BDA691B0056326F /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AD72F6322BDA691B0056326F /* FirebaseFirestoreSwift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD6FB6852C14476C00A31C9E /* ShoppingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewController.swift; sourceTree = "<group>"; };
 		AD72F6342BDA6F6F0056326F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD72F6382BDA8D660056326F /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		AD72F63C2BDA908F0056326F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -83,12 +85,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD6FB6872C144CF100A31C9E /* Shopping List */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Shopping List";
+			sourceTree = "<group>";
+		};
 		AD84F66D2BF963080020217A /* Tab Bar */ = {
 			isa = PBXGroup;
 			children = (
 				AD7D7CBA2BE603C70052FB3B /* BottomNavigationTabBarController.swift */,
 				AD72F63C2BDA908F0056326F /* HomeViewController.swift */,
 				ADDED7382BDB2DA5001B4A19 /* SavedRecipesCollectionViewController.swift */,
+				AD6FB6852C14476C00A31C9E /* ShoppingListTableViewController.swift */,
+				AD6FB6872C144CF100A31C9E /* Shopping List */,
 				AD72F6442BDA937A0056326F /* AccountViewController.swift */,
 			);
 			path = "Tab Bar";
@@ -97,6 +108,7 @@
 		AD9302282BFF3BF200079B57 /* Meal */ = {
 			isa = PBXGroup;
 			children = (
+				ADE6D02E2C0D8B8000D63A3F /* Meal.swift */,
 				AD9302242BFF249C00079B57 /* MealDBClient.swift */,
 				ADB06C632BF5F44C001F46BE /* MealRecipeFiltersViewController.swift */,
 				AD9302262BFF2B8000079B57 /* MealFilterListTableViewController.swift */,
@@ -131,8 +143,6 @@
 			children = (
 				AD9302282BFF3BF200079B57 /* Meal */,
 				ADB06C662BF5F4C2001F46BE /* Drink */,
-				ADE6D02E2C0D8B8000D63A3F /* Meal.swift */,
-				ADE6D0302C0D8BCE00D63A3F /* Drink.swift */,
 			);
 			path = Generate;
 			sourceTree = "<group>";
@@ -168,6 +178,7 @@
 		ADB06C662BF5F4C2001F46BE /* Drink */ = {
 			isa = PBXGroup;
 			children = (
+				ADE6D0302C0D8BCE00D63A3F /* Drink.swift */,
 				AD84F66E2BF9667A0020217A /* CocktailDBClient.swift */,
 				ADB06C672BF5F4E3001F46BE /* DrinkRecipeFiltersViewController.swift */,
 				ADB06C692BF5F5A0001F46BE /* DrinkFilterListTableViewController.swift */,
@@ -306,6 +317,7 @@
 				ADAD40052C0007C9008CEA1E /* RecipeCellCollectionViewCell.swift in Sources */,
 				ADB06C642BF5F44C001F46BE /* MealRecipeFiltersViewController.swift in Sources */,
 				AD72F6452BDA937A0056326F /* AccountViewController.swift in Sources */,
+				AD6FB6862C14476C00A31C9E /* ShoppingListTableViewController.swift in Sources */,
 				ADAD40012BFFFFCC008CEA1E /* RecipeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,8 +475,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -490,8 +502,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -22,7 +22,7 @@ class DrinkFilterListTableViewController: UITableViewController, UISearchBarDele
         
         switch isMultiSelect {
         case true:
-            navigationItem.title = "Select up to 3 items"
+            navigationItem.title = "Select up to 2 items"
         case false:
             navigationItem.title = "Select 1 item"
         }
@@ -83,7 +83,7 @@ class DrinkFilterListTableViewController: UITableViewController, UISearchBarDele
         if isMultiSelect {
             if selectedFilters.contains(selectedFilter) {
                 selectedFilters.removeAll { $0 == selectedFilter }
-            } else if selectedFilters.count < 3 {
+            } else if selectedFilters.count < 2 {
                 selectedFilters.append(selectedFilter)
             }
         } else {

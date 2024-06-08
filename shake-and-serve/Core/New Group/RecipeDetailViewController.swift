@@ -16,10 +16,6 @@ class RecipeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let recipe = recipe {
-            navigationItem.title = recipe.name
-            recipeIngredientsTextView.text = recipe.instructions
-        }
 
         // Do any additional setup after loading the view.
     }
