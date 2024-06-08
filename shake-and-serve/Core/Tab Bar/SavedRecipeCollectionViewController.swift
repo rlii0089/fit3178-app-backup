@@ -1,15 +1,15 @@
 //
-//  SavedRecipesCollectionViewController.swift
+//  SavedRecipeCollectionViewController.swift
 //  shake-and-serve
 //
-//  Created by Raymond Ruimin Li on 8/6/2024.
+//  Created by Raymond Ruimin Li on 9/6/2024.
 //
 
 import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class SavedRecipesCollectionViewController: UICollectionViewController {
+class SavedRecipeCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

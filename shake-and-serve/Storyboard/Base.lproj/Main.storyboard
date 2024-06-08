@@ -779,9 +779,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="xgH-59-dGw" kind="relationship" relationship="viewControllers" id="snA-PP-ryT"/>
+                        <segue destination="KLy-N3-I2P" kind="relationship" relationship="viewControllers" id="IUX-Ye-q8O"/>
                         <segue destination="R7l-nL-Ipk" kind="relationship" relationship="viewControllers" id="L8N-cg-wPq"/>
                         <segue destination="LiY-0U-UgI" kind="relationship" relationship="viewControllers" id="TUg-Ut-Cu4"/>
-                        <segue destination="KLy-N3-I2P" kind="relationship" relationship="viewControllers" id="IUX-Ye-q8O"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8X-5R-RXx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -791,7 +791,7 @@
         <!--Saved Recipes-->
         <scene sceneID="30B-nM-fVT">
             <objects>
-                <collectionViewController title="Saved Recipes" id="zIn-pX-yHH" customClass="SavedRecipesCollectionViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="Saved Recipes" id="zIn-pX-yHH" customClass="SavedRecipeCollectionViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="okL-g8-G4H">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -803,7 +803,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="FsL-Jx-dgQ">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecipeCell" id="FsL-Jx-dgQ" customClass="RecipeCellCollectionViewCell" customModule="shake_and_serve" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Qy6-VK-3Bx">
@@ -821,7 +821,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3EU-LF-jLk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5123" y="48"/>
+            <point key="canvasLocation" x="5122.900763358778" y="47.887323943661976"/>
         </scene>
         <!--Initial Sign In Options-->
         <scene sceneID="oBB-qD-WL0">
@@ -1115,11 +1115,11 @@
             </objects>
             <point key="canvasLocation" x="4355" y="-632"/>
         </scene>
-        <!--Item-->
+        <!--Saved-->
         <scene sceneID="HQS-NQ-eS0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KLy-N3-I2P" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="9td-pL-ko6"/>
+                    <tabBarItem key="tabBarItem" title="Saved" image="heart.fill" catalog="system" id="9td-pL-ko6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VH1-em-DHp">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>

@@ -21,7 +21,7 @@
 		AD7D7CC12BE6212B0052FB3B /* InitialSignInOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7D7CC02BE6212B0052FB3B /* InitialSignInOptionsViewController.swift */; };
 		AD84F66F2BF9667A0020217A /* CocktailDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD84F66E2BF9667A0020217A /* CocktailDBClient.swift */; };
 		AD84F6712BFF14F70020217A /* GeneratedMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD84F6702BFF14F70020217A /* GeneratedMealViewController.swift */; };
-		AD9040B32C1490660070E081 /* SavedRecipesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9040B22C1490660070E081 /* SavedRecipesCollectionViewController.swift */; };
+		AD9040C02C14A4C90070E081 /* SavedRecipeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9040BF2C14A4C90070E081 /* SavedRecipeCollectionViewController.swift */; };
 		AD9302252BFF249C00079B57 /* MealDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9302242BFF249C00079B57 /* MealDBClient.swift */; };
 		AD9302272BFF2B8000079B57 /* MealFilterListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9302262BFF2B8000079B57 /* MealFilterListTableViewController.swift */; };
 		ADB06C642BF5F44C001F46BE /* MealRecipeFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB06C632BF5F44C001F46BE /* MealRecipeFiltersViewController.swift */; };
@@ -49,7 +49,7 @@
 		AD7D7CC02BE6212B0052FB3B /* InitialSignInOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSignInOptionsViewController.swift; sourceTree = "<group>"; };
 		AD84F66E2BF9667A0020217A /* CocktailDBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDBClient.swift; sourceTree = "<group>"; };
 		AD84F6702BFF14F70020217A /* GeneratedMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedMealViewController.swift; sourceTree = "<group>"; };
-		AD9040B22C1490660070E081 /* SavedRecipesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipesCollectionViewController.swift; sourceTree = "<group>"; };
+		AD9040BF2C14A4C90070E081 /* SavedRecipeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipeCollectionViewController.swift; sourceTree = "<group>"; };
 		AD9302242BFF249C00079B57 /* MealDBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDBClient.swift; sourceTree = "<group>"; };
 		AD9302262BFF2B8000079B57 /* MealFilterListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFilterListTableViewController.swift; sourceTree = "<group>"; };
 		ADB06C632BF5F44C001F46BE /* MealRecipeFiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRecipeFiltersViewController.swift; sourceTree = "<group>"; };
@@ -92,11 +92,11 @@
 		AD84F66D2BF963080020217A /* Tab Bar */ = {
 			isa = PBXGroup;
 			children = (
-				AD6FB68A2C14553C00A31C9E /* DataModel */,
 				AD7D7CBA2BE603C70052FB3B /* BottomNavigationTabBarController.swift */,
 				AD72F63C2BDA908F0056326F /* HomeViewController.swift */,
-				AD9040B22C1490660070E081 /* SavedRecipesCollectionViewController.swift */,
+				AD9040BF2C14A4C90070E081 /* SavedRecipeCollectionViewController.swift */,
 				AD6FB6852C14476C00A31C9E /* ShoppingListTableViewController.swift */,
+				AD6FB68A2C14553C00A31C9E /* DataModel */,
 				AD72F6442BDA937A0056326F /* AccountViewController.swift */,
 			);
 			path = "Tab Bar";
@@ -286,6 +286,7 @@
 				AD72F6392BDA8D660056326F /* CreateAccountViewController.swift in Sources */,
 				ADD79EB32BDA0477006CFE06 /* AppDelegate.swift in Sources */,
 				ADB06C6C2BF5F5E9001F46BE /* GeneratedDrinkViewController.swift in Sources */,
+				AD9040C02C14A4C90070E081 /* SavedRecipeCollectionViewController.swift in Sources */,
 				AD84F6712BFF14F70020217A /* GeneratedMealViewController.swift in Sources */,
 				AD7D7CBB2BE603C70052FB3B /* BottomNavigationTabBarController.swift in Sources */,
 				AD7D7CC12BE6212B0052FB3B /* InitialSignInOptionsViewController.swift in Sources */,
@@ -300,7 +301,6 @@
 				ADE6D02F2C0D8B8000D63A3F /* Meal.swift in Sources */,
 				AD6FB6902C1456C400A31C9E /* ShoppingListModel.xcdatamodeld in Sources */,
 				ADB06C642BF5F44C001F46BE /* MealRecipeFiltersViewController.swift in Sources */,
-				AD9040B32C1490660070E081 /* SavedRecipesCollectionViewController.swift in Sources */,
 				AD72F6452BDA937A0056326F /* AccountViewController.swift in Sources */,
 				AD6FB6862C14476C00A31C9E /* ShoppingListTableViewController.swift in Sources */,
 			);
