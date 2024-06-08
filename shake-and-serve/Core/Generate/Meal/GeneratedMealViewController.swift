@@ -50,6 +50,7 @@ class GeneratedMealViewController: UIViewController {
                 if let meals = json["meals"] as? [[String: Any]] {
                     if let meal = meals.first {
                         DispatchQueue.main.async {
+                            self.meal = meal
                             self.updateUI(with: meal)
                         }
                     }
