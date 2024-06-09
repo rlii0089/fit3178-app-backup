@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -21,7 +22,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake &amp; Serve" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSX-h6-DjV">
                                 <rect key="frame" x="16" y="252.99999999999997" width="361" height="54.666666666666657"/>
                                 <fontDescription key="fontDescription" name="AlNile-Bold" family="Al Nile" pointSize="40"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="TextColourSet"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="K0L-sl-tMd">
@@ -30,7 +31,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generate A Recipe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FV-eB-gdJ">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="28.666666666666668"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="TextColourSet"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMG-B5-CG7">
@@ -41,7 +42,8 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" imagePlacement="leading" title="Meal" imagePadding="8" cornerStyle="capsule">
                                             <imageReference key="image" image="fork.knife" catalog="system" symbolScale="default"/>
-                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                            <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                            <color key="baseBackgroundColor" name="ButtonColourSet"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="t86-CL-m4N" kind="show" id="Xvm-nS-Vow"/>
@@ -55,7 +57,8 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" imagePlacement="leading" title="Drink" imagePadding="8" cornerStyle="capsule">
                                             <imageReference key="image" image="wineglass.fill" catalog="system" symbolScale="default"/>
-                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                            <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                            <color key="baseBackgroundColor" name="ButtonColourSet"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="TOf-Ig-MJ8" kind="show" id="Wet-Lf-oOY"/>
@@ -65,7 +68,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cyi-so-f0r"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColourSet"/>
                         <constraints>
                             <constraint firstItem="cyi-so-f0r" firstAttribute="trailing" secondItem="ZSX-h6-DjV" secondAttribute="trailing" constant="16" id="1fG-R4-97b"/>
                             <constraint firstItem="cyi-so-f0r" firstAttribute="trailing" secondItem="K0L-sl-tMd" secondAttribute="trailing" constant="16" id="2Wj-F3-Abr"/>
@@ -75,7 +78,7 @@
                             <constraint firstItem="K0L-sl-tMd" firstAttribute="leading" secondItem="cyi-so-f0r" secondAttribute="leading" constant="16" id="zOP-Zd-rs0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="[HOME TAB SCREEN]" id="4lA-z1-Rd1">
+                    <navigationItem key="navigationItem" title="Home" id="4lA-z1-Rd1">
                         <barButtonItem key="backBarButtonItem" title=" " id="728-Pc-dCL"/>
                     </navigationItem>
                 </viewController>
@@ -102,7 +105,8 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Category" imagePadding="8" cornerStyle="capsule" titleAlignment="center">
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
-                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                            <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                            <color key="baseBackgroundColor" name="ButtonColourSet"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="OKK-5X-fGv" kind="show" identifier="MealCategorySegue" id="Cnc-Mq-oNG"/>
@@ -116,7 +120,8 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Area" imagePadding="8" cornerStyle="capsule" titleAlignment="center">
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
-                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                            <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                            <color key="baseBackgroundColor" name="ButtonColourSet"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="OKK-5X-fGv" kind="show" identifier="MealAreaSegue" id="Cwf-Di-f6h"/>
@@ -130,7 +135,8 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Ingredient" imagePadding="8" cornerStyle="capsule" titleAlignment="center">
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
-                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                            <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                            <color key="baseBackgroundColor" name="ButtonColourSet"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="OKK-5X-fGv" kind="show" identifier="MealIngredientSegue" id="do8-bv-yq7"/>
@@ -144,13 +150,15 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake To Generate!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNm-GM-luR">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="38.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="TextColourSet"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkv-lR-36O">
                                         <rect key="frame" x="0.0" y="38.333333333333258" width="361" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="or press here" cornerStyle="capsule"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="or press here" cornerStyle="capsule">
+                                            <color key="baseForegroundColor" name="SecondaryButtonColourSet"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="generateDrinkButtonPressed:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="5PO-1B-VRY"/>
                                             <action selector="generateMealButtonPressed:" destination="t86-CL-m4N" eventType="touchUpInside" id="iqq-Ux-8aS"/>
@@ -160,7 +168,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iim-MM-mdD"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColourSet"/>
                         <constraints>
                             <constraint firstItem="iim-MM-mdD" firstAttribute="trailing" secondItem="3nX-cW-JXr" secondAttribute="trailing" constant="16" id="0GJ-pa-l71"/>
                             <constraint firstItem="iim-MM-mdD" firstAttribute="bottom" secondItem="3nX-cW-JXr" secondAttribute="bottom" constant="16" id="AoL-gN-RsT"/>
@@ -205,30 +213,30 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BX7-kk-UHZ">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="38.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="TextColourSet"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kV5-3G-cwZ">
                                         <rect key="frame" x="0.0" y="54.333333333333314" width="361" height="56.666666666666657"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsN-Su-6as">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsN-Su-6as">
                                                 <rect key="frame" x="0.0" y="18.333333333333371" width="180.66666666666666" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="TextColourSet"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVk-ko-2ch">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVk-ko-2ch">
                                                 <rect key="frame" x="180.66666666666663" y="18.333333333333371" width="180.33333333333337" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="TextColourSet"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Ingredients" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAz-eV-K81">
                                         <rect key="frame" x="0.0" y="127" width="361" height="228"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <color key="textColor" systemColor="labelColor"/>
+                                        <color key="backgroundColor" name="BackgroundColourSet"/>
+                                        <color key="textColor" name="TextColourSet"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -242,6 +250,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" imagePlacement="leading" title="Save Recipe" imagePadding="8" cornerStyle="capsule">
                                     <imageReference key="image" image="heart.fill" catalog="system" symbolScale="default"/>
+                                    <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                    <color key="baseBackgroundColor" name="ButtonColourSet"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="saveRecipeButtonPressed:" destination="PCO-Kb-N7M" eventType="touchUpInside" id="L40-GN-Lpc"/>
@@ -253,14 +263,17 @@
                                     <constraint firstAttribute="height" constant="50" id="ch0-he-uOZ"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="cart.fill" catalog="system" imagePlacement="leading" title="Add To Shopping List" imagePadding="8" cornerStyle="capsule"/>
+                                <buttonConfiguration key="configuration" style="filled" image="cart.fill" catalog="system" imagePlacement="leading" title="Add To Shopping List" imagePadding="8" cornerStyle="capsule">
+                                    <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                    <color key="baseBackgroundColor" name="ButtonColourSet"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="mealAddToShoppingListButtonPressed:" destination="PCO-Kb-N7M" eventType="touchUpInside" id="AmX-XD-Tx3"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oDn-m4-Kvc"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColourSet"/>
                         <constraints>
                             <constraint firstItem="oDn-m4-Kvc" firstAttribute="bottom" secondItem="R4i-cg-Zrb" secondAttribute="bottom" constant="16" id="8LF-sf-27u"/>
                             <constraint firstItem="wwi-eJ-uUq" firstAttribute="leading" secondItem="oDn-m4-Kvc" secondAttribute="leading" constant="16" id="A6Y-Y2-7rS"/>
@@ -297,7 +310,9 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="I8R-zg-bvo">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColourSet"/>
+                        <color key="sectionIndexColor" name="TextColourSet"/>
+                        <color key="sectionIndexBackgroundColor" name="BackgroundColourSet"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealFilterCell" id="LcV-Qw-hnW">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
@@ -306,6 +321,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" name="BackgroundColourSet"/>
+                                <color key="tintColor" name="TextColourSet"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -314,7 +331,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="5Qp-GO-LGE">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="R9a-zu-bc1">
+                        <barButtonItem key="rightBarButtonItem" id="R9a-zu-bc1">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="jR0-B4-zl0">
                                 <rect key="frame" x="290" y="4.6666666666666679" width="87" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -351,7 +368,8 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Category" imagePadding="8" cornerStyle="capsule">
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
-                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                            <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                            <color key="baseBackgroundColor" name="ButtonColourSet"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="GYH-0d-pbO" kind="show" identifier="CategorySegue" id="h9O-wj-lLo"/>
@@ -365,7 +383,8 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Glass" imagePadding="8" cornerStyle="capsule">
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
-                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                            <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                            <color key="baseBackgroundColor" name="ButtonColourSet"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="GYH-0d-pbO" kind="show" identifier="GlassSegue" id="Pob-tQ-dg2"/>
@@ -379,7 +398,8 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Ingredient" imagePadding="8" cornerStyle="capsule">
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
-                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                            <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                            <color key="baseBackgroundColor" name="ButtonColourSet"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="GYH-0d-pbO" kind="show" identifier="IngredientSegue" id="d0o-jE-pkb"/>
@@ -393,7 +413,8 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Alcohol" imagePadding="8" cornerStyle="capsule">
                                             <imageReference key="image" image="chevron.down.circle.fill" catalog="system" symbolScale="small"/>
-                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                            <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                            <color key="baseBackgroundColor" name="ButtonColourSet"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="GYH-0d-pbO" kind="show" identifier="AlcoholicSegue" id="7Gh-aX-WZQ"/>
@@ -407,13 +428,15 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to generate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdU-sR-Ym1">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="38.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="TextColourSet"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOz-6d-uds">
                                         <rect key="frame" x="0.0" y="38.333333333333258" width="361" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="or press here" cornerStyle="capsule"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="or press here" cornerStyle="capsule">
+                                            <color key="baseForegroundColor" name="SecondaryButtonColourSet"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="generateDrinkButtonPressed:" destination="TOf-Ig-MJ8" eventType="touchUpInside" id="QRf-PT-Gg3"/>
                                         </connections>
@@ -422,7 +445,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vMH-yr-5xG"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColourSet"/>
                         <constraints>
                             <constraint firstItem="X67-2g-cVw" firstAttribute="leading" secondItem="vMH-yr-5xG" secondAttribute="leading" constant="16" id="I2M-Gf-iit"/>
                             <constraint firstItem="vMH-yr-5xG" firstAttribute="trailing" secondItem="5EC-j8-glZ" secondAttribute="trailing" constant="16" id="Jc1-qA-awq"/>
@@ -467,30 +490,36 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lgk-8E-SIu">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="38.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="TextColourSet"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1d7-ps-ckj">
                                         <rect key="frame" x="0.0" y="54.333333333333314" width="361" height="56.666666666666657"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alcoholic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzP-2n-jfg">
-                                                <rect key="frame" x="0.0" y="18.333333333333371" width="180.66666666666666" height="20.333333333333329"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kg-Mm-pNr">
+                                                <rect key="frame" x="0.0" y="18.333333333333371" width="120.33333333333333" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="TextColourSet"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Glass" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MH-cC-bxq">
-                                                <rect key="frame" x="180.66666666666663" y="18.333333333333371" width="180.33333333333337" height="20.333333333333329"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Glass" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MH-cC-bxq">
+                                                <rect key="frame" x="120.33333333333334" y="18.333333333333371" width="120.33333333333334" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="TextColourSet"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alcoholic" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzP-2n-jfg">
+                                                <rect key="frame" x="240.66666666666671" y="18.333333333333371" width="120.33333333333334" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" name="TextColourSet"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Ingredients" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMQ-wS-lVm">
                                         <rect key="frame" x="0.0" y="127" width="361" height="228"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <color key="textColor" systemColor="labelColor"/>
+                                        <color key="backgroundColor" name="BackgroundColourSet"/>
+                                        <color key="textColor" name="TextColourSet"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -504,6 +533,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" imagePlacement="leading" title="Save Recipe" imagePadding="8" cornerStyle="capsule">
                                     <imageReference key="image" image="heart.fill" catalog="system" symbolScale="default"/>
+                                    <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                    <color key="baseBackgroundColor" name="ButtonColourSet"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="saveRecipeButtonPressed:" destination="Tav-4j-x21" eventType="touchUpInside" id="Bh2-d7-Zrf"/>
@@ -515,11 +546,14 @@
                                     <constraint firstAttribute="height" constant="50" id="f7V-cU-Etf"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="cart.fill" catalog="system" imagePlacement="leading" title="Add To Shopping List" imagePadding="8" cornerStyle="capsule"/>
+                                <buttonConfiguration key="configuration" style="filled" image="cart.fill" catalog="system" imagePlacement="leading" title="Add To Shopping List" imagePadding="8" cornerStyle="capsule">
+                                    <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                    <color key="baseBackgroundColor" name="ButtonColourSet"/>
+                                </buttonConfiguration>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="t0v-L3-Q8T"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColourSet"/>
                         <constraints>
                             <constraint firstItem="t0v-L3-Q8T" firstAttribute="bottom" secondItem="C4R-zz-KrG" secondAttribute="bottom" constant="16" id="FjK-u8-vwv"/>
                             <constraint firstItem="t0v-L3-Q8T" firstAttribute="trailing" secondItem="UjW-dK-f3e" secondAttribute="trailing" id="MHc-wM-Krv"/>
@@ -540,7 +574,8 @@
                     <navigationItem key="navigationItem" id="tJx-9Y-xei"/>
                     <connections>
                         <outlet property="drinkAddToShoppingListButton" destination="C4R-zz-KrG" id="BBa-HI-Oih"/>
-                        <outlet property="drinkAlcoholicLabel" destination="SzP-2n-jfg" id="7hg-tg-8lp"/>
+                        <outlet property="drinkAlcoholicLabel" destination="SzP-2n-jfg" id="r98-Wx-9Wi"/>
+                        <outlet property="drinkCategoryLabel" destination="5kg-Mm-pNr" id="7fO-82-nsc"/>
                         <outlet property="drinkGlassLabel" destination="4MH-cC-bxq" id="vdW-zH-6Za"/>
                         <outlet property="drinkImageView" destination="UjW-dK-f3e" id="arG-Bo-fas"/>
                         <outlet property="drinkIngredientsTextView" destination="EMQ-wS-lVm" id="a2W-vC-rc0"/>
@@ -559,7 +594,9 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="WZo-cg-k6n">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColourSet"/>
+                        <color key="sectionIndexColor" name="TextColourSet"/>
+                        <color key="sectionIndexBackgroundColor" name="BackgroundColourSet"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterCell" id="Jjo-mw-Aoi">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
@@ -568,11 +605,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" name="BackgroundColourSet"/>
+                                <color key="tintColor" name="TextColourSet"/>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" id="mD6-M6-Doy">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="POu-ge-5Sv">
+                        <barButtonItem key="rightBarButtonItem" id="POu-ge-5Sv">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ekV-sp-AQg">
                                 <rect key="frame" x="290" y="4.6666666666666679" width="87" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -597,7 +636,9 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="PyJ-Qw-lTZ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColourSet"/>
+                        <color key="sectionIndexColor" name="TextColourSet"/>
+                        <color key="sectionIndexBackgroundColor" name="BackgroundColourSet"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShoppingItemCell" textLabel="Qua-oh-4cC" detailTextLabel="4Dt-4u-RCp" style="IBUITableViewCellStyleValue1" id="I8l-kL-5AL">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
@@ -622,6 +663,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" name="BackgroundColourSet"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -631,7 +673,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Shopping List" id="qLI-hJ-f51">
                         <barButtonItem key="backBarButtonItem" title=" " id="Byg-BK-nLp"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="dHE-do-nqs">
+                        <barButtonItem key="rightBarButtonItem" id="dHE-do-nqs">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="BNf-AV-s01">
                                 <rect key="frame" x="290" y="4.6666666666666679" width="87" height="34.666666666666657"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -646,7 +688,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xaa-wB-nqK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5123" y="-632"/>
+            <point key="canvasLocation" x="5121" y="-632"/>
         </scene>
         <!--Account-->
         <scene sceneID="KgR-qh-zE0">
@@ -661,6 +703,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QJd-fV-MF8">
                                         <rect key="frame" x="0.0" y="1" width="50" height="48.666666666666671"/>
+                                        <color key="tintColor" name="TextColourSet"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="V8I-eO-Iic"/>
                                             <constraint firstAttribute="width" constant="50" id="uf9-nJ-0PQ"/>
@@ -669,16 +712,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vGu-ga-anb">
                                         <rect key="frame" x="50" y="0.0" width="311" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="|" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRi-g9-Yzs">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRi-g9-Yzs">
                                                 <rect key="frame" x="0.0" y="0.0" width="311" height="29.666666666666668"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="TextColourSet"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="|" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbQ-3V-x0S">
                                                 <rect key="frame" x="0.0" y="29.666666666666657" width="311" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="TextColourSet"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -691,7 +734,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MoT-pb-u23">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Acknowledgements"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Acknowledgements">
+                                            <color key="baseForegroundColor" name="SecondaryButtonColourSet"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <segue destination="rZt-Eo-Oos" kind="show" id="QMU-mj-7gv"/>
                                         </connections>
@@ -702,7 +747,10 @@
                                             <constraint firstAttribute="height" constant="50" id="6kU-rO-OQo"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Sign Out" cornerStyle="capsule"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Sign Out" cornerStyle="capsule">
+                                            <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                            <color key="baseBackgroundColor" name="ButtonColourSet"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="SignOutButton:" destination="bSh-GV-wHY" eventType="touchUpInside" id="nwW-ka-Dqg"/>
                                         </connections>
@@ -711,7 +759,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LxB-ls-ASA"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColourSet"/>
                         <constraints>
                             <constraint firstItem="LxB-ls-ASA" firstAttribute="trailing" secondItem="TuS-dT-hF9" secondAttribute="trailing" constant="16" id="41H-H6-Lse"/>
                             <constraint firstItem="TuS-dT-hF9" firstAttribute="top" secondItem="LxB-ls-ASA" secondAttribute="top" id="FDS-sh-Rf4"/>
@@ -732,7 +780,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wiv-WD-2bh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5123" y="-1308"/>
+            <point key="canvasLocation" x="5120" y="-1308"/>
         </scene>
         <!--Acknowledgements-->
         <scene sceneID="naU-F7-Xt5">
@@ -742,16 +790,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="SAMPLE TEXT..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NJ7-mu-OVo">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NJ7-mu-OVo">
                                 <rect key="frame" x="16" y="119" width="361" height="634"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="BackgroundColourSet"/>
+                                <color key="tintColor" name="TextColourSet"/>
+                                <mutableString key="text">Created by: Raymond Ruimin Li
+Student ID: 33119937
+Email: rlii0089@stdudent.monash.edu  ---  For: Monash University: Clayton Campus FIT3178: iOS App Development  ---  APIs used: TheMealDB Link: https://www.themealdb.com/  TheCocktailDB Link: https://www.thecocktaildb.com/  ---  Platforms used: Firebase Cloud Link: https://www.firebase.google.com/</mutableString>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8WO-KR-3P2"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColourSet"/>
                         <constraints>
                             <constraint firstItem="NJ7-mu-OVo" firstAttribute="leading" secondItem="8WO-KR-3P2" secondAttribute="leading" constant="16" id="Cd9-p6-9ds"/>
                             <constraint firstItem="NJ7-mu-OVo" firstAttribute="top" secondItem="8WO-KR-3P2" secondAttribute="top" constant="16" id="Puf-5I-fWM"/>
@@ -765,7 +817,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rM5-iC-2uu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5905" y="-1308"/>
+            <point key="canvasLocation" x="5902" y="-1308"/>
         </scene>
         <!--BottomNavigation-->
         <scene sceneID="iNV-GN-2ey">
@@ -795,21 +847,49 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="okL-g8-G4H">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="awh-4K-hd6">
-                            <size key="itemSize" width="128" height="128"/>
+                        <color key="backgroundColor" name="BackgroundColourSet"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="awh-4K-hd6">
+                            <size key="itemSize" width="128" height="192"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecipeCell" id="FsL-Jx-dgQ" customClass="RecipeCellCollectionViewCell" customModule="shake_and_serve" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SavedRecipeCell" id="FsL-Jx-dgQ" customClass="SavedRecipeCellCollectionViewCell" customModule="shake_and_serve" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="192"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Qy6-VK-3Bx">
-                                    <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="192"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v08-0D-Tqc">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="v08-0D-Tqc" secondAttribute="height" multiplier="1:1" id="Wy1-5v-jmI"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dV-2j-d53">
+                                            <rect key="frame" x="8" y="136" width="112" height="48"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" name="TextColourSet"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="v08-0D-Tqc" secondAttribute="trailing" id="7pR-HO-Goq"/>
+                                        <constraint firstItem="4dV-2j-d53" firstAttribute="leading" secondItem="Qy6-VK-3Bx" secondAttribute="leading" constant="8" id="Cj5-hN-enT"/>
+                                        <constraint firstAttribute="trailing" secondItem="4dV-2j-d53" secondAttribute="trailing" constant="8" id="HKH-r8-GWq"/>
+                                        <constraint firstAttribute="bottom" secondItem="4dV-2j-d53" secondAttribute="bottom" constant="8" id="OXz-1M-29D"/>
+                                        <constraint firstItem="4dV-2j-d53" firstAttribute="top" secondItem="v08-0D-Tqc" secondAttribute="bottom" constant="8" id="P9e-FV-NiQ"/>
+                                        <constraint firstItem="v08-0D-Tqc" firstAttribute="leading" secondItem="Qy6-VK-3Bx" secondAttribute="leading" id="gFJ-Fa-c4S"/>
+                                        <constraint firstItem="v08-0D-Tqc" firstAttribute="top" secondItem="Qy6-VK-3Bx" secondAttribute="top" id="qrm-Zk-ktL"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="mealImageView" destination="v08-0D-Tqc" id="mkG-C3-yjI"/>
+                                    <outlet property="mealNameLabel" destination="4dV-2j-d53" id="dNM-xA-tXT"/>
+                                    <segue destination="CwZ-my-hSM" kind="show" id="0gc-PV-UxG"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -817,11 +897,143 @@
                             <outlet property="delegate" destination="zIn-pX-yHH" id="D5b-0H-VV2"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="CgL-xg-RAO"/>
+                    <navigationItem key="navigationItem" title="Saved Recipes" id="CgL-xg-RAO">
+                        <barButtonItem key="backBarButtonItem" title=" " id="xHG-fj-hkb"/>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3EU-LF-jLk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5122.900763358778" y="47.887323943661976"/>
+            <point key="canvasLocation" x="5121.3740458015263" y="47.887323943661976"/>
+        </scene>
+        <!--Saved Recipe Details-->
+        <scene sceneID="Prs-Hg-7v0">
+            <objects>
+                <viewController title="Saved Recipe Details" id="CwZ-my-hSM" customClass="SavedRecipeDetailsViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iXl-aW-GYw">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uzz-IE-RMG">
+                                <rect key="frame" x="16" y="735" width="361" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="YvZ-fG-7bM"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Show Instructions" cornerStyle="capsule">
+                                    <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                    <color key="baseBackgroundColor" name="ButtonColourSet"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="cwa-YX-lYa" kind="show" id="Ed1-tj-npN"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zpQ-zQ-Kjw">
+                                <rect key="frame" x="0.0" y="103" width="393" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="moX-X2-AGQ"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="y4o-40-2p3">
+                                <rect key="frame" x="16" y="359" width="361" height="360"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gmb-P5-9R7">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="38.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
+                                        <color key="textColor" name="TextColourSet"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Ingredients" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9s-tP-iEM">
+                                        <rect key="frame" x="0.0" y="54.333333333333314" width="361" height="305.66666666666669"/>
+                                        <color key="backgroundColor" name="BackgroundColourSet"/>
+                                        <color key="textColor" name="TextColourSet"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xvc-m6-uAN"/>
+                        <color key="backgroundColor" name="BackgroundColourSet"/>
+                        <constraints>
+                            <constraint firstItem="zpQ-zQ-Kjw" firstAttribute="leading" secondItem="xvc-m6-uAN" secondAttribute="leading" id="4Ko-xZ-CAZ"/>
+                            <constraint firstItem="y4o-40-2p3" firstAttribute="leading" secondItem="xvc-m6-uAN" secondAttribute="leading" constant="16" id="6ci-Yg-sTe"/>
+                            <constraint firstItem="zpQ-zQ-Kjw" firstAttribute="trailing" secondItem="xvc-m6-uAN" secondAttribute="trailing" id="8iJ-oQ-wgT"/>
+                            <constraint firstItem="zpQ-zQ-Kjw" firstAttribute="top" secondItem="xvc-m6-uAN" secondAttribute="top" id="ENS-93-Zky"/>
+                            <constraint firstItem="Uzz-IE-RMG" firstAttribute="bottom" secondItem="xvc-m6-uAN" secondAttribute="bottom" constant="16" id="Ge3-Nc-gfq"/>
+                            <constraint firstItem="xvc-m6-uAN" firstAttribute="trailing" secondItem="y4o-40-2p3" secondAttribute="trailing" constant="16" id="Y2o-8p-EkO"/>
+                            <constraint firstItem="xvc-m6-uAN" firstAttribute="trailing" secondItem="Uzz-IE-RMG" secondAttribute="trailing" constant="16" id="e9s-dH-BRU"/>
+                            <constraint firstItem="Uzz-IE-RMG" firstAttribute="top" secondItem="y4o-40-2p3" secondAttribute="bottom" constant="16" id="hvp-dn-Zqm"/>
+                            <constraint firstItem="Uzz-IE-RMG" firstAttribute="leading" secondItem="xvc-m6-uAN" secondAttribute="leading" constant="16" id="jyh-ZK-R4Y"/>
+                            <constraint firstItem="y4o-40-2p3" firstAttribute="top" secondItem="zpQ-zQ-Kjw" secondAttribute="bottom" constant="16" id="ugV-s9-gIe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Recipe Details" id="sWL-Kw-0Dd">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Zci-v6-H55"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="savedRecipeImageView" destination="zpQ-zQ-Kjw" id="rLU-1K-5yP"/>
+                        <outlet property="savedRecipeIngredientsTextView" destination="Q9s-tP-iEM" id="peG-T6-5Td"/>
+                        <outlet property="savedRecipeNameLabel" destination="Gmb-P5-9R7" id="W86-UP-wWj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9cd-w1-Woa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5905" y="48"/>
+        </scene>
+        <!--Saved Recipe Instructions-->
+        <scene sceneID="ar9-mO-N2Q">
+            <objects>
+                <viewController title="Saved Recipe Instructions" id="cwa-YX-lYa" customClass="SavedRecipeInstructionsViewController" customModule="shake_and_serve" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gWq-m5-Kog">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfd-F4-xEG">
+                                <rect key="frame" x="16" y="103" width="361" height="38.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
+                                <color key="textColor" name="TextColourSet"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="instructions..." translatesAutoresizingMaskIntoConstraints="NO" id="tTc-3a-2hR">
+                                <rect key="frame" x="16" y="157.33333333333337" width="361" height="567"/>
+                                <color key="backgroundColor" name="BackgroundColourSet"/>
+                                <color key="textColor" name="TextColourSet"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serve and enjoy!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s88-lb-DXW">
+                                <rect key="frame" x="16" y="740.33333333333337" width="361" height="28.666666666666629"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
+                                <color key="textColor" name="TextColourSet"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="L08-PN-sHy"/>
+                        <color key="backgroundColor" name="BackgroundColourSet"/>
+                        <constraints>
+                            <constraint firstItem="tTc-3a-2hR" firstAttribute="top" secondItem="nfd-F4-xEG" secondAttribute="bottom" constant="16" id="1Ec-Ob-ITG"/>
+                            <constraint firstItem="nfd-F4-xEG" firstAttribute="leading" secondItem="L08-PN-sHy" secondAttribute="leading" constant="16" id="1NK-ci-knJ"/>
+                            <constraint firstItem="L08-PN-sHy" firstAttribute="trailing" secondItem="tTc-3a-2hR" secondAttribute="trailing" constant="16" id="26C-u9-H4P"/>
+                            <constraint firstItem="s88-lb-DXW" firstAttribute="leading" secondItem="L08-PN-sHy" secondAttribute="leading" constant="16" id="KfF-d8-bnL"/>
+                            <constraint firstItem="tTc-3a-2hR" firstAttribute="leading" secondItem="L08-PN-sHy" secondAttribute="leading" constant="16" id="Tzy-Z5-Dps"/>
+                            <constraint firstItem="s88-lb-DXW" firstAttribute="bottom" secondItem="L08-PN-sHy" secondAttribute="bottom" id="Veb-Oq-Tdk"/>
+                            <constraint firstItem="L08-PN-sHy" firstAttribute="trailing" secondItem="s88-lb-DXW" secondAttribute="trailing" constant="16" id="Vne-68-GJB"/>
+                            <constraint firstItem="nfd-F4-xEG" firstAttribute="top" secondItem="L08-PN-sHy" secondAttribute="top" id="aMp-kX-GB6"/>
+                            <constraint firstItem="L08-PN-sHy" firstAttribute="trailing" secondItem="nfd-F4-xEG" secondAttribute="trailing" constant="16" id="kdk-eG-sJi"/>
+                            <constraint firstItem="s88-lb-DXW" firstAttribute="top" secondItem="tTc-3a-2hR" secondAttribute="bottom" constant="16" id="mAE-4u-BK5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Instructions" id="o7U-bi-xq2">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Oqd-Bf-eRj"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="savedRecipeInstructionsTextView" destination="tTc-3a-2hR" id="K5Q-Uc-24h"/>
+                        <outlet property="savedRecipeNameLabel" destination="nfd-F4-xEG" id="m1o-me-5e3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oag-09-EMH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6687.7862595419847" y="47.887323943661976"/>
         </scene>
         <!--Initial Sign In Options-->
         <scene sceneID="oBB-qD-WL0">
@@ -841,7 +1053,8 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Create Account" cornerStyle="capsule">
-                                            <color key="baseBackgroundColor" systemColor="systemTealColor"/>
+                                            <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                            <color key="baseBackgroundColor" name="ButtonColourSet"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="9er-HI-5jq" kind="show" id="E21-hT-vbK"/>
@@ -854,7 +1067,8 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Sign In" cornerStyle="capsule">
-                                            <color key="baseBackgroundColor" systemColor="systemTealColor"/>
+                                            <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                            <color key="baseBackgroundColor" name="ButtonColourSet"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="rXa-ts-qF9" kind="show" id="DTw-Lm-Isq"/>
@@ -867,7 +1081,8 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Sign In Later" cornerStyle="capsule">
-                                            <color key="baseBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                            <color key="baseBackgroundColor" name="SecondaryButtonColourSet"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="SignInLaterButton:" destination="ZJe-fG-iEJ" eventType="touchUpInside" id="n2I-ZQ-2tK"/>
@@ -875,13 +1090,22 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In To Get Started" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lys-jN-qBZ">
+                                <rect key="frame" x="16" y="253.00000000000003" width="361" height="109.33333333333334"/>
+                                <fontDescription key="fontDescription" name="AlNile-Bold" family="Al Nile" pointSize="40"/>
+                                <color key="textColor" name="TextColourSet"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yEy-qf-dqa"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColourSet"/>
                         <constraints>
                             <constraint firstItem="yEy-qf-dqa" firstAttribute="bottom" secondItem="Jeg-jC-Ioe" secondAttribute="bottom" constant="16" id="5iV-Cx-470"/>
+                            <constraint firstItem="lys-jN-qBZ" firstAttribute="leading" secondItem="yEy-qf-dqa" secondAttribute="leading" constant="16" id="Nwz-BA-hYV"/>
                             <constraint firstItem="Jeg-jC-Ioe" firstAttribute="leading" secondItem="yEy-qf-dqa" secondAttribute="leading" constant="16" id="T3M-JU-6Zo"/>
                             <constraint firstItem="yEy-qf-dqa" firstAttribute="trailing" secondItem="Jeg-jC-Ioe" secondAttribute="trailing" constant="16" id="VC4-8E-qYx"/>
+                            <constraint firstItem="yEy-qf-dqa" firstAttribute="trailing" secondItem="lys-jN-qBZ" secondAttribute="trailing" constant="16" id="VwL-d6-Fk1"/>
+                            <constraint firstItem="lys-jN-qBZ" firstAttribute="top" secondItem="yEy-qf-dqa" secondAttribute="top" constant="150" id="ZNR-sZ-v6C"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PAd-dr-pU8">
@@ -919,7 +1143,10 @@
                                             <constraint firstAttribute="height" constant="50" id="4dt-lv-eWk"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Login" cornerStyle="capsule"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Login" cornerStyle="capsule">
+                                            <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                            <color key="baseBackgroundColor" name="ButtonColourSet"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="LoginButton:" destination="rXa-ts-qF9" eventType="touchUpInside" id="yXo-Vo-6P7"/>
                                         </connections>
@@ -941,7 +1168,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOY-QP-6KQ">
                                         <rect key="frame" x="0.0" y="20.333333333333261" width="361" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Create an account"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Create an account">
+                                            <color key="baseForegroundColor" name="SecondaryButtonColourSet"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="CreateAccountButton:" destination="rXa-ts-qF9" eventType="touchUpInside" id="JHK-2E-vgJ"/>
                                             <segue destination="9er-HI-5jq" kind="show" id="8De-M5-ZYv"/>
@@ -951,7 +1180,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FPR-Gz-Mb4"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColourSet"/>
                         <constraints>
                             <constraint firstItem="vDD-4D-XyH" firstAttribute="top" secondItem="FPR-Gz-Mb4" secondAttribute="top" constant="256" id="AFe-XS-NqP"/>
                             <constraint firstItem="KJA-z8-swn" firstAttribute="leading" secondItem="FPR-Gz-Mb4" secondAttribute="leading" constant="16" id="DY3-vD-aRg"/>
@@ -1011,7 +1240,10 @@
                                             <constraint firstAttribute="height" constant="50" id="9Yu-rg-5Cd"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Create Account" cornerStyle="capsule"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Create Account" cornerStyle="capsule">
+                                            <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                            <color key="baseBackgroundColor" name="ButtonColourSet"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="CreateAccountButton:" destination="9er-HI-5jq" eventType="touchUpInside" id="vvI-ho-DdF"/>
                                         </connections>
@@ -1020,7 +1252,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aBX-wg-mXe"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColourSet"/>
                         <constraints>
                             <constraint firstItem="aBX-wg-mXe" firstAttribute="bottom" secondItem="osa-7Y-shw" secondAttribute="bottom" constant="283" id="Kzq-jM-aTd"/>
                             <constraint firstItem="osa-7Y-shw" firstAttribute="top" secondItem="aBX-wg-mXe" secondAttribute="top" constant="214" id="XVp-ZQ-V9J"/>
@@ -1076,7 +1308,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AYE-nS-l97" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4356" y="-1308"/>
+            <point key="canvasLocation" x="4355" y="-1308"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bEq-gm-4vn">
@@ -1149,17 +1381,23 @@
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="wineglass.fill" catalog="system" width="95" height="128"/>
+        <namedColor name="BackgroundColourSet">
+            <color red="0.91764705882352937" green="0.96470588235294119" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ButtonColourSet">
+            <color red="0.30196078431372547" green="0.6588235294117647" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ButtonTextColourSet">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryButtonColourSet">
+            <color red="0.23137254901960785" green="0.49411764705882355" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColourSet">
+            <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

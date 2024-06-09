@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  shake-and-serve
-//
-//  Created by Raymond Ruimin Li on 25/4/2024.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

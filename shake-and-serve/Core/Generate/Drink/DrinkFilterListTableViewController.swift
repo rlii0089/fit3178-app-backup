@@ -1,10 +1,3 @@
-//
-//  DrinkFilterListTableViewController.swift
-//  shake-and-serve
-//
-//  Created by Raymond Ruimin Li on 16/5/2024.
-//
-
 import UIKit
 
 class DrinkFilterListTableViewController: UITableViewController, UISearchBarDelegate {
@@ -34,7 +27,6 @@ class DrinkFilterListTableViewController: UITableViewController, UISearchBarDele
         searchController.searchBar.showsCancelButton = false
         searchController.hidesNavigationBarDuringPresentation = false
         navigationItem.searchController = searchController
-        // Ensure the search bar is always visible.
         navigationItem.hidesSearchBarWhenScrolling = false
         
 

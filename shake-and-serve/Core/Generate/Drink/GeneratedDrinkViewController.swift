@@ -14,8 +14,9 @@ class GeneratedDrinkViewController: UIViewController {
     
     @IBOutlet weak var drinkImageView: UIImageView!
     @IBOutlet weak var drinkNameLabel: UILabel!
-    @IBOutlet weak var drinkAlcoholicLabel: UILabel!
+    @IBOutlet weak var drinkCategoryLabel: UILabel!
     @IBOutlet weak var drinkGlassLabel: UILabel!
+    @IBOutlet weak var drinkAlcoholicLabel: UILabel!
     @IBOutlet weak var drinkIngredientsTextView: UITextView!
     
     @IBOutlet weak var drinkAddToShoppingListButton: UIButton!
@@ -42,6 +43,7 @@ class GeneratedDrinkViewController: UIViewController {
                     }
                 }
             } catch {
+                self.displayMessage(title: "Generate Failed", message: "Generating a drink has failed. Please try again.")
                 print("Error parsing JSON: \(error)")
             }
         }.resume()
@@ -73,5 +75,11 @@ class GeneratedDrinkViewController: UIViewController {
     
     @IBAction func saveRecipeButtonPressed(_ sender: Any) {
         
+    }
+    
+    func displayMessage(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
 }

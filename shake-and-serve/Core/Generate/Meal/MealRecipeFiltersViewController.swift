@@ -1,11 +1,5 @@
-//
-//  MealRecipeFiltersViewController.swift
-//  shake-and-serve
-//
-//  Created by Raymond Ruimin Li on 16/5/2024.
-//
-
 import UIKit
+import CoreMotion
 
 class MealRecipeFiltersViewController: UIViewController {
 
@@ -21,12 +15,11 @@ class MealRecipeFiltersViewController: UIViewController {
     @IBOutlet weak var ingredientButton: UIButton!
     @IBOutlet weak var generateButton: UIButton!
     
-    @IBOutlet weak var selectedCategoryLabel: UILabel!
-    @IBOutlet weak var selectedAreaLabel: UILabel!
-    @IBOutlet weak var selectedIngredientsLabel: UILabel!
-    
-    
     @IBAction func generateMealButtonPressed(_ sender: Any) {
+        generateMeal()
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         generateMeal()
     }
     
@@ -81,15 +74,12 @@ class MealRecipeFiltersViewController: UIViewController {
                 }
             }
         }
-        
 
         dispatchGroup.notify(queue: .main) { // Wait until all network requests have completed
             let uniqueListOfMealIDs = Set(self.listOfMealIDs)
             let randomMealID = uniqueListOfMealIDs.randomElement()
             self.displayGeneratedMeal(mealID: randomMealID ?? "")
-            
         }
-
     }
 
     func fetchMealIDByRandom(completion: @escaping () -> Void) {
@@ -114,7 +104,7 @@ class MealRecipeFiltersViewController: UIViewController {
             } catch {
                 print(error)
             }
-
+            
             completion() // Call completion when the task completes
         }.resume()
     }
@@ -141,7 +131,7 @@ class MealRecipeFiltersViewController: UIViewController {
             } catch {
                 print(error)
             }
-
+            
             completion() // Call completion when the task completes
         }.resume()
     }
@@ -156,7 +146,7 @@ class MealRecipeFiltersViewController: UIViewController {
 
     func displayGeneratedMeal(mealID: String) {
         guard !mealID.isEmpty else {
-            print("No meal ID found")
+            displayMessage(title: "Error", message: "No meals were found, please try again with different filters.")
             return
         }
         DispatchQueue.main.async {
@@ -166,7 +156,6 @@ class MealRecipeFiltersViewController: UIViewController {
                 self.navigationController?.pushViewController(generatedMealVC, animated: true)
             }
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -205,4 +194,10 @@ class MealRecipeFiltersViewController: UIViewController {
         }
     }
 
+    func displayMessage(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 }

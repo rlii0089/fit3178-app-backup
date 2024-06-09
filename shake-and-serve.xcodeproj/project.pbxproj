@@ -22,6 +22,9 @@
 		AD84F66F2BF9667A0020217A /* CocktailDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD84F66E2BF9667A0020217A /* CocktailDBClient.swift */; };
 		AD84F6712BFF14F70020217A /* GeneratedMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD84F6702BFF14F70020217A /* GeneratedMealViewController.swift */; };
 		AD9040C02C14A4C90070E081 /* SavedRecipeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9040BF2C14A4C90070E081 /* SavedRecipeCollectionViewController.swift */; };
+		AD9040C52C14B02F0070E081 /* SavedRecipeCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9040C42C14B02F0070E081 /* SavedRecipeCellCollectionViewCell.swift */; };
+		AD9040C72C1569320070E081 /* SavedRecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9040C62C1569320070E081 /* SavedRecipeDetailsViewController.swift */; };
+		AD9040C92C15695E0070E081 /* SavedRecipeInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9040C82C15695E0070E081 /* SavedRecipeInstructionsViewController.swift */; };
 		AD9302252BFF249C00079B57 /* MealDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9302242BFF249C00079B57 /* MealDBClient.swift */; };
 		AD9302272BFF2B8000079B57 /* MealFilterListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9302262BFF2B8000079B57 /* MealFilterListTableViewController.swift */; };
 		ADB06C642BF5F44C001F46BE /* MealRecipeFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB06C632BF5F44C001F46BE /* MealRecipeFiltersViewController.swift */; };
@@ -50,6 +53,9 @@
 		AD84F66E2BF9667A0020217A /* CocktailDBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDBClient.swift; sourceTree = "<group>"; };
 		AD84F6702BFF14F70020217A /* GeneratedMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedMealViewController.swift; sourceTree = "<group>"; };
 		AD9040BF2C14A4C90070E081 /* SavedRecipeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipeCollectionViewController.swift; sourceTree = "<group>"; };
+		AD9040C42C14B02F0070E081 /* SavedRecipeCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipeCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		AD9040C62C1569320070E081 /* SavedRecipeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipeDetailsViewController.swift; sourceTree = "<group>"; };
+		AD9040C82C15695E0070E081 /* SavedRecipeInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipeInstructionsViewController.swift; sourceTree = "<group>"; };
 		AD9302242BFF249C00079B57 /* MealDBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDBClient.swift; sourceTree = "<group>"; };
 		AD9302262BFF2B8000079B57 /* MealFilterListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFilterListTableViewController.swift; sourceTree = "<group>"; };
 		ADB06C632BF5F44C001F46BE /* MealRecipeFiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRecipeFiltersViewController.swift; sourceTree = "<group>"; };
@@ -95,11 +101,22 @@
 				AD7D7CBA2BE603C70052FB3B /* BottomNavigationTabBarController.swift */,
 				AD72F63C2BDA908F0056326F /* HomeViewController.swift */,
 				AD9040BF2C14A4C90070E081 /* SavedRecipeCollectionViewController.swift */,
+				AD9040C12C14AFCC0070E081 /* SavedRecipes */,
 				AD6FB6852C14476C00A31C9E /* ShoppingListTableViewController.swift */,
 				AD6FB68A2C14553C00A31C9E /* DataModel */,
 				AD72F6442BDA937A0056326F /* AccountViewController.swift */,
 			);
 			path = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		AD9040C12C14AFCC0070E081 /* SavedRecipes */ = {
+			isa = PBXGroup;
+			children = (
+				AD9040C42C14B02F0070E081 /* SavedRecipeCellCollectionViewCell.swift */,
+				AD9040C62C1569320070E081 /* SavedRecipeDetailsViewController.swift */,
+				AD9040C82C15695E0070E081 /* SavedRecipeInstructionsViewController.swift */,
+			);
+			path = SavedRecipes;
 			sourceTree = "<group>";
 		};
 		AD9302282BFF3BF200079B57 /* Meal */ = {
@@ -284,6 +301,7 @@
 			files = (
 				AD9302252BFF249C00079B57 /* MealDBClient.swift in Sources */,
 				AD72F6392BDA8D660056326F /* CreateAccountViewController.swift in Sources */,
+				AD9040C52C14B02F0070E081 /* SavedRecipeCellCollectionViewCell.swift in Sources */,
 				ADD79EB32BDA0477006CFE06 /* AppDelegate.swift in Sources */,
 				ADB06C6C2BF5F5E9001F46BE /* GeneratedDrinkViewController.swift in Sources */,
 				AD9040C02C14A4C90070E081 /* SavedRecipeCollectionViewController.swift in Sources */,
@@ -302,6 +320,8 @@
 				AD6FB6902C1456C400A31C9E /* ShoppingListModel.xcdatamodeld in Sources */,
 				ADB06C642BF5F44C001F46BE /* MealRecipeFiltersViewController.swift in Sources */,
 				AD72F6452BDA937A0056326F /* AccountViewController.swift in Sources */,
+				AD9040C92C15695E0070E081 /* SavedRecipeInstructionsViewController.swift in Sources */,
+				AD9040C72C1569320070E081 /* SavedRecipeDetailsViewController.swift in Sources */,
 				AD6FB6862C14476C00A31C9E /* ShoppingListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

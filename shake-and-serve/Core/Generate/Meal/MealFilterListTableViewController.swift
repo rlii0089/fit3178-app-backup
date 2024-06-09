@@ -1,10 +1,3 @@
-//
-//  MealFilterListTableViewController.swift
-//  shake-and-serve
-//
-//  Created by Raymond Ruimin Li on 23/5/2024.
-//
-
 import UIKit
 
 class MealFilterListTableViewController: UITableViewController, UISearchBarDelegate {
@@ -34,9 +27,7 @@ class MealFilterListTableViewController: UITableViewController, UISearchBarDeleg
         searchController.searchBar.showsCancelButton = false
         searchController.hidesNavigationBarDuringPresentation = false
         navigationItem.searchController = searchController
-        // Ensure the search bar is always visible.
         navigationItem.hidesSearchBarWhenScrolling = false
-        
         
         fetchFilters()
     }
@@ -59,9 +50,6 @@ class MealFilterListTableViewController: UITableViewController, UISearchBarDeleg
         }
         tableView.reloadData()
     }
-    
-    
-    // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

@@ -1,10 +1,3 @@
-//
-//  DrinkRecipeFiltersViewController.swift
-//  shake-and-serve
-//
-//  Created by Raymond Ruimin Li on 16/5/2024.
-//
-
 import UIKit
 import CoreMotion
 
@@ -18,36 +11,18 @@ class DrinkRecipeFiltersViewController: UIViewController {
     var filtersToQuery: [(String, String)] = []
     var listOfDrinkIDs: [String] = []
     
-    let motionManager = CMMotionManager()
-    var shakeThreshold = 2.0
-    
     @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet weak var glassButton: UIButton!
     @IBOutlet weak var ingredientButton: UIButton!
     @IBOutlet weak var alcoholicButton: UIButton!
     @IBOutlet weak var generateDrinkButton: UIButton!
     
-    
     @IBAction func generateDrinkButtonPressed(_ sender: Any) {
         generateDrink()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        motionManager.stopAccelerometerUpdates()
-    }
-
-    func setupShakeDetection() {
-        if motionManager.isAccelerometerAvailable {
-            motionManager.accelerometerUpdateInterval = 0.2
-            motionManager.startAccelerometerUpdates(to: .main) { (data, error) in
-                guard let data = data else { return }
-                let acceleration = data.acceleration
-                if (fabs(acceleration.x) > self.shakeThreshold || fabs(acceleration.y) > self.shakeThreshold || fabs(acceleration.z) > self.shakeThreshold) {
-                    self.generateDrink()
-                }
-            }
-        }
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        generateDrink()
     }
 
     func generateDrink() {
@@ -109,9 +84,7 @@ class DrinkRecipeFiltersViewController: UIViewController {
             let uniqueListOfDrinkIDs = Set(self.listOfDrinkIDs)
             let randomDrinkID = uniqueListOfDrinkIDs.randomElement()
             self.displayGeneratedDrink(drinkID: randomDrinkID ?? "")
-            
         }
-
     }
 
     func fetchDrinkIDByRandom(completion: @escaping () -> Void) {
@@ -127,7 +100,7 @@ class DrinkRecipeFiltersViewController: UIViewController {
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                     if let drinks = json["drinks"] as? [[String: Any]] {
                         for drink in drinks {
-                            if let id = drink["drinks"] as? String {
+                            if let id = drink["idDrink"] as? String {
                                 self.listOfDrinkIDs.append(id)
                             }
                         }
@@ -136,11 +109,10 @@ class DrinkRecipeFiltersViewController: UIViewController {
             } catch {
                 print(error)
             }
-
+            
             completion() // Call completion when the task completes
         }.resume()
     }
-
 
     func fetchDrinkIDByFilter(filter: (String, String), completion: @escaping () -> Void) {
         let url = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/filter.php?\(filter.0)=\(filter.1)")!
@@ -173,13 +145,13 @@ class DrinkRecipeFiltersViewController: UIViewController {
         if selectedItems.isEmpty {
             button.setTitle(title, for: .normal)
         } else {
-            button.setTitle(selectedItems.joined(separator: ", "), for: .normal)
+            button.setTitle(title + ": " + selectedItems.joined(separator: ", "), for: .normal)
         }
     }
     
     func displayGeneratedDrink(drinkID: String) {
         guard !drinkID.isEmpty else {
-            print("No drink ID found")
+            displayMessage(title: "Error", message: "No drinks were found, please try again with different filters.")
             return
         }
         DispatchQueue.main.async {
@@ -189,7 +161,6 @@ class DrinkRecipeFiltersViewController: UIViewController {
                 self.navigationController?.pushViewController(generatedDrinkVC, animated: true)
             }
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -232,6 +203,12 @@ class DrinkRecipeFiltersViewController: UIViewController {
                 break
             }
         }
+    }
+    
+    func displayMessage(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
     
 }

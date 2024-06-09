@@ -1,10 +1,3 @@
-//
-//  Meal.swift
-//  shake-and-serve
-//
-//  Created by Raymond Ruimin Li on 3/6/2024.
-//
-
 import Foundation
 
 // Meal struct to hold individual meal details

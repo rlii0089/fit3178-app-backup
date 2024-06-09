@@ -1,10 +1,3 @@
-//
-//  GeneratedMealViewController.swift
-//  shake-and-serve
-//
-//  Created by Raymond Ruimin Li.
-//
-
 import UIKit
 import Firebase
 import FirebaseAuth
@@ -62,6 +55,7 @@ class GeneratedMealViewController: UIViewController {
                     }
                 }
             } catch {
+                self.displayMessage(title: "Generate Failed", message: "Generating a meal has failed. Please try again.")
                 print("Error parsing JSON: \(error)")
             }
         }.resume()
@@ -90,7 +84,6 @@ class GeneratedMealViewController: UIViewController {
             }.resume()
         }
         
-        
         // ingredients
         var ingredientsString = "Ingredients:"
 
@@ -116,18 +109,19 @@ class GeneratedMealViewController: UIViewController {
 
         do {
             try context.save()
-            print("Ingredients saved successfully.")
+            self.displayMessage(title: "Added", message: "The ingredients have successfully been added your shopping list.")
         } catch {
+            self.displayMessage(title: "Failed", message: "Some ingredients have not been added, please try again.")
             print("Failed to save items: \(error)")
         }
     }
 
     
     @IBAction func saveRecipeButtonPressed(_ sender: Any) {
-        
         guard let meal = meal,
               let mealId = meal["idMeal"] as? String,
               let currentUser = Auth.auth().currentUser else {
+            self.displayMessage(title: "Failed", message: "You must be logged in to save recipes.")
             print("Failed to get meal id or user not authenticated")
             return
         }
@@ -141,9 +135,11 @@ class GeneratedMealViewController: UIViewController {
                     "savedMealRecipes": FieldValue.arrayUnion([mealId])
                 ]) { err in
                     if let err = err {
+                        self.displayMessage(title: "Failed", message: "You must be logged in to save recipes.")
                         print("Error updating document: \(err)")
                     } else {
-                        print("Recipe successfully saved!")
+                        self.displayMessage(title: "Saved", message: "The meal has successfully been saved.")
+                        print("Recipe saved.")
                     }
                 }
             } else {
@@ -151,13 +147,21 @@ class GeneratedMealViewController: UIViewController {
                     "savedRecipes": [mealId]
                 ]) { err in
                     if let err = err {
+                        self.displayMessage(title: "Failed", message: "You must be logged in to save recipes.")
                         print("Error setting document: \(err)")
                     } else {
-                        print("Recipe successfully saved!")
+                        self.displayMessage(title: "Saved", message: "The meal has successfully been saved.")
+                        print("Recipe saved!")
                     }
                 }
             }
         }
+    }
+    
+    func displayMessage(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
     
 }
