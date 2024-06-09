@@ -144,7 +144,7 @@ class GeneratedMealViewController: UIViewController {
                 }
             } else {
                 userDocRef.setData([
-                    "savedRecipes": [mealId]
+                    "savedMealRecipes": [mealId]
                 ]) { err in
                     if let err = err {
                         self.displayMessage(title: "Failed", message: "You must be logged in to save recipes.")

@@ -1,4 +1,6 @@
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class GeneratedDrinkViewController: UIViewController {
     
@@ -113,7 +115,44 @@ class GeneratedDrinkViewController: UIViewController {
     }
     
     @IBAction func saveRecipeButtonPressed(_ sender: Any) {
+        guard let drink = drink,
+              let drinkId = drink["idDrink"] as? String,
+              let currentUser = Auth.auth().currentUser else {
+            self.displayMessage(title: "Failed", message: "You must be logged in to save recipes.")
+            print("Failed to get meal id or user not authenticated")
+            return
+        }
+
+        let db = Firestore.firestore()
+        let userDocRef = db.collection("users").document(currentUser.uid)
         
+        userDocRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                userDocRef.updateData([
+                    "savedDrinkRecipes": FieldValue.arrayUnion([drinkId])
+                ]) { err in
+                    if let err = err {
+                        self.displayMessage(title: "Failed", message: "You must be logged in to save recipes.")
+                        print("Error updating document: \(err)")
+                    } else {
+                        self.displayMessage(title: "Saved", message: "The meal has successfully been saved.")
+                        print("Recipe saved.")
+                    }
+                }
+            } else {
+                userDocRef.setData([
+                    "savedDrinkRecipes": [drinkId]
+                ]) { err in
+                    if let err = err {
+                        self.displayMessage(title: "Failed", message: "You must be logged in to save recipes.")
+                        print("Error setting document: \(err)")
+                    } else {
+                        self.displayMessage(title: "Saved", message: "The meal has successfully been saved.")
+                        print("Recipe saved!")
+                    }
+                }
+            }
+        }
     }
     
     func displayMessage(title: String, message: String) {

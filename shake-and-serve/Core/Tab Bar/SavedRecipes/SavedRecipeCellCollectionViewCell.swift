@@ -1,16 +1,30 @@
 import UIKit
 
 class SavedRecipeCellCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var mealImageView: UIImageView!
-    @IBOutlet weak var mealNameLabel: UILabel!
+    @IBOutlet weak var savedRecipeImageView: UIImageView!
+    @IBOutlet weak var savedRecipeNameLabel: UILabel!
 
     func configure(with meal: Meal) {
-        mealNameLabel.text = meal.strMeal
+        savedRecipeNameLabel.text = meal.strMeal
         if let url = URL(string: meal.strMealThumb ?? "") {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
                     DispatchQueue.main.async {
-                        self.mealImageView.image = UIImage(data: data)
+                        self.savedRecipeImageView.image = UIImage(data: data)
+                    }
+                }
+            }.resume()
+        }
+    }
+    
+    
+    func configure(with drink: Drink) {
+        savedRecipeNameLabel.text = drink.strDrink
+        if let url = URL(string: drink.strDrinkThumb ?? "") {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data {
+                    DispatchQueue.main.async {
+                        self.savedRecipeImageView.image = UIImage(data: data)
                     }
                 }
             }.resume()

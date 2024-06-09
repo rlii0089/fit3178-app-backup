@@ -888,9 +888,8 @@ Email: rlii0089@stdudent.monash.edu  ---  For: Monash University: Clay
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <connections>
-                                    <outlet property="mealImageView" destination="v08-0D-Tqc" id="mkG-C3-yjI"/>
-                                    <outlet property="mealNameLabel" destination="4dV-2j-d53" id="dNM-xA-tXT"/>
-                                    <segue destination="CwZ-my-hSM" kind="show" id="0gc-PV-UxG"/>
+                                    <outlet property="savedRecipeImageView" destination="v08-0D-Tqc" id="mkG-C3-yjI"/>
+                                    <outlet property="savedRecipeNameLabel" destination="4dV-2j-d53" id="dNM-xA-tXT"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -902,6 +901,9 @@ Email: rlii0089@stdudent.monash.edu  ---  For: Monash University: Clay
                     <navigationItem key="navigationItem" title="Saved Recipes" id="CgL-xg-RAO">
                         <barButtonItem key="backBarButtonItem" title=" " id="xHG-fj-hkb"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="CwZ-my-hSM" kind="show" identifier="showSavedRecipeDetails" id="Joe-Gb-dw9"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3EU-LF-jLk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -915,28 +917,14 @@ Email: rlii0089@stdudent.monash.edu  ---  For: Monash University: Clay
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uzz-IE-RMG">
-                                <rect key="frame" x="16" y="735" width="361" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="YvZ-fG-7bM"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Show Instructions" cornerStyle="capsule">
-                                    <color key="baseForegroundColor" name="ButtonTextColourSet"/>
-                                    <color key="baseBackgroundColor" name="ButtonColourSet"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="cwa-YX-lYa" kind="show" id="Ed1-tj-npN"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zpQ-zQ-Kjw">
                                 <rect key="frame" x="0.0" y="103" width="393" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="moX-X2-AGQ"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="y4o-40-2p3">
-                                <rect key="frame" x="16" y="359" width="361" height="360"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="y4o-40-2p3">
+                                <rect key="frame" x="16" y="359" width="361" height="328"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gmb-P5-9R7">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="38.333333333333336"/>
@@ -945,7 +933,7 @@ Email: rlii0089@stdudent.monash.edu  ---  For: Monash University: Clay
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Ingredients" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9s-tP-iEM">
-                                        <rect key="frame" x="0.0" y="54.333333333333314" width="361" height="305.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="38.333333333333314" width="361" height="289.66666666666669"/>
                                         <color key="backgroundColor" name="BackgroundColourSet"/>
                                         <color key="textColor" name="TextColourSet"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -953,6 +941,20 @@ Email: rlii0089@stdudent.monash.edu  ---  For: Monash University: Clay
                                     </textView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZJ-sy-hmd">
+                                <rect key="frame" x="16" y="703" width="361" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sYS-z5-Fmd"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Show Instructions" cornerStyle="capsule">
+                                    <color key="baseForegroundColor" name="ButtonTextColourSet"/>
+                                    <color key="baseBackgroundColor" name="ButtonColourSet"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="drinkAddToShoppingListButtonPressed:" destination="Tav-4j-x21" eventType="touchUpInside" id="qOB-8x-VPD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xvc-m6-uAN"/>
                         <color key="backgroundColor" name="BackgroundColourSet"/>
@@ -961,11 +963,11 @@ Email: rlii0089@stdudent.monash.edu  ---  For: Monash University: Clay
                             <constraint firstItem="y4o-40-2p3" firstAttribute="leading" secondItem="xvc-m6-uAN" secondAttribute="leading" constant="16" id="6ci-Yg-sTe"/>
                             <constraint firstItem="zpQ-zQ-Kjw" firstAttribute="trailing" secondItem="xvc-m6-uAN" secondAttribute="trailing" id="8iJ-oQ-wgT"/>
                             <constraint firstItem="zpQ-zQ-Kjw" firstAttribute="top" secondItem="xvc-m6-uAN" secondAttribute="top" id="ENS-93-Zky"/>
-                            <constraint firstItem="Uzz-IE-RMG" firstAttribute="bottom" secondItem="xvc-m6-uAN" secondAttribute="bottom" constant="16" id="Ge3-Nc-gfq"/>
                             <constraint firstItem="xvc-m6-uAN" firstAttribute="trailing" secondItem="y4o-40-2p3" secondAttribute="trailing" constant="16" id="Y2o-8p-EkO"/>
-                            <constraint firstItem="xvc-m6-uAN" firstAttribute="trailing" secondItem="Uzz-IE-RMG" secondAttribute="trailing" constant="16" id="e9s-dH-BRU"/>
-                            <constraint firstItem="Uzz-IE-RMG" firstAttribute="top" secondItem="y4o-40-2p3" secondAttribute="bottom" constant="16" id="hvp-dn-Zqm"/>
-                            <constraint firstItem="Uzz-IE-RMG" firstAttribute="leading" secondItem="xvc-m6-uAN" secondAttribute="leading" constant="16" id="jyh-ZK-R4Y"/>
+                            <constraint firstItem="cZJ-sy-hmd" firstAttribute="top" secondItem="y4o-40-2p3" secondAttribute="bottom" constant="16" id="Y8H-7d-F32"/>
+                            <constraint firstItem="cZJ-sy-hmd" firstAttribute="bottom" secondItem="xvc-m6-uAN" secondAttribute="bottom" constant="-16" id="Z3W-3a-L9O"/>
+                            <constraint firstItem="xvc-m6-uAN" firstAttribute="trailing" secondItem="cZJ-sy-hmd" secondAttribute="trailing" constant="16" id="h5d-Y7-OAJ"/>
+                            <constraint firstItem="cZJ-sy-hmd" firstAttribute="leading" secondItem="xvc-m6-uAN" secondAttribute="leading" constant="16" id="qHa-0E-wIi"/>
                             <constraint firstItem="y4o-40-2p3" firstAttribute="top" secondItem="zpQ-zQ-Kjw" secondAttribute="bottom" constant="16" id="ugV-s9-gIe"/>
                         </constraints>
                     </view>
@@ -980,7 +982,7 @@ Email: rlii0089@stdudent.monash.edu  ---  For: Monash University: Clay
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9cd-w1-Woa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5905" y="48"/>
+            <point key="canvasLocation" x="5903.0534351145034" y="47.887323943661976"/>
         </scene>
         <!--Saved Recipe Instructions-->
         <scene sceneID="ar9-mO-N2Q">
@@ -991,20 +993,20 @@ Email: rlii0089@stdudent.monash.edu  ---  For: Monash University: Clay
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfd-F4-xEG">
-                                <rect key="frame" x="16" y="103" width="361" height="38.333333333333343"/>
+                                <rect key="frame" x="16" y="59" width="361" height="38.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                 <color key="textColor" name="TextColourSet"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="instructions..." translatesAutoresizingMaskIntoConstraints="NO" id="tTc-3a-2hR">
-                                <rect key="frame" x="16" y="157.33333333333337" width="361" height="567"/>
+                                <rect key="frame" x="16" y="113.33333333333331" width="361" height="660"/>
                                 <color key="backgroundColor" name="BackgroundColourSet"/>
                                 <color key="textColor" name="TextColourSet"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serve and enjoy!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s88-lb-DXW">
-                                <rect key="frame" x="16" y="740.33333333333337" width="361" height="28.666666666666629"/>
+                                <rect key="frame" x="16" y="789.33333333333337" width="361" height="28.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
                                 <color key="textColor" name="TextColourSet"/>
                                 <nil key="highlightedColor"/>

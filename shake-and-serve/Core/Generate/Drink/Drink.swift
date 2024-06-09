@@ -31,6 +31,21 @@ struct Drink: Codable {
     let strIngredient13: String?
     let strIngredient14: String?
     let strIngredient15: String?
+    let strMeasure1: String?
+    let strMeasure2: String?
+    let strMeasure3: String?
+    let strMeasure4: String?
+    let strMeasure5: String?
+    let strMeasure6: String?
+    let strMeasure7: String?
+    let strMeasure8: String?
+    let strMeasure9: String?
+    let strMeasure10: String?
+    let strMeasure11: String?
+    let strMeasure12: String?
+    let strMeasure13: String?
+    let strMeasure14: String?
+    let strMeasure15: String?
 }
 
 // Wrapper struct for the drinks array
