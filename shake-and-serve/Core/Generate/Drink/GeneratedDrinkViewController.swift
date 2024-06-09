@@ -1,10 +1,3 @@
-//
-//  GeneratedDrinkViewController.swift
-//  shake-and-serve
-//
-//  Created by Raymond Ruimin Li.
-//
-
 import UIKit
 
 class GeneratedDrinkViewController: UIViewController {
@@ -19,7 +12,6 @@ class GeneratedDrinkViewController: UIViewController {
     @IBOutlet weak var drinkAlcoholicLabel: UILabel!
     @IBOutlet weak var drinkIngredientsTextView: UITextView!
     
-    @IBOutlet weak var drinkAddToShoppingListButton: UIButton!
     @IBOutlet weak var drinkSaveRecipeButton: UIButton!
     
     override func viewDidLoad() {
@@ -27,6 +19,21 @@ class GeneratedDrinkViewController: UIViewController {
         if let selectedDrinkID = selectedDrinkID {
             fetchFullDrink(drinkID: selectedDrinkID)
         }
+    }
+    
+    @IBAction func drinkAddToShoppingListButtonPressed(_ sender: Any) {
+        var ingredients: [(String?, String?)] = []
+        for i in 1...15 {
+            let ingredientKey = "strIngredient\(i)"
+            let measurementKey = "strMeasure\(i)"
+            
+            if let ingredient = drink?[ingredientKey] as? String,
+               let measurement = drink?[measurementKey] as? String {
+                ingredients.append((ingredient, measurement))
+            }
+        }
+        
+        addIngredientsToShoppingList(ingredients: ingredients)
     }
     
     func fetchFullDrink(drinkID: String) {
@@ -38,6 +45,7 @@ class GeneratedDrinkViewController: UIViewController {
                 if let drinks = json["drinks"] as? [[String: Any]] {
                     if let drink = drinks.first {
                         DispatchQueue.main.async {
+                            self.drink = drink
                             self.updateUI(with: drink)
                         }
                     }
@@ -70,6 +78,37 @@ class GeneratedDrinkViewController: UIViewController {
                     self.drinkImageView.image = UIImage(data: data)
                 }
             }.resume()
+        }
+        
+        // ingredients
+        var ingredientsString = "Ingredients:"
+
+        for i in 1...15 {
+            let ingredientKey = "strIngredient\(i)"
+            if let ingredient = drink[ingredientKey] as? String, !ingredient.isEmpty {
+                ingredientsString += "\n- \(ingredient)"
+            }
+        }
+        drinkIngredientsTextView.text = ingredientsString
+    }
+    
+    func addIngredientsToShoppingList(ingredients: [(String?, String?)]) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        for (ingredient, measurement) in ingredients {
+            guard let ingredient = ingredient, let measurement = measurement else { continue }
+
+            let newItem = ShoppingItem(context: context)
+            newItem.name = ingredient
+            newItem.measurement = measurement
+        }
+
+        do {
+            try context.save()
+            self.displayMessage(title: "Added", message: "The ingredients have successfully been added your shopping list.")
+        } catch {
+            self.displayMessage(title: "Failed", message: "Some ingredients have not been added, please try again.")
+            print("Failed to save items: \(error)")
         }
     }
     

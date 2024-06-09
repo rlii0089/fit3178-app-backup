@@ -550,6 +550,9 @@
                                     <color key="baseForegroundColor" name="ButtonTextColourSet"/>
                                     <color key="baseBackgroundColor" name="ButtonColourSet"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="drinkAddToShoppingListButtonPressed:" destination="Tav-4j-x21" eventType="touchUpInside" id="2ty-vy-joo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="t0v-L3-Q8T"/>
@@ -573,7 +576,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="tJx-9Y-xei"/>
                     <connections>
-                        <outlet property="drinkAddToShoppingListButton" destination="C4R-zz-KrG" id="BBa-HI-Oih"/>
                         <outlet property="drinkAlcoholicLabel" destination="SzP-2n-jfg" id="r98-Wx-9Wi"/>
                         <outlet property="drinkCategoryLabel" destination="5kg-Mm-pNr" id="7fO-82-nsc"/>
                         <outlet property="drinkGlassLabel" destination="4MH-cC-bxq" id="vdW-zH-6Za"/>
@@ -671,7 +673,7 @@
                             <outlet property="delegate" destination="zp4-UG-bjy" id="p6w-GL-AZ1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Shopping List" id="qLI-hJ-f51">
+                    <navigationItem key="navigationItem" title="Local Shopping List" id="qLI-hJ-f51">
                         <barButtonItem key="backBarButtonItem" title=" " id="Byg-BK-nLp"/>
                         <barButtonItem key="rightBarButtonItem" id="dHE-do-nqs">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="BNf-AV-s01">
